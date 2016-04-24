@@ -1,0 +1,213 @@
+html,body{
+    font-size: 14px;
+    font-family: "微软雅黑","Microsoft YaHei", "Verdana", "Arial";
+    background: none !important;
+}
+/*-------公共的css样式开始-------*/
+a {
+    text-decoration: none !important;
+}
+
+/*默认状态的a标记*/
+a:link {
+    text-decoration: none !important;
+}
+
+/*按下状态的a标记*/
+a:active {
+    text-decoration: none !important;
+}
+
+/*悬浮状态的A标记*/
+a:hover {
+    text-decoration: none !important;
+}
+
+/*点击过后的A标记*/
+a:visited {
+    text-decoration: none !important;
+}
+
+
+
+
+
+/*顶部栏*/ 
+.head-warp{
+    width: 100%;
+    background: #FF9934;
+}
+.header-bot {
+    height: 8px;
+    background-color: #fd8915;
+}
+.head-body{
+    width: 1200px;
+    height: 88px;
+    margin: 0 auto;
+}
+.head-warp .logo{
+    float: left;
+    display: block;
+    overflow: hidden;
+    background: url("../../images/head-s.png") no-repeat 0 0;
+    width: 170px;
+    height: 53px;
+    margin: 16px 0 0 0;
+}
+/*
+.head-warp .logout{
+    float: right;
+    display: block;
+    background: url("../../images/btn-logout.png") no-repeat center;
+    width: 70px;
+    height: 70px;
+    text-indent: -1000px;
+    overflow: hidden;
+}*/
+.head-body .name {
+    float: right;
+    color: #fff;
+    display: block;
+    margin: 58px 0 0 0;
+}
+.head-nav {
+    margin-top: 26px;
+    float: right;
+}
+.head-nav li {
+    float: left;
+    margin-left: 28px;
+}
+.head-nav-item {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+.head-nav-item:hover .count-icon {
+    background-position: -57px -55px;
+}
+.head-nav-item:hover .qcode-icon {
+    background-position: -75px -55px;
+}
+.head-nav-item:hover .exit-icon {
+    background-position: -93px -55px;
+}
+.head-nav-item:hover .tip {
+    color: #cc6600;
+}
+.head-nav-item i {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-image: url("../../images/head-s.png");
+}
+.count-icon {
+    background-position: -3px -55px;
+}
+.qcode-icon {
+    background-position: -21px -55px;
+}
+.exit-icon {
+    background-position: -39px -55px;
+}
+.head-nav-item .tip {
+    display: block;
+    margin-top: 12px;
+    color: #fff;
+}
+
+
+/*重写 bootcss 样式*/
+
+/*表单相关重写*/
+.form-horizontal .control-label {
+    float: left;
+    width: 110px;
+    padding-top: 5px;
+    text-align: right;
+}
+.form-horizontal .controls {
+    margin-left: 120px;
+}
+
+
+/*按钮相关重写*/
+
+
+/*.btn-warning {*/
+    /*background: #FF9934;*/
+/*}*/
+
+
+/* 复写默认的k-table组件样式 */
+.lc-table-c .paginate .page {
+    display: inline-block;
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: bottom;
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    background-color: #fff;
+    padding: 0;
+}
+.lc-table-c .paginate .cur {
+    color: #fe9a33;
+}
+
+.lc-table-c .paginate input {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: bottom;
+    margin: 0 8px;
+    font-size: 12px;
+    color: #666;
+    padding: 0;
+}
+.lc-table-c .paginate .sure-btn {
+    display: inline-block;
+    line-height: 24px;
+    height: 24px;
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 0 8px;
+    text-align: center;
+    vertical-align: bottom;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #f39a33;
+}
+.lc-table-c .paginate .text {
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: bottom;
+    color: #666;
+    font-size: 12px;
+}
+.lc-table-c .paginate .sure-btn:hover {
+  background-color: #FAB70A;
+}
+
+.k-table-container .infor-wrap {
+    width: 160px;
+    height: 34px;
+    position: relative;
+}
+.k-table-container .infor-wrap .form-control {
+    position: absolute;
+    width: 150px;
+    -moz-transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.k-table-container .infor-wrap .form-control-long {
+    width: 250px;
+}

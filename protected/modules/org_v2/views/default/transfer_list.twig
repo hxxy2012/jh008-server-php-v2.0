@@ -1,0 +1,113 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}申请提现{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/base.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/payment/financial_information.css"/>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+    <div class="section-bd">
+        <div class="search-w">
+            <div class="balance-w hide">
+            	<span>余额：<strong>￥4879.00</strong></span>
+            </div>
+        </div>
+
+        <div class="w800">
+			<div class="ui-tab2">
+			    <ul class="ui-tab2-items">
+			        <li class="ui-tab2-item">
+			            <a href="/org_v2/default/transfer">申请体现</a>
+			        </li>
+			        <li class="ui-tab2-item ui-tab2-item-current">
+			            <a href="/org_v2/default/transfer_list">提现列表</a>
+			        </li>	        
+			    </ul>
+			</div>
+
+	        <div class="table-w transfer-table">
+	        	<div class="total-w">
+					<span>总计：<strong>￥4879.00</strong></span>
+				</div>
+				<div class="transfer_list-w"></div>
+				<!--<table class="table">
+					<thead>
+					  	<tr>
+						    <th class="w75">序号</th>
+						    <th class="w152">日期</th>
+						    <th class="w100">提现金额</th>
+						    <th class="w100">提现方式</th>
+						    <th class="w110">姓名</th>
+						    <th class="w162">支付宝账号</th>
+						    <th class="">查看凭证</th>
+						    <th>状态</th>		    
+					  	</tr>	
+					</thead>
+					<tbody>
+						<tr class="odd">
+							<td>01</td>
+							<td>2015-1-1 12:12:12</td>
+							<td>400</td>
+							<td>支付宝</td>
+							<td>张晓晓</td>
+							<td>15372810298</td>
+							<td class="positive"><a href="javascript:;" class="button btn-view">查&nbsp;看</a></td>
+							<td>成功</td>
+						</tr>
+						<tr class="even">
+							<td>02</td>
+							<td>2015-1-1 12:12:12</td>
+							<td>400</td>
+							<td>支付宝</td>
+							<td>张晓晓</td>
+							<td>15372810298</td>
+							<td class="positive"><a href="javascript:;" class="button btn-view">查&nbsp;看</a></td>
+							<td>处理中</td>
+						</tr>
+						<tr class="odd">
+							<td>03</td>
+							<td>2015-1-1 12:12:12</td>
+							<td>400</td>
+							<td>支付宝</td>
+							<td>张晓晓</td>
+							<td>15372810298</td>
+							<td class="positive"><a href="javascript:;" class="button btn-view">查&nbsp;看</a></td>
+							<td>成功</td>
+						</tr>
+					</tbody>
+				</table>-->
+			</div>
+		</div>
+
+
+
+
+
+
+        
+		<!--<div class="pagation section-pagation">
+			<a href="javascript:void(0)" class="page"><i class="icon iconfont"></i></a>
+			<a href="javascript:void(0)" class="page cur">1</a>
+			<a href="javascript:void(0)" class="page">2</a>
+			<a href="javascript:void(0)" class="page">3</a>
+			<a href="javascript:void(0)" class="page">4</a>
+			<a href="javascript:void(0)" class="page">5</a>
+			<a href="javascript:void(0)" class="page">...</a>
+			<a href="javascript:void(0)" class="page"><i class="icon iconfont"></i></a>
+			<span class="text marginbar">共12页</span>
+			<span class="text">向</span>
+			<input type="text"  class="" />
+			<span class="text">页跳转</span>
+			<a class="sure-btn" href="javascript:void(0)">确定</a>
+		</div>-->
+    </div>
+{% endblock %}
+{#主工作区 结束#}
+
+
+
+
+{% block script %}
+<script src="{{ this.module.assetsUrl }}/static/js/payment/transfer_list.js"></script>
+{% endblock %}

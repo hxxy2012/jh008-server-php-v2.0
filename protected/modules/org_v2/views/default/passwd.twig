@@ -1,0 +1,36 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}修改密码{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/assn/passwd.css"/>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+<div class="p15">
+    <div class="ui-tab2">
+        <ul class="ui-tab2-items">
+            <li class="ui-tab2-item">
+                <a href="/org_v2/default/profile">社团信息</a>
+            </li>
+            <li class="ui-tab2-item">
+                <a href="/org_v2/default/condition">申请加入条件</a>
+            </li> 
+            <li class="ui-tab2-item ui-tab2-item-current">
+                <a href="/org_v2/default/passwd">密码修改</a>
+            </li>
+        </ul>
+    </div>
+    <div class="p15">
+        <div class="ui-infor">
+            <a href="javascript:;" class="ui-infor-link">请使用手机客户端修改密码</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+{#主工作区 结束#}
+
+{% block script %}
+
+{% endblock %}

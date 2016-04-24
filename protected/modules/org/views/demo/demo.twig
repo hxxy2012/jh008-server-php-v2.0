@@ -1,0 +1,31 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+ <style type="text/css"> 
+    
+ </style>
+{% endblock %}
+
+{% block bodyAttr %} onselectstart="return false" onselect="return
+false" {% endblock %}
+
+{% block content %}
+ 
+ <button class="show1">confirm1</button>
+ <button class="show2">confirm2</button>
+
+{% endblock %}
+
+{% block javascript %}
+	<script> 
+    seajs.config({ 
+      //debug: 2,
+      alias: {
+        "dialoger": "{{ this.module.assetsUrl }}/static/js/hashmap/hm.dialoger.js"  
+      }
+    });
+	 	seajs.use('{{ this.module.assetsUrl }}/static/js/hashmap/hm.demo.js',function () {
+             
+        });
+	</script>
+   <div  class="zu_ren_move_mask"></div>
+{% endblock %}

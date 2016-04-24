@@ -1,0 +1,129 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/data.css" />
+{% endblock %}
+
+ {% block content %}
+<!--内容-->
+<div class="c_1">
+    <div  class="c_2">
+       <div class="c_3">
+         <div class="c_4"></div>
+         <a class="c_5" href="/org/default/zl">设置</a>
+         <a class="c_6" href="/org/default/costdetail">款项</a>
+         <a class="c_7" href="/org/default/index">活动</a>
+         <div class="clear"></div>
+       </div>
+    </div>
+</div>
+
+ <div class="c1_1">
+      <div class="c1_2">
+          <a class="c1_3" href="/org/default/index">首页</a>
+          <a class="c1_4" href="/org/default/activity">活动发布</a>
+          <a class="c1_5" href="/org/default/data">活动数据</a>
+          <div class="clear"></div>
+ </div>
+
+<div class="c2_1">
+    <div  class="c2_2">
+       <div class="c2_2_1"></div>
+       <div class="c2_2_2">
+           <div class="c2_2_2_1">
+              <div class="c2_2_2_1_1">00</div>
+           </div>
+           <div class="c2_2_2_2">
+              <div class="c2_2_2_1_2">00</div>
+           </div>
+           <div class="c2_2_2_3">
+              <div class="c2_2_2_1_3">00</div>
+           </div>
+       </div>
+       <div class="c2_2_3"></div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container">
+  <div class="container-title">活跃成员</div>
+    
+
+  
+  <div class="container-body hoter-body">
+    <div class="hoter">
+      <a href="###" class="head">
+        <img src="http://test.image.app.jhla.com.cn/20150507/201505071900400713.jpg@100w_100h_1e_0c_50Q_1x.jpg">
+      </a>
+      <a href="###" class="username">名字</a><br>
+      <span class="tips">签到活动: <span class="tips-green">0</span>个</span>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+<div class="act_da_list">
+<div class="container actDA">
+  <div class="container-title">活动数据</div>
+  
+  <div class="container-body">
+    <div class="act-info">
+      <a href="###" class="thumb"><img src="http://test.image.app.jhla.com.cn/20150507/201505071900400713.jpg@250w_140h_1e_0c_50Q_1x.jpg"></a>
+      <a href="###" class="title">活动名称</a>
+      <span class="tips">结束时间: 2015.05.05 20:00</span>
+    </div> 
+
+
+
+    <div class="act-da">
+       <div class="act_member_counters">
+        <div class="act_member_counter inset_counter">
+          <div class="counter-title">参与情况</div>
+          <div class="counter-box"></div>
+          <div class="baoming"><span class="num">0</span><span class="dot">&nbsp;</span>报名人数</div>
+          <div class="canyu"><span class="num">0</span><span class="dot">&nbsp;</span>参与人数</div>
+        </div>
+        <div class="act_member_counter sex_counter">
+          <div class="counter-title">性别比例</div>
+          <div class="counter-box"></div>
+          <div class="nan"><span class="num">0</span><span class="dot">&nbsp;</span>男士人数</div>
+          <div class="nv"><span class="num">0</span><span class="dot">&nbsp;</span>女士人数</div>
+        </div>
+       </div> 
+
+
+
+
+       <div class="check-counters">          
+          <div class="counter-title">参与情况</div>
+          <div class="counter-box"></div>
+       </div>
+
+    </div>
+  </div>
+  
+</div>  
+</div>
+
+
+
+
+ 
+
+{% endblock %}
+
+{% block javascript %}
+ 
+	<script>
+    var assetsUrl='{{ this.module.assetsUrl }}';
+    //console.log(seajs);
+ 
+		seajs.use('{{ this.module.assetsUrl }}/static/js/hashmap/activity.data.js');
+	</script>
+{% endblock %}

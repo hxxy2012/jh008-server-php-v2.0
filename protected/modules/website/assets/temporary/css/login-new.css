@@ -1,0 +1,192 @@
+* {
+    font-family: 微软雅黑, 'lucida grande', 'lucida sans unicode', helvetica, arial, verdana, sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #666;
+}
+.wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+.inner {
+    width: 960px;
+    margin: 0 auto; 
+}
+.half {
+    width: 50%;
+    float: left;
+}
+a.button {
+    display: inline-block;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 11px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: background 0.25s linear;
+    -moz-transition: background 0.25s linear;
+    -o-transition: background 0.25s linear;
+    transition: background 0.25s linear;
+}
+a.button.gray {
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    -webkit-transition: background 0.25s linear;
+    -moz-transition: background 0.25s linear;
+    -o-transition: background 0.25s linear;
+    transition: background 0.25s linear;
+}
+a.button:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    color: #fff;
+}
+a.button.gray:hover {
+    border: 1px solid #505656;
+    background: #505656;
+    color: #f2f2f1;
+    -webkit-transition: background 0.25s linear;
+    -moz-transition: background 0.25s linear;
+    -o-transition: background 0.25s linear;
+    transition: background 0.25s linear;
+}
+h3.title {
+    border-left: 3px solid #FF9934;
+    font-weight: bolder;
+    padding-left: 12px;
+    font-size: 16px;
+}
+.left-side {
+    width: 250px;
+    float: left;
+}
+.right-side {
+    margin:  0 0 0 250px;
+}
+
+
+.header {
+    background-color: #fff;
+    height: 70px;
+}
+.header-wrap {
+    height: 70px;
+}
+.logo {
+    display: block;
+    float: left;
+    line-height: 70px;
+    font-size: 26px;
+}
+.header-menu {
+    float: right;
+}
+.header-menu .menu-item {
+    margin-left: 50px;
+    float: left;
+    font-size: 14px;
+}
+.header-menu .menu-item a {
+    line-height: 70px;
+}
+.header-menu .menu-item-active a {
+    color: #FF9934;
+}
+
+.banner {
+    height: 580px;
+    background-color: #FF9934;
+    margin-bottom: 200px;
+}
+.banner-inner {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+.banner .declaration {
+    margin-top: 150px;
+    width: 496px;
+    height: 216px;
+    display: block;
+    background: url('../images/login/jihela.png') no-repeat right;
+}
+.banner .phone {
+    float: right;
+    display: block;
+    width: 327px;
+    height: 655px;
+    margin: 30px auto 0;
+    background: url('../images/login/phone.png') no-repeat center;
+}
+.downloads-con {
+    margin-top: 60px;
+}
+.downloads-con a.button {
+    font-size: 14px;
+    padding: 12px 32px;
+}
+.banner-other {
+    height: 380px;
+}
+.banner-other .declaration {
+    margin-top: 70px;
+}
+
+
+.introduce {
+
+}
+.introduce-img {
+    width: 327px;
+    height: 655px;
+    margin: 30px auto 0 -20px;
+    background: url('../images/divice.png') no-repeat center;
+}
+.introduce-text {
+    margin-top: 30px;
+    padding-top: 30px;
+}
+.introduce-text .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.introduce-text .text {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #777;
+    line-height: 26px;
+}
+
+.footer {
+    margin-top: 200px;
+    background-color: #2c2c2c;
+    height: 68px;
+}
+.footer .record {
+    text-align: center;
+    color: #fff;
+    display: block;
+    padding-top: 20px;
+}
+
+/* connect */
+.connect .company-name {
+    font-size: 14px;
+    font-weight: bolder;
+    margin-top: 35px;
+}
+
+.info-list li {
+    margin-top: 32px;
+    font-size: 14px;
+}
+
+/* product */
+.product-info p {
+    font-size: 14px;
+    line-height: 26px;
+}

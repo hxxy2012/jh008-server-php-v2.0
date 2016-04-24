@@ -1,0 +1,51 @@
+{% extends '/modules/manager/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+<link href="{{ this.module.assetsUrl }}/static/ueditor1_4_3-utf8-php/themes/default/css/ueditor.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">达人排序列表</h3>
+    </div>
+    <div class="ui-box-container mh380">
+		<div id="mainPanel">
+	    	<div class="search-wrap" id="searchWrap">
+	    		<span class="">达人标签</span>
+	    		<div class="ui-select-container va-10">
+	    			<div class="ui-select-wrap">
+			    		<div class="ui-select" id="masgerTagSelect" style="width: 120px">
+							<a href="#" class="ui-select-trigger">
+								<span id="spanText" value=""></span>
+								<i class="iconfont" title="下三角形">&#xF03C;</i>
+							</a>
+							<ul class="ui-select-content" id="mastersTagsCon">
+							</ul>
+						</div>			    				
+	    			</div>
+	    		</div>
+				<a href="javascript:;" id="searchBtn" class="ui-button ui-button-ldarkblue">搜索</a>
+				{% if type == 1 or type == 102 %}
+				<a href="javascript:;" id="addMaster" class="ui-button ui-button-ldarkblue">添加达人</a>
+				{% endif %}
+	    	</div>
+			<div class="ui-tab">
+			    <div class="ui-switchable-content mt10">
+		            <div id="listCon"></div>
+			    </div>
+			</div>
+		</div>
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+
+{% endblock %}
+
+{% block javascript %}
+	<script>
+		seajs.use('{{ this.module.assetsUrl }}/static/js/page/figureMastersSort.js');
+	</script>
+{% endblock %}

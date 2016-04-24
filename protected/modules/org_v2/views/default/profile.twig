@@ -1,0 +1,143 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}修改密码{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/assn/assn.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/plugins/jcrop-master/css/jquery.Jcrop.css"/>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+<div class="p15">
+    <div class="ui-tab2">
+        <ul class="ui-tab2-items">
+            <li class="ui-tab2-item ui-tab2-item-current">
+                <a href="/org_v2/default/profile">社团信息</a>
+            </li>
+            <li class="ui-tab2-item">
+                <a href="/org_v2/default/condition">申请加入条件</a>
+            </li>  
+            <li class="ui-tab2-item">
+                <a href="/org_v2/default/passwd">密码修改</a>
+            </li>         
+        </ul>
+    </div>
+    <div class="p15">
+        <form class="ui-form" name="" method="post" action="#" id="assnForm">
+            <div class="ui-form-item">
+                <label for="" class="ui-label">
+                    <span class="ui-form-required">&nbsp;</span>社团名称:
+                </label>
+                <input name="name" id="name" class="form-control w200" type="text" >
+            </div>
+            <div class="ui-form-item">
+                <label for="" class="ui-label">
+                    <span class="ui-form-required">&nbsp;</span>团队LOGO:
+                </label>
+                <div class="ui-form-item-wrap">
+                    <p class="logo-tip">支持JPG、JPEG、GIF、BMP、PNG文件，最大5M。图片尺寸下限为190*190px。使用真实头像，会带来更多明星效应。</p>
+                    <div class="logo-upload-con">
+                        <div class="logo-upload-wrap">
+                            <div class="logo-upload-top clearfix">
+                                <div class="logo-upload">
+                                    <div class="logo-upload-main">
+                                        <img id="target" src="" alt="">
+                                    </div>
+                                    <a href="javascript:;" id="selectLogo" class="button button-lg button-orange">选择图片<i class="icon iconfont"></i></a>
+                                </div>
+                                <div class="logo-preview">
+                                    <div class="logo-preview-wrap">
+                                        <p class="preview-tip">头像预览</p>
+                                        <div class="preview-box">
+                                            <div class="preview-box-con">
+                                                <img src="http://p6.qhimg.com/dmt/490_350_/t013fcbe776faa1d90c.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <p class="preview-sizetip">160 X 160</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="logo-upload-btns">
+                                <a href="javascript:;" id="saveBtn" class="button button-orange">保存</a>
+                                <a href="javascript:;" id="cancelBtn" class="button ml15">取消</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-form-item">
+                <label for="" class="ui-label">
+                    <span class="ui-form-required">&nbsp;</span>城市:
+                </label>
+                <div class="ui-form-item-wrap">
+                    <div class="ui-select ui-select-middel">
+                        <span class="ui-select-text">成都</span>
+                        <span class="tri-down"></span>
+                        <ul class="dropdown-menu" role="menu" style="display: none;">
+                            <li><a href="javascript:;">1990</a></li>
+                            <li><a href="javascript:;">1991</a></li>
+                            <li><a href="javascript:;">1992</a></li>
+                            <li><a href="javascript:;">1993</a></li>
+                            <li><a href="javascript:;">1993</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-form-item">
+                <label for="" class="ui-label">
+                    <span class="ui-form-required">&nbsp;</span>地址:
+                </label>
+                <input name="address" id="address" class="form-control w300" type="text" >
+                <span class="ui-form-tip"></span>
+            </div>
+
+            <div class="ui-form-item">
+                <label for="" class="ui-label">
+                    <span class="ui-form-required">*</span>联系人:
+                </label>
+                <input name="contact" id="contact" class="form-control" type="text" >
+            </div>
+
+            <div class="ui-form-item">
+                <label for="" class="ui-label">
+                    <span class="ui-form-required">*</span>联系电话:
+                </label>
+                <input name="contactPhone" id="contactPhone" class="form-control w200" type="text" >
+            </div> 
+
+            <div class="ui-form-item">
+                <label for="" class="ui-label">
+                    <span class="ui-form-required">*</span>团队简介:
+                </label>
+                <div class="ui-form-item-wrap">
+                    <div class="w500">
+                        <div class="limitText" id="limitText">
+                            <div class="textarea-con">
+                                <textarea name="infor" id="infor" class="limitText-ta" placeholder="可输入60字"></textarea>
+                                <span class="text-tip">0/60</span>                      
+                            </div>
+                        </div>                      
+                    </div>
+                </div>
+            </div>              
+
+            <div class="ui-form-item">
+                <label for="" class="ui-label ui-label-industry">
+                    &nbsp;
+                </label>
+                <div class="ui-submit-wrap">
+                    <input type="submit" class="ui-form-submit" id="saveProfile" value="创建/保存">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
+{#主工作区 结束#}
+
+
+{% block script %}
+    <script src="{{ this.module.assetsUrl }}/static/plugins/jcrop-master/js/jquery.Jcrop.js"></script>
+    <script src="{{ this.module.assetsUrl }}/static/js/profile.js"></script>
+{% endblock %}

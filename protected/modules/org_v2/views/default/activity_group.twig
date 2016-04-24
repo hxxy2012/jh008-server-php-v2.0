@@ -1,0 +1,98 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}活动分享{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/activity_group.css"/>
+{% endblock %}
+{#主工作区#}
+{% block body %}
+     <div class="h_1" >
+        <div class="h_2"></div>
+        <div class="h_3">齐丽萍决定是否合适的客户发送的空间发挥</div>
+        <div class="clear" ></div>
+     </div>
+     <div class="m_1">
+        <div class="dh">
+           <a href="/org_v2/default/activity_share" class="dh2 fx"><span>&nbsp;&nbsp;&nbsp;&nbsp;分享</span></a>
+           <a href="/org_v2/default/activity_sign" class="dh2 qd"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置签到点</span></a>
+           <a href="/org_v2/default/activity_check" class="dh2 sh"><span>&nbsp;&nbsp;&nbsp;&nbsp;报名审核</span></a>
+           <a href="/org_v2/default/activity_group" class="dh1 fz"><span>&nbsp;&nbsp;&nbsp;&nbsp;分组</span></a>
+           <a href="/org_v2/default/activity_inform" class="dh2 tz"><span>&nbsp;&nbsp;&nbsp;&nbsp;活动通知</span></a>
+           <a href="/org_v2/default/activity_photo" class="dh2 xc"><span>&nbsp;&nbsp;&nbsp;&nbsp;相册</span></a>
+           <div class="dh3"></div><div class="clear" ></div>
+        </div>
+        <div class="lr">
+           <div class="lr1">
+              <div class="lr2"></div>
+              <div class="lr3">
+                 <div class="sz">
+                    <div class="sz1"></div>
+                    <div class="sz2">活动总人数:</div>
+                    <div class="sz3">99999</div>
+                    |<div class="clear" ></div>
+                </div>
+                 <div class="sz4">
+                  每组：<input type="text" maxlength="2" style="width:18px;text-align: center;height:18px;margin-top: 5px;border-radius: 4px;color: #999999;border: 1px solid #e4e4e7;" /> 人
+                 </div>
+                 <div class="fqdd" style="">分 组</div>
+              </div>
+              <div class="clear" ></div>
+           </div>
+        
+            <div class="lr_fx">
+             <!--循环--->
+                 <div class="fz-div">
+                     <div class="fz-h">
+                        <span class="fz-th">A 组 </span>
+                        <span> (999人)</span>  
+                     </div>
+                     <div class="fz-r">
+                     <!--循环--->
+                       <div class="fz-ren"></div>
+                       <div class="fz-ren"></div>
+                       <div class="fz-ren"></div>
+                       <div class="fz-ren"></div>
+                       <div class="fz-ren"></div>
+                       <div class="fz-ren"></div>
+                       <div class="fz-ren"></div>
+                       <div class="fz-ren"></div>
+                       <div class="fz-ren"></div>
+                       <!--循环end--->
+                       <div class="clear" ></div>
+                       <div class="h"></div>
+                     </div>
+                     <div class="clear" ></div>
+                 </div>
+ 
+                 
+    
+                 
+       
+                 
+                 
+    
+               
+                
+               <!--循环end--->
+               <div class="clear" ></div>
+            </div>
+            
+            <div class="fh">
+               <a class="fh1" href="/org_v2/default/activity_list"> 返 回 </a>
+            </div>
+            <div class="fhh"></div>
+            
+      </div>
+      
+     </div>
+
+ 
+ 
+ 
+ 
+ 
+ 
+{% endblock %}
+{#主工作区 结束#}
+{% block script %}
+     <script src="{{ this.module.assetsUrl }}/static/js/hm.activity_group.js"></script>
+{% endblock %}

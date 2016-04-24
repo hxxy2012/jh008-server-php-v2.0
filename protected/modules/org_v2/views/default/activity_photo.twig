@@ -1,0 +1,61 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}活动分享{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/activity_photo.css"/>
+{% endblock %}
+{#主工作区#}
+{% block body %}
+     <div class="h_1" >
+        <div class="h_2"></div>
+        <div class="h_3">齐丽萍决定是否合适的客户发送的空间发挥</div>
+        <div class="clear" ></div>
+     </div>
+     <div class="m_1">
+        <div class="dh">
+           <a href="/org_v2/default/activity_share" class="dh2 fx"><span>&nbsp;&nbsp;&nbsp;&nbsp;分享</span></a>
+           <a href="/org_v2/default/activity_sign" class="dh2 qd"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置签到点</span></a>
+           <a href="/org_v2/default/activity_check" class="dh2 sh"><span>&nbsp;&nbsp;&nbsp;&nbsp;报名审核</span></a>
+           <a href="/org_v2/default/activity_group" class="dh2 fz"><span>&nbsp;&nbsp;&nbsp;&nbsp;分组</span></a>
+           <a href="/org_v2/default/activity_inform" class="dh2 tz"><span>&nbsp;&nbsp;&nbsp;&nbsp;活动通知</span></a>
+           <a href="/org_v2/default/activity_photo" class="dh1 xc"><span>&nbsp;&nbsp;&nbsp;&nbsp;相册</span></a>
+           <div class="dh3"></div><div class="clear" ></div>
+        </div>
+        <div class="lr">
+           <div class="header_div">
+              <a class="header_div1" href="/org_v2/default/activity_photo">主办方相册 （999）</a>
+              <a class="header_div2" href="/org_v2/default/activity_usersphoto">用户相册 （999）</a>
+              <div class="header_div3"></div><div class="clear" ></div>
+           </div>
+           <div class="shangchuan_up">
+               <div class="up_button">
+                  <i class="icon iconfont"></i>
+                  上传照片
+               </div>
+           </div>
+           <div class="img_div">
+           <!--循环20--->
+               <div class="img">
+                    <img src="" class="tp" />
+               </div>
+               
+              <!--循环end---> 
+              <div class="clear" ></div> 
+           </div>
+
+          <div id="page3" style="width:460px;margin:0 auto;margin-top:30px;"></div>
+      </div>
+      
+     </div>
+
+ 
+ 
+ 
+ 
+ 
+ 
+{% endblock %}
+{#主工作区 结束#}
+{% block script %}
+     <script src="{{ this.module.assetsUrl }}/static/plugins/laypage/laypage.js"></script>
+     <script src="{{ this.module.assetsUrl }}/static/js/hm.activity_photo.js"></script>
+{% endblock %}

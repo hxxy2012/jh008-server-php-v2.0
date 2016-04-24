@@ -1,0 +1,35 @@
+html, body {
+	font-size: 14px;
+	font-family: 'microsoft yahei', Arial, sans-serif;
+}
+textarea {
+	resize: none;
+}
+.mt1em { margin-top: 1em; }
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+.page-title {
+	font-size: 18px;
+	color: #999;
+}
+.page-stitle {
+	font-size: 16px;
+	color: #666;
+}
+.page-content {
+	text-indent: 2em;
+	line-height: 1.8em;
+}
+.page-content-title {
+	font-weight: bolder;
+	line-height: 2em;
+	text-indent: 2em;
+}
+.page-content-tip {
+	font-weight: bolder;
+}
+.page-content-text {
+	color: #666;
+}

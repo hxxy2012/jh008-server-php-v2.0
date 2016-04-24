@@ -1,0 +1,86 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}修改密码{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/assn/assn.css"/>
+    
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+<div class="condition-con">
+    <div class="p15">
+        <div class="ui-tab2">
+            <ul class="ui-tab2-items">
+                <li class="ui-tab2-item">
+                    <a href="/org_v2/default/profile">社团信息</a>
+                </li>
+                <li class="ui-tab2-item ui-tab2-item-current">
+                    <a href="/org_v2/default/condition">申请加入条件</a>
+                </li> 
+                <li class="ui-tab2-item">
+                    <a href="/org_v2/default/passwd">密码修改</a>
+                </li>
+            </ul>
+        </div>
+        <div class="p15">
+            <div class="radioSels clearfix">
+                <div>
+                    <div class="radio-wrap">
+                        <input type="radio" name="aaa" value="1">
+                        <label><i class="icon iconfont"></i>无需审核</label>
+                    </div>
+                </div>
+                <div>
+                    <div class="radio-wrap">
+                        <input type="radio" name="aaa" value="2">
+                        <label><i class="icon iconfont"></i>需审核</label>
+                    </div>
+                    <div class="verify-con">
+                        <a href="javascript:;" class="button" id="preview">预览</a>
+                        <div class="checkboxSels clearfix">
+                            <div class="checkbox-wrap" d-select="on">
+                                <input type="checkbox"  value="1" checked="true">
+                                <label><i class="icon iconfont"></i>手机号（既注册帐号，默认选中）</label>
+                            </div>
+                            <div class="checkbox-wrap">
+                                <input type="checkbox" name="bbb" value="2">
+                                <label><i class="icon iconfont"></i>填加审核条件</label>
+                            </div>
+                            <div class="verify-raise">
+                                <input type="text" id="conditionInput" class="form-control w200 mr10" placeholder="请填写需要审核的条件">
+                                <a href="javascript:;" class="button button-blue" id="addCondition" >填加</a>
+                            </div>
+                            <div class="verify-conditions w300 pt10" id="conditions">
+                                <div class="ui-infor">
+                                    <a href="javascript:;" class="ui-infor-link">生日是哪天?</a>
+                                    <a href="javascript:;" class="badge del-btn"><i class="icon iconfont"></i></a>
+                                </div>
+                                <div class="ui-infor">
+                                    <a href="javascript:;" class="ui-infor-link">三围是多少?</a>
+                                    <a href="javascript:;" class="badge del-btn"><i class="icon iconfont"></i></a>
+                                </div>
+                                <div class="ui-infor">
+                                    <a href="javascript:;" class="ui-infor-link">三围是多少?</a>
+                                    <a href="javascript:;" class="badge del-btn"><i class="icon iconfont"></i></a>
+                                </div>                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cd-sure-w">
+                    <a href="javascript:;" id="sureBtn" class="button button-orange">确定修改</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+{#主工作区 结束#}
+
+
+{% block script %}
+    
+    <script src="{{ this.module.assetsUrl }}/static/js/condition.js"></script>
+{% endblock %}

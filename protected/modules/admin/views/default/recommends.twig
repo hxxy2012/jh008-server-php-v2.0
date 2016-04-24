@@ -1,0 +1,190 @@
+{% extends '/modules/admin/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+    <link media="all" href="{{ this.module.assetsUrl }}/sea-modules/arale/calendar/1.0.0/calendar.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="ui-box mt20">
+	    <div class="ui-box-head blue">
+	        <h3 class="ui-box-head-title">推荐信息列表</h3>
+	    </div>
+	    <div class="ui-box-container">
+	    	<div id="mainPage" style="">
+		    	<div class="search-wrap">
+		    		<span>开始时间</span>
+		    		<input class="ui-input" type="text" id="startTime" placeholder="请输入关键字">
+		    		<span class="ml20">结束时间</span>
+		    		<input class="ui-input" type="text" id="endTime" placeholder="请输入关键字">
+					<a href="javascript:;" id="searchBtn" class="ui-button ui-button-ldarkblue">查询</a>
+		    	</div>
+		    	<div class="ui-tab mt10 mb10">
+				    <ul class="ui-tab-items">
+				        <li class="ui-tab-item ui-tab-item-current">
+				            <a href="javascript:;" id="normalList">推荐信息列表</a>
+				        </li>
+				        <li class="ui-tab-item">
+				            <a href="javascript:;" id="rabishList">推荐信息回收站</a>
+				        </li>
+				    </ul>
+				</div>
+				<div id="tableContainer" class="ui-table-container mt20">
+
+				</div>		    		
+	    	</div>
+	    	<div id="addPage">
+	    		<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+				<div id="otherWrap" class="pt10"></div>
+	    	</div>
+	    </div>
+	</div>	
+{% endblock %}
+
+{% block template %}
+<script type="text/template" id="recommond_detail_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">推荐信息详情</p>
+		</div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            备注:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= remark %></span>
+	        </div>
+	    </div>	    
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            活动图片:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<div id="headImgWrap" class="head-img-wrap-hide">
+	        		<img src="<%= img_url %>" alt="" />
+	        	</div>
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            地址:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= address %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            经度:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= lon %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            纬度:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= lat %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            上传时间:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= create_time %></span></div>
+	    </div>		    
+	</div>
+</script>
+<script type="text/template" id="recommond_user_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">用户信息</p>
+		</div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            头像:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<div id="headImgWrap" class="head-img-wrap-hide">
+	        		<img src="<%= head_img_url %>" alt="" />
+	        	</div>
+	        </div>
+	    </div>	    
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            状态:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><% if(status==-1){ %>删除<% }else if(status==0){ %>正常<% } %></span>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            昵称:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<span class="lc-ui-form-span"><%= nick_name %></span></div>
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            性别:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= sex %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            生日:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= birth %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            邮箱:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= email %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            真实姓名:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= real_name %></span></div>
+	    </div>	
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            联系电话:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= contact_phone %></span></div>
+	    </div>
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            qq:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= contact_qq %></span></div>
+	    </div>
+
+
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        seajs.use('{{ this.module.assetsUrl }}/static/js/page/recommends.js');
+    </script>
+{% endblock %}
+

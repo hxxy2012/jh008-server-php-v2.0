@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}{% endblock %} - 集合啦 全心全意为社团服务！</title>
+    <script>
+        //继承了的页面只支持内部框架打开
+        if (window == window.parent) {
+            window.parent.location.href = '/org_v2/default/main.html#' + decodeURIComponent(window.parent.location.pathname);
+        }
+
+    </script>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/reset.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/base.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/iconfont/iconfont.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/lc_ui.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/lc_layer.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/plugins/ktable/skins/k-table.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/common.css"/>
+
+    <!-- <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/min/css/common.min.css"/> -->
+    {% block style %}{% endblock %}
+</head>
+<body bgcolor="transparent" style="background: #F6F6F6;">
+{% block body %}{% endblock %}
+</body>
+
+<script src="{{ this.module.assetsUrl }}/static/plugins/jquery-1.7.1.min.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/plugins/layer/layer.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/plugins/jquery.validate.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/plugins/ktable/utilHelper.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/plugins/ktable/k-paginate.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/plugins/ktable/k-table.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/common/K.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/common/lc.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/common/base.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/common/dialogUi.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/common/server.js"></script>
+
+<!-- <script src="{{ this.module.assetsUrl }}/static/min/js/third.min.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/min/js/common.min.js"></script> -->
+<script>
+    jQuery(function () {
+        var _opener = window.parent.jQuery("#sub-open");
+        //alert(_opener);
+        $('a').each(function (i) {
+            //var that = $(this);
+            var href = $(this).attr('href');
+            if ((/^(http|\/)/i).test(href)) {
+                $(this).attr('data-href', $(this).attr('href'));
+                $(this).attr('href', window.parent.location.pathname + '#' + decodeURIComponent($(this).data('href')));
+                $(this).attr('target', '_top');
+                $(this).click(function () {
+                    if (!$.browser.msie)
+                        window.parent.open_url.call(this);
+                });
+            }
+        });
+    });
+</script>
+{% block script %}{% endblock %}
+</html>

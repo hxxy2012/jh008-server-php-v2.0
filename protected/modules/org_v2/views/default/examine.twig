@@ -1,0 +1,47 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}社团二维码{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/assn.css"/>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+<div class="examine-con">
+    <div class="p15">
+        <div class="ui-tab2">
+            <ul class="ui-tab2-items">
+                <li class="ui-tab2-item ui-tab2-item-current">
+                    <a href="/org_v2/default/examine">待审核</a>
+                </li>
+                <li class="ui-tab2-item">
+                    <a href="/org_v2/default/examineRefuse">已拒绝</a>
+                </li>
+                <li class="ui-tab2-item">
+                    <a href="/org_v2/default/examineBlacklist">黑名单</a>
+                </li>
+                <li class="ui-tab2-item">
+                    <a href="/org_v2/default/examineWhitelist">白名单</a>
+                </li>             
+            </ul>
+        </div>
+        <div id="membersList">
+            <p class="mt20 mb15">审核成员太多？批量导入白名单，加快审核速度<a href="/org_v2/default/examineWhitelist" class="button button-b-blue ml15">导入白名单</a></p>
+            <div id="listCon">
+                <div id="tableCon">
+                    <table>
+                        <thead><tr><th>序号</th><th>账号</th><th>昵称</th><th>自定义信息</th><th>社团备注</th><th>操作</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{#主工作区 结束#}
+
+
+{% block script %}
+    <script src="{{ this.module.assetsUrl }}/static/js/examine.js" ></script>   
+{% endblock %}

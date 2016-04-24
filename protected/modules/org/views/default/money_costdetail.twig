@@ -1,0 +1,70 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/payment/money_costdetail.css" />
+{% endblock %}
+{% block content %}
+<!--内容-->
+<div class="c_1">
+    <div  class="c_2">
+       <div class="c_3">
+         <a class="c_4" href="/org/default/index"></a>
+         <a class="c_5" href="/org/default/zl">设置</a>
+         <a class="c_6" href="/org/default/costdetail">款项</a>
+         <a class="c_7" href="/org/default/index">活动</a>
+         <div class="clear"></div>
+       </div>
+    </div>
+</div>
+
+ <div class="c1_1">
+      <div class="c1_2">
+          <!--a class="c1_3" href="/org/default/add">充值</a-->
+          <a class="c1_4" href="/org/default/costdetail">明细</a>
+          <a class="c1_5" href="/org/default/draw">申请提现</a>
+      <div class="clear"></div>
+ </div>
+
+<div class="c2_1" >
+    <div  class="c2_2">
+        <div class="c2_2_1"></div>
+        <div class="c2_2_2">
+            <div class="zd sxk" va='0'>流水帐单</div>
+            <div class="sr sxk" va='1'>收入记录</div>
+            <div class="zc sxk" va='2'>支出记录</div>
+            <div class="cz sxk" va='3'>充值记录</div>
+            <div class="tx sxk" va='4'>提现记录</div>
+            <div class="clear"></div>
+        </div>
+        <div class="c2_2_3">
+             <div class="c2_2_3_1">&nbsp;&nbsp;日期</div>
+             <div class="c2_2_3_2">类型</div>
+             <div class="c2_2_3_3">金额</div>
+             <div class="c2_2_3_4">手续费
+             <div class="pay-bz-box"></div>
+             </div>
+             <div class="c2_2_3_5">状态</div>
+              <div class="clear"></div>
+        </div>
+        <!--流水帐单--->
+         <div class="zdtext"></div>
+         <!--收入记录--->
+         <div class="srtext" style="display: none;"></div>
+         <!--支出记录--->
+         <div class="zctext" style="display: none;"></div>
+         <!--充值记录--->
+         <div class="cztext" style="display: none;"></div>
+         <!--提现记录--->
+         <div class="txtext" style="display: none;"></div>
+         
+         <div class='lb'></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+	<script>
+         var url='{{ this.module.assetsUrl }}';
+		seajs.use('{{ this.module.assetsUrl }}/static/js/page/costdetail.js');
+
+	</script>
+{% endblock %}

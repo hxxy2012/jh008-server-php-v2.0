@@ -1,0 +1,29 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+ <style type="text/css"> 
+    
+ </style>
+{% endblock %}
+
+{% block bodyAttr %} onselectstart="return false" onselect="return
+false" {% endblock %}
+
+{% block content %}
+ 
+<div class="aa" style="height: 1000px ;"> </div>
+{% endblock %}
+
+{% block javascript %}
+	<script> 
+    seajs.config({ 
+      //debug: 2,
+      alias: {
+        "flow": "{{ this.module.assetsUrl }}/static/js/hashmap/hm.flow.js"  
+      }
+    });
+	 	seajs.use('{{ this.module.assetsUrl }}/static/js/hashmap/hm.demo.flow.js',function () {
+             
+        });
+	</script>
+   <div  class="zu_ren_move_mask"></div>
+{% endblock %}

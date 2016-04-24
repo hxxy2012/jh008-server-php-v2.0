@@ -1,0 +1,9 @@
+/framework/
+
+/nbproject
+
+/protected/config/main.php
+
+/protected/config/main-test.php
+/protected/config/main-staging.php
+/protected/config/main-prod.php

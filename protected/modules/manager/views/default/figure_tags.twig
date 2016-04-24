@@ -1,0 +1,96 @@
+{% extends '/modules/manager/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">用户标签管理</h3>
+    </div>
+    <div class="ui-box-container mh380">
+		<div id="mainPanel">
+	    	<div class="search-wrap">
+	    		<span>关键字</span>
+	    		<input class="ui-input" type="text" id="keyword" placeholder="请输入关键字">
+				<a href="javascript:;" id="searchBtn" class="ui-button ui-button-ldarkblue">搜索</a>	
+	    	</div>
+			<div class="ui-tab">
+			    <ul class="ui-tab-items">
+			        <li class="ui-tab-item ui-tab-item-current">
+			            <a href="javascript:;" id="adminList">用户标签列表</a>
+			        </li>
+			        <li class="ui-tab-item">
+			            <a href="javascript:;" id="adminList">用户标签回收站列表</a>
+			        </li>
+			    </ul>
+			    <div class="ui-switchable-content mt10">
+		            <div id="adminListCon"></div>
+		            <div id="rabishListCon"></div>
+			    </div>
+			</div>
+		</div>
+		<div id="secondPanel">
+    		<div class="return-wrap"> 
+    			<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+    		</div>
+    		<div id="operateWrap"></div>
+		</div>
+		</div>
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+<script id="tags_add_template" type="text/template">
+	<div class="lc-ui-form"  id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">添加标签</p>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">标签名:</label>
+			<div class="lc-ui-rs">
+				<input id="name" class="lc-ui-input w280" type="text" placeholder="">
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            &nbsp;
+	        </label>
+	        <div class="lc-ui-rs">
+		    	<a href="javascript:;" id="add" class="ui-button ui-button-sdarkblue fn-left">创建</a>
+	    	</div>
+	    </div>
+	</div>
+</script>
+
+<script id="tags_edit_template" type="text/template">
+	<div class="lc-ui-form"  id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">修改标签</p>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">标签名:</label>
+			<div class="lc-ui-rs">
+				<input id="name" class="lc-ui-input w280" type="text" value=<%=  name %>>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            &nbsp;
+	        </label>
+	        <div class="lc-ui-rs">
+		    	<a href="javascript:;" id="update" class="ui-button ui-button-sdarkblue fn-left">修改</a>
+	    	</div>
+	    </div>
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+	<script>
+		seajs.use('{{ this.module.assetsUrl }}/static/js/page/figureTags.js');
+	</script>
+</script>
+{% endblock %}

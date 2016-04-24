@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8"/>
+    <title>集合啦 全心全意为社团服务！</title>
+    {% include "/modules/org_v2/views/layouts/outer_stylesheets.twig" %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/main.css"/>
+    <base  target="_top"/>
+</head>
+<body>
+
+
+<div class="head-warp">
+    <div class="header-bot"></div>
+    <div class="head-body">
+        <ul class="head-nav clearfix">
+            <li><a class="head-nav-item" href="/org_v2/default/stats"><i class="icon count-icon"></i><span class="tip">数据统计</span></a></li>
+            <li><a class="head-nav-item" href="/org_v2/default/qrcode"><i class="icon qcode-icon"></i><span class="tip">二维码</span></a></li>
+            <li><a class="head-nav-item logout" ><i class="icon exit-icon"></i><span class="tip">退出</span></a></li>
+        </ul>
+        <a class="name" href="javascript:;">Running man,欢迎你！</a>
+        <a href="/org_v2/default/main" class="logo"></a>
+    </div>
+</div>
+
+<div class="main-warp">
+    <div class="browser" id="browser" style="height: 0;min-height: 958px">
+       <iframe src="" style="width: 100%;height: 100%;" width="100%" height="100%" frameborder="0" scrolling="no"  allowTransparency="true"  name="hm-content" id="hm-content" frameborder="0"></iframe>
+    </div>
+    <div class="menu-warp">
+        <div class="menu">
+            <div class="menu-head club-info">社团信息</div>
+            <ul>
+               <li class="active"><a href="/org_v2/default/profile">基本设置</a></li>
+               <li class=""><a href="/org_v2/default/examine">成员审批</a></li>
+               <li class=""><a href="/org_v2/default/manage">成员管理</a></li>
+               <li class=""><a href="/org_v2/default/notice">社团通知</a></li>
+            </ul>
+        </div>
+
+        <div class="menu">
+            <div class="menu-head operating-activity">活动运营</div>
+            <ul>
+                <li class=""><a href="/org_v2/default/activity_post">发布活动</a></li>
+                <li class=""><a href="/org_v2/default/activity_list">活动列表</a></li>
+                <li class=""><a href="/org_v2/default/activity_reports">活动报道</a></li>
+            </ul>
+        </div>
+
+        <div class="menu">
+            <div class="menu-head wallet">财务信息</div>
+            <ul>
+                <li class=""><a href="/org_v2/default/payment">缴费详情</a></li>
+                <li class=""><a href="/org_v2/default/inventory">社团流水</a></li>
+                <li class=""><a href="/org_v2/default/transfer">申请提现</a></li>
+                <li class=""><a href="/org_v2/default/refund">退费</a></li>
+            </ul>
+        </div>
+        <a href="" id="sub-open" style=""></a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<div class="foot-warp">
+    <div class="foot-body">
+        <a href="/org_v2/default/about">关于我们</a> <span class="foot-split">&nbsp;</span>
+        <a href="/org_v2/default/contact">联系我们</a> <span class="foot-split">&nbsp;</span>
+        <a href="/org_v2/default/partners">合作伙伴</a>
+        <br/>
+        <span class="copyright">
+            <a href="/org_v2/default/main">www.jhla.com.cn</a> 2015 &copy; All Rights Reserved <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">蜀ICP备14010211号</a>
+        </span>
+    </div>
+</div>
+
+
+{% include "/modules/org_v2/views/layouts/outer_scripts.twig" %}
+<script src="{{ this.module.assetsUrl }}/static/js/common/main.js"></script>
+</body>
+</html>

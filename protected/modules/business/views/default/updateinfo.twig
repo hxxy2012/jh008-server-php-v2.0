@@ -1,0 +1,190 @@
+{% extends '/modules/business/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+    <link media="all" href="{{ this.module.assetsUrl }}/sea-modules/arale/calendar/1.0.0/calendar.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="ui-box mt20">
+	    <div class="ui-box-head blue">
+	        <h3 class="ui-box-head-title">商家信息编辑</h3>
+	    </div>
+	    <div class="ui-box-container">
+			<div class="pl30 sellerContainer" id="sellerContainer">
+
+			</div>
+	    </div>
+	</div>	
+{% endblock %}
+
+{% block  template %}
+<script type="text/template" id="sellerShowTemplate">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">商家资料</p>
+		</div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            商户名称:
+	        </label>
+	        <span class="lc-ui-form-span"><%= name %></span>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            商户LOGO:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<div id="headImgWrap" class="head-img-wrap-hide">
+	        		<img src="<%= logo_img_url %>" alt="" />
+	        	</div>
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            地址:
+	        </label>
+	        <span class="lc-ui-form-span"><%= address %></span>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            联系电话:
+	        </label>
+	        <span class="lc-ui-form-span"><%= contact_phone %></span>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            电子邮件:
+	        </label>
+	        <span class="lc-ui-form-span"><%= contact_email %></span>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            其他联系方式:
+	        </label>
+	        <span class="lc-ui-form-span"><%= contact_descri %></span>
+	    </div>
+	    <div class="fn-clear">
+	    	<a href="javascript:;" id="editSellerBtn" class="changeinfo-btn ui-button ui-button-sdarkred">修改个人信息</a>
+	    </div>					    
+	</div>
+</script>
+<script type="text/template" id="sellerEditTemplate">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">修改商家<span>(带*为必填)</span></p>
+		</div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	<span class="ui-form-required">*</span>
+	            商户名称:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="name" value="<%= name %>" class="lc-ui-input w280" type="text" placeholder="">
+	        </div>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	<span class="ui-form-required">*</span>
+	            商户LOGO:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（推荐使用120*120图片）</span>
+	        	<div id="headImgWrap"  class="head-img-wrap-hide">   
+	        		<img id="logo" src="<%= logo_img_url %>" alt="" />
+	        	</div>
+	        	<a href="javascript:;" id="changeLogo" class="change-logo ui-button ui-button-sdarkred">更换logo</a>
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	<span class="ui-form-required">&nbsp;</span>
+	            地址:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="address" class="lc-ui-input w280" value="<%= address %>"  type="text" placeholder="">
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	<span class="ui-form-required">&nbsp;</span>
+	            联系电话:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="contactPhone" class="lc-ui-input w280" value="<%= contact_phone %>"  type="text" placeholder="">
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	<span class="ui-form-required">&nbsp;</span>
+	            电子邮件:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="contactEmail" class="lc-ui-input w280" value="<%= contact_email %>"  type="text" placeholder="">
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	<span class="ui-form-required">&nbsp;</span>
+	            其他联系方式:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="contactDescri" class="lc-ui-input w280" value="<%= contact_descri %>"  type="text" placeholder="">
+	        </div>
+	    </div>
+	    <div class="fn-clear">
+	    	<a href="javascript:;" id="saveSellerBtn" class="changeinfo-btn ui-button ui-button-sdarkred">确认修改</a>
+	    </div>					    
+	</div>
+	<div class="change-area">
+		<div class="lc-ui-form" name="" method="post" action="#" id="">
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		        	<span class="ui-form-required">*</span>
+		            旧密码:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<input id="oldPwd" class="lc-ui-input w280" type="text" placeholder="">
+		        </div>
+		    </div>
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		        	<span class="ui-form-required">*</span>
+		            新密码:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<input id="Pwd" class="lc-ui-input w280" type="password" placeholder="">
+		        </div>
+		    </div>
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		        	<span class="ui-form-required">*</span>
+		            确认密码:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<input id="surePwd" class="lc-ui-input w280" type="password" placeholder="">
+		        </div>
+		    </div>
+		    <div class="lc-ui-form-item fn-clear">
+	    		<a href="javascript:;" id="savePwdrBtn" class="changeinfo-btn ui-button ui-button-sdarkred">确认修改</a>
+		    </div>		    		    
+		</div>   
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        seajs.use('{{ this.module.assetsUrl }}/static/js/page/sellerInfor.js');
+    </script>
+{% endblock %}

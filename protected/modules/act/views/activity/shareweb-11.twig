@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+	<title>Document</title>
+    <link href="{{ this.module.assetsUrl }}/static/css/share.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+
+<div id="container">
+	<div class="img-wrap">
+		<img src="{{ act.head_img_url }}" alt="" class="res-img" />
+		<p class="title">{{ act.title }}</p>
+	</div>
+
+	<div class="item-wrap">
+		<div class="clearfix">
+			<span class="tag">{{ act.tag_name }}</span>
+			<span class="price">{{ act.price }}</span>	
+		</div>
+	</div>
+
+	<div class="item-wrap">
+		<p class="item-title">{{ act.addr_num }}</p>
+		<p class="addr-address mt8">{{ act.addr_city }}{{ act.addr_area }}{{ act.addr_road }}</p>
+	</div>
+
+	<div class="item-wrap">
+		<p class="item-title"><i class="item-title-icon"></i>活动详情</p>
+		<p class="addr-address mt8">{{ act.detail }}</p>
+	</div>
+
+	<div class="item-wrap">
+		<p class="item-title"><i class="item-title-icon"></i>达人推荐</p>
+		<p class="addr-address mt8">{{ act.detail }}</p>
+	</div>
+
+	<div class="item-wrap">
+		<p class="item-title"><i class="item-title-icon"></i>交通信息</p>
+		<p class="addr-address mt8">{{ act.addr_route }}</p>
+	</div>	
+
+</div> 
+
+<script>
+
+</script>	
+</body>
+</html>

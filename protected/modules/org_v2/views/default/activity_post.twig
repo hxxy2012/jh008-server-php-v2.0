@@ -1,0 +1,628 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}活动发布{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/activity.post.css"/>
+            <style>
+            .conform-box {
+                width: 465px;
+                height: auto;
+                overflow: hidden;
+                background: #FFF;
+                border-radius: 5px;
+            }
+
+            .conform-box-head {
+                height: 48px;
+                color: #FFF;
+                background: #FF9934;
+                text-align: center;
+                line-height: 48px;
+                font-size: 16px;
+
+            }
+
+            .conform-box-head .icon {
+                float: right;
+                margin-right: 15px;
+                cursor: pointer;
+            }
+
+            .conform-box-body {
+                width: 435px;
+                margin: 15px auto;
+            }
+
+            .conform-infos {
+                padding-bottom: 15px;
+                border-bottom: 1px solid #e4e4e7;
+            }
+
+            .conform-item {
+                font-size: 14px;
+                height: 22px;
+                line-height: 22px;
+            }
+
+            .conform-tip-text {
+                width: 240px;
+                padding-left: 55px;
+                font-size: 18px;
+                line-height: 22px;
+                margin: 40px auto;
+                height: 45px;
+                font-weight: bold;
+            }
+
+            .conform-tip-text .icon {
+                margin-left: -55px;
+                font-size: 50px;
+                color: #FF9934;
+                float: left;
+                line-height: 45px;
+            }
+
+            .conform-buts {
+                text-align: center;
+                margin-top: 15px;
+            }
+        </style>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+
+    {#步骤导航区#}
+    <div class="step-warp">
+        
+        <div class="step-item-split split1"></div>
+        <div class="step-item-split split2"></div>
+        <div class="step-item-split split3"></div>
+        <div class="step-item-split split4"></div>
+        <div class="step-item item1 active" data-to="1">
+            <div class="step-num">1</div>
+            <div class="step-text">基本信息</div>
+        </div>
+
+
+        <div class="step-item" data-to="2">
+            <div class="step-num">2</div>
+            <div class="step-text">地点及路线图</div>
+        </div>
+
+
+        <div class="step-item" data-to="3">
+            <div class="step-num">3</div>
+            <div class="step-text">详情</div>
+        </div>
+
+
+        <div class="step-item" data-to="4">
+            <div class="step-num">4</div>
+            <div class="step-text">报名要求</div>
+        </div>
+
+
+        <div class="step-item" data-to="5">
+            <div class="step-num">5</div>
+            <div class="step-text">完成</div>
+        </div>
+        <div style="clear: both;"></div>
+     
+</div>
+    {#步骤导航区 结束#}
+
+
+
+    <div class="clearfix"></div>
+    <div class="step-slider">
+    <div class="step-slider-body">
+
+
+    {#第一步 基本信息 开始#}
+    <div class="step-slider-item">
+
+        {#活动确认框#}
+        <div class="conform-box" id="conform-box" style="display: none;">
+            <div class="conform-box-head"><i class="icon iconfont">&#xe615;</i> 活动发布信息总览</div>
+            <div class="conform-box-body">
+                <div class="conform-infos">
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                    <div class="conform-item"><label>活动名称：</label>活动名称</div>
+                </div>
+                <div class="conform-tip">
+                    <div class="conform-tip-text">
+                        <i class="icon iconfont">&#xe60a;</i>
+                        以上信息请仔细核对，<br/>活动一旦发布，将不能修改！
+                    </div>
+                </div>
+
+                <div class="conform-buts">
+                    <a href="javascript:void(0);" class="button button-blue cancel-btn"> 返回修改 </a> 
+                    &nbsp; 
+                    <a href="javascript:void(0);" class="button button-orange ok-btn"> 确定提交 </a>
+                </div>
+            </div>
+        </div>
+        {#活动确认框#}
+
+
+
+
+
+
+
+
+        <div class="ui-form-item">
+            <label for="title" class="ui-label">
+            <span class="ui-form-required">*</span>
+                活动名称:
+            </label>
+            <input name="title" id="title" class="form-control w400" type="text"/>
+            
+        </div>
+
+        <div class="ui-form-item">
+            <label for="b_time" class="ui-label">
+            <span class="ui-form-required">*</span>
+                活动开始时间:
+            </label>
+            <input name="b_time" id="b_time" readonly="readonly" class="form-control w200" type="text"/> 
+        </div>
+
+
+        <div class="ui-form-item">
+            <label for="e_time" class="ui-label">
+            <span class="ui-form-required">*</span>
+                活动结束时间:
+            </label>
+            <input name="e_time" id="e_time" readonly="readonly" class="form-control w200" type="text"/> 
+        </div>
+
+
+        <div class="ui-form-item">
+            <label for="call_name" class="ui-label">
+            <span class="ui-form-required">&nbsp;</span>
+                联系人:
+            </label>
+            <input name="call_name" id="call_name" class="form-control w200" type="text"/> 
+        </div>
+
+
+        <div class="ui-form-item">
+            <label for="call_phone" class="ui-label">
+            <span class="ui-form-required">&nbsp;</span>
+                联系电话:
+            </label>
+            <input name="call_phone" id="call_phone" class="form-control w200" type="text"/> 
+        </div>
+
+
+        <div class="thumb-uploaders">
+            <div class="thumb-uploader">
+                <div class="thumb-uploader-btn"></div>
+            </div>
+
+            <div class="thumb-uploader">
+                <div class="thumb-uploader-btn"></div>
+            </div>
+
+            <div class="thumb-uploader">
+                <div class="thumb-uploader-btn"></div>
+            </div>
+
+            <div class="thumb-uploader">
+                <div class="thumb-uploader-btn"></div>
+            </div>
+
+        </div>
+
+
+            <div class="step_div" >
+                <a href="javascript:void(0);" class="button button-orange step_to4">下一步</a>
+            </div>
+
+
+    </div>
+    {#第一步 基本信息 结束#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {#第二步  地图选点 开始#}
+    <div class="step-slider-item" style="display: none">
+      <div  class="center"  >
+        <div class="activity-pos">
+            <label for="call_phone" class="activity-label">
+                活动地点:
+            </label>
+
+            <div class="activity-pos-map-warp">
+                <div class="ui-form-item">
+                    <input name="search" id="search" class="form-control w400" type="text" placeholder="请输入地址"/>
+                    <a href="javascript:void(0);" class="button  button-orange" id="search-pos">搜索</a>
+                </div>
+
+                <div class="active-pos-map" id="activePosMap"></div>
+
+
+                <div class="activity-pos-info">
+                    <input type="hidden" name="lng" id="lng" value="0"/>
+                    <input type="hidden" name="lat" id="lat" value="0"/>
+                    <span class="ui-form-required2">*</span>
+                    地址:
+                    <input name="addr_city" id="addr_city" class="form-control w80" placeholder="市" type="text"/>
+                    <input name="addr_area" id="addr_area" class="form-control w80" placeholder="区/县" type="text"/>
+                    <input name="addr_road" id="addr_road" class="form-control w80" placeholder="街道" type="text"/>
+                    <input name="addr_num" id="addr_num" class="form-control w100" placeholder="门牌号" type="text"/>
+
+                     
+                </div>
+
+                <div class="activity-pos-info">
+                <span class="ui-form-required2">*</span>
+                    详情地址:
+                    <input name="address" id="address" class="form-control w300" placeholder="" type="text"/> 
+                 
+                </div>
+
+
+                <div class="activity-pos-info">
+                <span class="ui-form-required2">*</span>
+                    地点信息:
+                    <input name="addr_name" id="addr_name" class="form-control w300" placeholder="" type="text"/> 
+                </div>
+            </div>
+            <div class="cb"></div> 
+        </div>
+
+
+        <div class="activity-poi-label">
+            <input type="checkbox" name="use-poi" id="use-poi"/>
+            <label for="use-poi">活动线路图(选填)</label>
+            <span class="tip">如涉及到多个活动地点或需要向用户展示跑步线路、骑行线路等请在地图上点击标识</span>
+
+            <div class="tips-tip">TIPS：鼠标左键描点，右键取消</div>
+        </div>
+      
+        <div class="activity-poi-map-warp">
+            <div class="ui-form-item">
+                <input name="search-poi" id="search-poi" class="form-control w400" type="text" placeholder="请输入地址"/>
+                <a href="javascript:void(0);" class="button  button-orange" id="search-poi">搜索</a>
+            </div>
+
+            <div class="active-pos-map" id="activePoiMap"></div>
+            <div id="points_box"></div>
+        </div>
+        <div class="step_div" >
+                <a href="javascript:void(0);"  class="button button-blue step_to3">上一步</a> 
+                &nbsp; 
+                <a href="javascript:void(0);" class="button button-orange step_to4">下一步</a>
+        </div>
+      </div>
+    </div>
+    {#第二步  地图选点 结束#}
+
+
+
+
+
+
+
+
+
+    {#第三步 活动详情 开始#}
+    <div class="step-slider-item" style="display: none">
+        <div  class="center"  >
+            <div class="activity-poi-label">
+                <label for="use-poi">活动详情: </label>
+                <span class="tip">(可以将活动详细的介绍,包括活动的时间,活动地点,活动流程,收费明细等等详细信息写在这里)</span>
+            </div>
+            <div class="w300" style="width: 100%;margin-bottom:20px;">
+			            <div class="limitText" id="limitText">
+			            	<!-- <span class="tip">可输入60字</span> -->
+			            	<div class="textarea-con">
+				                <textarea class="limitText-ta"  style="height:250px;"  placeholder="可输入50000字"></textarea>
+				                <span class="text-tip">0/50000</span>	            		
+			            	</div>
+			            </div>	            		
+           	</div> 
+            <div class="step_div" >
+                <a href="javascript:void(0);"  class="button button-blue step_to3">上一步</a> 
+                &nbsp; 
+                <a href="javascript:void(0);" class="button button-orange step_to4">下一步</a>
+            </div>
+        </div>
+    </div>
+    {#第三步 活动详情 结束#}
+
+
+
+
+
+    {#第四步 报名要求 开始#}
+    <div class="step-slider-item" style="display: none; ">
+      <div  class="center"  >
+        <div class="ui-form-item">
+            <label for="enroll_b_time" class="ui-label">
+            <span class="ui-form-required">*</span>
+                报名开始时间:
+            </label>
+            <input name="enroll_b_time" id="enroll_b_time" readonly="readonly" class="form-control w200" type="text"/> 
+        </div>
+
+
+        <div class="ui-form-item">
+            <label for="enroll_e_time" class="ui-label">
+            <span class="ui-form-required">*</span>
+                报名结束时间:
+            </label>
+            <input name="enroll_e_time" id="enroll_e_time" readonly="readonly" class="form-control w200" type="text"/> 
+        </div>
+
+
+        <div class="duohang ui-form-item">
+            <label for="enroll_limit" class="ui-label">
+            <span class="ui-form-required">&nbsp;</span>
+                人员属性:
+            </label>
+             
+            <div class="controls">
+                 <div class="radioSels clearfix">
+                            <div class="control-line">
+                                     <div class="control-line">
+                    						<div class="radio-wrap sel">
+                    							<input type="radio" name="aaa" value="1" checked="checked"/>
+                    							<label><i class="icon iconfont"></i>欢迎任何人加入</label>
+                    						</div>
+                                     </div>
+                            </div>
+            
+                            <div class="control-line">
+                                         <div class="control-line">
+                        						<div class="radio-wrap">
+                        							<input type="radio" name="aaa" value="2"  />
+                        							<label><i class="icon iconfont"></i>仅社团成员可以参加(成员30人)</label>
+                        						</div>
+                                         </div>
+                            </div> 
+                    </div>
+            </div>
+            
+        </div>
+
+
+        <div class="duohang ui-form-item">
+            <label for="enroll_limit_num" class="ui-label">
+            <span class="ui-form-required">&nbsp;</span>
+                人数:
+            </label>
+
+            <div class="controls">
+               <div class="radioSels clearfix">
+                    <div class="control-line">
+                         <div class="control-line">
+        						<div class="radio-wrap sel">
+        							<input type="radio" name="aaa" value="1" checked="checked"/>
+        							<label><i class="icon iconfont"></i>不限</label>
+        						</div>
+                         </div>
+                    </div>
+    
+                    <div class="control-line">
+                         <div class="control-line">
+        						<div class="radio-wrap  ">
+        							<input type="radio" name="aaa" value="1" checked="checked"/>
+        							<label><i class="icon iconfont"></i>
+                                    <input name="enroll_limit_num_inp"  onfocus="document.getElementById('enroll_limit_num_1').checked = true;"  id="enroll_limit_num_inp" class="form-control w50" placeholder="0" type="text"/> &nbsp; 人 
+                                    </label>
+        						</div>
+                         </div>
+                    </div>
+               </div>
+            </div>
+
+        </div>
+
+
+        <div class="duohang ui-form-item">
+            <label for="enroll_limit_num" class="ui-label">
+            <span class="ui-form-required">&nbsp;</span>
+                报名费:
+            </label>
+
+            <div class="controls">
+                <div class="radioSels clearfix">
+                   <div class="control-line">
+                        <div class="control-line">
+        					<div class="radio-wrap sel">
+        						<input type="radio" name="aaa" value="1" checked="checked"/>
+        						<label><i class="icon iconfont"></i>免费</label>
+        					</div>
+                        </div> 
+                    </div>
+    
+                    <div class="control-line">
+                          <div class="control-line">
+                                <div class="radio-wrap  ">
+            						<input type="radio" name="aaa" value="1" checked="checked"/>
+            						<label><i class="icon iconfont"></i>收费
+                                         <input name="total_fee" onfocus="document.getElementById('show_pay_1').checked = true;" id="total_fee" class="form-control w50" placeholder="0" type="text"> &nbsp; 元 
+                                    </label>
+                                    (<a href="">支付宝</a> | <a href="">微信</a> 两种方式都支持,结算无手续费)
+            					</div> 
+                           </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="duohang ui-form-item">
+            <label for="custom_fields" class="ui-label">
+            <span class="ui-form-required">&nbsp;</span>
+                报名资料:
+            </label>
+
+            <div class="controls custom_fields_warp">
+                <div class="control-line">
+                    系统默认每个用户都会填写
+                    <a href="javascript:;" class="button button-m button-b-orange system_field">姓名</a>
+                    <a href="javascript:;" class="button button-m button-b-orange system_field">电话</a>
+                    <a href="javascript:;" class="button button-m button-b-orange system_field">性别</a>
+                    <a href="javascript:;" class="button button-m button-b-orange system_field">年龄</a>
+                </div>
+
+                <div class="control-line custom_fields customed_fields" >
+                    自定义资料:
+
+                </div>
+
+                <div class="control-line">
+
+                    <input name="custom_field" id="custom_field" class="form-control w80" style="height:10px;" placeholder="自定义条件" type="text" /> 
+                    <a href="javascript:void(0)" class="button button-m button-orange add_custom_field"> 添加 </a>
+
+                </div>
+            </div>
+        </div>
+
+       <div class="step_div" >
+            <a href="javascript:void(0);"   class="button button-blue step_to4">上一步</a> &nbsp; 
+            <a href="javascript:void(0);" class="button button-orange step_to5">下一步</a>
+            <div class="clear" style="clear: both;"></div>
+       </div>
+
+    </div>
+    </div>
+    {#第四步 报名要求 结束#}
+
+
+
+
+
+
+
+
+    {#第五步 完成 开始#}
+    <div class="step-slider-item" style="display: none">
+        <div class="fx_div">
+            <div class="fx_div_mag">
+                <i class="icon iconfont" style="font-size:25px;color: #4ACF98;"></i>&nbsp;
+                <span>活动已发布 , 请打开APP社团页面核对信息！</span>
+            </div>
+            <div class="fenxiang">
+                <div class="fenxiang_text"></div>
+                <div class="fenxiang_text1">分享本活动至:</div>
+                <div class="clear"></div>
+            </div>
+
+
+            <div class="lr_fx1">
+                <div class="bdsharebuttonbox">
+                    <a href="#" class="bds_tsina lr_fx_xl" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_weixin lr_fx_wx" data-cmd="weixin" title="分享到微信"></a>
+                    <a href="#" class="bds_qzone lr_fx_kj" data-cmd="qzone" title="分享到QQ空间"></a>
+                    <a href="#" class="bds_renren lr_fx_rr" data-cmd="renren" title="分享到人人网"></a>
+                    <a href="#" class="bds_sqq lr_fx_qq" data-cmd="sqq" title="分享到QQ好友"></a>
+                </div>
+                <!-- http://share.baidu.com/code/advance
+                bdText : '自定义分享内容',
+                bdDesc : '自定义分享摘要',
+                bdUrl : '自定义分享url地址',
+                bdPic : '自定义分享图片'
+                 -->
+                <script>
+                    window._bd_share_config = {
+                        "common": {
+                            "bdSnsKey": {},
+                            "bdText": "天天听听歌",
+                            "bdMini": "2",
+                            "bdMiniList": false,
+                            "bdPic": "",
+                            "bdStyle": "0",
+                            "bdSize": "32"
+                        },
+                        "share": {},
+                        "image": {
+                            "viewList": ["tsina", "weixin", "qzone", "renren", "sqq"],
+                            "viewText": "分享到：", "viewSize": "16"
+                        },
+                        "selectShare": {
+                            "bdContainerClass": null,
+                            "bdSelectMiniList": ["tsina", "weixin", "qzone", "renren", "sqq"]
+                        }
+                    };
+                    with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                </script>
+            </div>
+            <div class="ok">
+                <a href="/org_v2/default/activity_list" class="ok_post"> 完 成 </a>
+            </div>
+        </div>
+
+        <div class="fx_titi">您还可以:</div>
+
+        <div class="fs_fl">
+            <a href="/org_v2/default/activity_share" class="fs_fl_both fx_bg"></a>
+            <a href="/org_v2/default/activity_sign" class="fs_fl_both qd_bg"></a>
+            <a href="/org_v2/default/activity_check" class="fs_fl_center sh_bg"></a>
+            <a href="/org_v2/default/activity_group" class="fs_fl_both fz_bg"></a>
+            <a href="/org_v2/default/activity_inform" class="fs_fl_both hd_bg"></a>
+            <a href="/org_v2/default/activity_photo" class="fs_fl_center zp_bg"></a>
+
+            <div class="clear"></div>
+        </div>
+
+
+    </div>
+    {#第五步 完成 结束#}
+    </div>
+    <div class="cb"></div>
+    </div>
+
+    <div class="cb"></div>
+{% endblock %}
+{#主工作区 结束#}
+
+
+
+
+{% block script %}
+    <script>
+        var uploader_url = "/user/userInfo/imgUp";
+        var aid = '{{aid}}';
+        var swf = '{{ this.module.assetsUrl }}/static/plugins/webuploader/Uploader.swf';
+    </script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hqkEDHjAXn4VaTzt3a7RRZGP"></script>
+    {#<script src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>#}
+    <script src="{{ this.module.assetsUrl }}/static/plugins/laydate/laydate.js"></script>
+    <script src="{{ this.module.assetsUrl }}/static/plugins/webuploader/webuploader.js"></script>
+    <script src="{{ this.module.assetsUrl }}/static/js/activity/activity.post.js"></script>
+{% endblock %}

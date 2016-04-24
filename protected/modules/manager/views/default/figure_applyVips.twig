@@ -1,0 +1,117 @@
+{% extends '/modules/manager/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">申请达人列表</h3>
+    </div>
+    <div class="ui-box-container mh380">
+		<div id="mainPanel">
+			<div class="ui-tab">
+			    <ul class="ui-tab-items">
+			        <li class="ui-tab-item ui-tab-item-current">
+			            <a href="javascript:;" id="adminList">申请达人列表</a>
+			        </li>
+			        <li class="ui-tab-item">
+			            <a href="javascript:;" id="adminList">申请达人回收站列表</a>
+			        </li>
+			    </ul>
+			    <div class="ui-switchable-content mt10">
+		            <div id="adminListCon"></div>
+		            <div id="rabishListCon"></div>
+			    </div>
+			</div>
+		</div>
+		<div id="secondPanel">
+    		<div class="return-wrap"> 
+    			<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+    		</div>
+    		<div id="operateWrap"></div>
+		</div>
+		</div>
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+<script type="text/temlate" id="figure_detail_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">用户详情</p>
+		</div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            昵称:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= nick_name %></span>
+	        </div>
+	    </div>	  
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            真实姓名:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= real_name || '' %></span>
+	        </div>
+	    </div>     
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            头像:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<div id="headImgWrap" class="head-img-wrap-hide">
+	        		<img src="<%= head_img_url %>" alt="" />
+	        	</div>
+	        </div>
+	    </div>	
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            个人签名:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= sign || '' %></span>
+	        </div>
+	    </div> 
+
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            真实姓名:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= real_name || '' %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            联系电话:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= contact_phone %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            通讯地址:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= address %></span></div>
+	    </div>		    
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+	<script>
+		seajs.use('{{ this.module.assetsUrl }}/static/js/page/figureApplyVips.js');
+	</script>
+</script>
+{% endblock %}

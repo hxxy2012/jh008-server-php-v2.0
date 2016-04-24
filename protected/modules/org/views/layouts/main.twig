@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta name="author" content="Steve Smith" />
+	<title> 集合啦 全心全意为社团服务！</title>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/sea-modules/arale/dialog/1.3.1/dialog.css" />
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/head.css" />
+    
+    {% block stylesheet %}{% endblock %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/foot.css" />
+</head>
+
+<body {% block bodyAttr %}{% endblock %}>
+<!--头部-->
+ <div class="h_1">
+      <div class="h_2">
+          <div class="h_3"></div>
+          <div class="h_4">
+            <span>Hi !  <span class="org_name">{{ App.user.getOrgName }}</span>  </span>&nbsp;
+            <span class="out" >退出</span> &nbsp;
+          </div>
+          <div class="clear"></div>
+      </div>
+ </div>
+{% block content %}{% endblock %}
+<!--尾-->
+ <div class="f_1">
+      <div class="f_2">
+          <div class="f_4"></div>
+          <div class="f_3">
+              <div class="f_5">
+                 <a href="#">关于我们</a> &nbsp;|&nbsp; <a href="#">联系我们</a> &nbsp;|&nbsp; <a href="#">合作伙伴</a> 
+              </div>
+              <div class="f_6">Copyright?2008-2014 huanq , All Rights Reserved.</div>
+              <div class="f_7">川ICPxxxxx</div>
+          </div>
+
+      </div>
+ </div>
+ <script>
+    var basePath = "{{ this.module.assetsUrl }}";
+    //提交地址
+   // var domain = 'test.app.jhla.com.cn';
+</script>
+<script src="{{ this.module.assetsUrl }}/sea-modules/seajs/seajs/2.2.1/sea.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/main/config.js"></script>
+ {% block javascript %}{% endblock %}
+</body>
+</html>

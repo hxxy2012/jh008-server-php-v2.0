@@ -1,0 +1,42 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}活动报道{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/activity_reports.css"/>
+{% endblock %}
+{#主工作区#}
+{% block body %}
+<div class="m_1">
+        <div class="dh">
+           <a href="/org_v2/default/activity_reports" class="dh1 fx"><span>报道列表</span></a>
+           <a href="/org_v2/default/activity_news" class="dh2 qd"><span>新闻发布</span></a>
+           <div class="dh3"></div><div class="clear" ></div>
+        </div>
+        <div class="lr"> 
+           <div class="k-table-container" id="tableCon">
+              <table class="table">
+                <thead>
+                   <tr>
+                     <th>序号</th>
+                     <th>发布时间</th>
+                     <th>标题</th>
+                     <th>操作</th>
+                   </tr>
+                </thead>
+                <tbody style="">
+                </tbody>
+              </table>
+           </div>
+        </div>
+</div>
+
+ 
+ 
+ 
+ 
+ 
+ 
+{% endblock %}
+{#主工作区 结束#}
+{% block script %}
+     <script src="{{ this.module.assetsUrl }}/static/js/activity/activity_reports.js"></script>
+{% endblock %}

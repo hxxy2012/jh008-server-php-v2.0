@@ -1,0 +1,115 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/payment/money_draw.css" />
+{% endblock %}
+{% block content %}
+<!--内容-->
+<div class="c_1">
+    <div  class="c_2">
+       <div class="c_3">
+         <a class="c_4" href="/org/default/index"></a>
+         <a class="c_5" href="/org/default/zl">设置</a>
+         <a class="c_6" href="/org/default/costdetail">款项</a>
+         <a class="c_7" href="/org/default/index">活动</a>
+         <div class="clear"></div>
+       </div>
+    </div>
+</div>
+
+ <div class="c1_1">
+      <div class="c1_2">
+          <!--a class="c1_3" href="/org/default/add">充值</a-->
+          <a class="c1_4" href="/org/default/costdetail">明细</a>
+          <a class="c1_5" href="/org/default/draw">申请提现</a>
+      <div class="clear"></div>
+ </div>
+
+<div class="c2_1" >
+    <div  class="c2_2">
+      <div  class="c2_3"></div>
+      <div  class="c2_4">
+          <div class="c2_4_1">可提现金额:&nbsp;</div>
+          <div class="c2_4_2" style="color: #FF9B33;">&yen; <span id='allow_fee'>0.00</span></div>
+          <div class="clear"></div>
+      </div>
+      
+      <div  class="c2_5"></div>
+      
+      <div  class="c2_4">
+          <div class="c2_4_1">提现:&nbsp;</div>
+          <div class="c2_4_2" style="color: #FF9B33;">
+              <input type="text" class="txmoney" maxlength="10" placeholder=" 金额"  />
+          </div>
+          <div class="clear"></div>
+      </div>
+      
+      <div  class="c2_6"></div>
+      
+       <div  class="c2_4">
+          <div class="c2_4_1">姓名:&nbsp;</div>
+          <div class="c2_4_2" style="color: #FF9B33;">
+              <input type="text" class="name" maxlength="10" placeholder=" XX姓名" id="real_name"/>
+          </div>
+          <div class="clear"></div>
+      </div>
+ 
+      <div  class="c2_4" style="margin-top: 10px;">
+          <div class="c2_4_1">&nbsp;</div>
+          <div class="c2_4_2" style="color: #FF9B33;">
+             <div style="float: left;width: 300px; font-size: 14px;">为保证资金安全，提现人暂不支持修改，咨询请</div>
+             <div  class="gly"></div>
+             <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+      </div>
+ 
+      <div  class="c2_6"></div>
+ 
+      <div  class="c2_4">
+          <div class="c2_4_1">&nbsp;</div>
+          <div class="c2_4_2" style="color: #FF9B33;">
+               <div style="float: left;width:250px;color:#778183;font-size: 16px;"><input type="radio" class="zf" value="alipay"  checked="checked" style="width:20px;height:20px;vertical-align: middle;"  /> 提现到支付宝</div> 
+               <div style="float: left;width:300px;color:#CCCCCC;font-size: 16px;"><input type="radio" class="zf" value="wxpay" disabled="true" style="width:20px;height:20px;vertical-align: middle;"/> 提现到微信</div> 
+               <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+      </div>
+      
+      <div  class="c2_6"></div>
+      
+      <div  class="c2_4">
+          <div class="c2_4_1">支付宝账号:&nbsp;</div>
+          <div class="c2_4_2" style="color: #FF9B33;">
+              <input type="text" class="zhanghao" maxlength="20" placeholder=" 输入账号"/>
+              <span style="font-size: 14px;">请确保提现账号与收款人姓名匹配，否则无法成功提现！</span>
+          </div>
+          <div class="clear"></div>
+      </div>
+      
+      <div  class="c2_4" style="margin-top: 10px;">
+          <div class="c2_4_1">&nbsp;</div>
+          <div class="c2_4_2" >
+              还有<span id="allow_num">0</span>次提现申请 (不满5次时，每次收费活动可以增加1次提现机会！)
+          </div>
+          <div class="clear"></div>
+      </div>
+      
+      <div  class="c2_7"></div>
+      <div  class="c2_8">
+      <div  class="c2_8_1"></div>
+      </div>
+
+      
+      
+      
+      
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+	<script>
+         var url='{{ this.module.assetsUrl }}';
+		seajs.use('{{ this.module.assetsUrl }}/static/js/page/draw.js');
+	</script>
+{% endblock %}

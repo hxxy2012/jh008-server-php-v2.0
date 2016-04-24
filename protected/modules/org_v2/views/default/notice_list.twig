@@ -1,0 +1,55 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}社团二维码{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/assn.css"/>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+<div class="notice-con">
+    <div class="p15">
+        <div class="notice-ways-con">
+        <div class="ui-tab2">
+            <ul class="ui-tab2-items">
+                <li class="ui-tab2-item">
+                    <a href="/org_v2/default/notice">发送通知</a>
+                </li>
+                <li class="ui-tab2-item ui-tab2-item-current">
+                    <a href="/org_v2/default/noticeList">通知记录</a>
+                </li>            
+            </ul>
+        </div>
+        <div class="p15">
+            <div class="radioSels clearfix">
+                <div class="radio-wrap radio-wrap-fl">
+                    <input type="radio" name="aaa" value="1">
+                    <label><i class="icon iconfont"></i>APP消息推送</label>
+                    <div class="limitText" id="">
+                        <div class="textarea-con">
+                            <textarea class="limitText-ta" placeholder="可输入25个字"></textarea>
+                            <span class="text-tip">0/25</span>                      
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-wrap sel radio-wrap-fr">
+                    <input type="radio" name="aaa" value="2">
+                    <label><i class="icon iconfont"></i>短信</label>
+                    <div class="limitText" id="">
+                        <div class="textarea-con">
+                            <textarea class="limitText-ta" placeholder="可输入60个字"></textarea>
+                            <span class="text-tip">0/60</span>                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{#主工作区 结束#}
+
+
+{% block script %}
+    <script src="{{ this.module.assetsUrl }}/static/js/notice.js" ></script>   
+{% endblock %}

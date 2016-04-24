@@ -1,0 +1,75 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/qd.css" />
+{% endblock %}
+{% block content %}
+
+<!--内容-->
+<div class="c_1">
+    <div  class="c_2">
+       <div class="c_3">
+                <a class="c_4" href="/org/default/index"></a>
+                <a class="c_5" href="/org/default/zl">设置</a>
+                <a class="c_6" href="/org/default/costdetail">款项</a>
+                <a class="c_7" href="/org/default/index">活动</a>
+         <div class="clear"></div>
+       </div>
+    </div>
+</div>
+
+ <div class="c1_1">
+      <div class="c1_2">
+          <a class="c1_3" href="/org/default/index">首页</a>
+          <a class="c1_4" href="/org/default/activity">活动发布</a>
+          <a class="c1_5" href="/org/default/data">活动数据</a>
+          <div class="clear"></div>
+      </div>
+ </div>
+<div class="c2_1"></div>
+
+
+ <div class="c3_1">
+      <div class="c3_2">
+          <!--左-->
+         <div class="c3_3">
+             <a href="/org/default/bm?id={{aid}}" class="bm"></a>
+             <a href="/org/default/fz?id={{aid}}" class="fz"></a>
+             <a href="/org/default/qd?id={{aid}}" class="qd"></a>
+             <a href="/org/default/mag?id={{aid}}" class="mag"></a>
+             <a href="/org/default/Photo?id={{aid}}" class="xp"></a>
+             <div class="clear"></div>
+         </div>
+         <!--右-->
+         <div class="c3_4">
+             <!--循环签到点-->
+                
+            <!--循环签到点end-->
+            <div class="clear"></div>
+            <div  class="c3_4_2"></div>
+            <div  class="c3_4_3">
+               <a  class="c3_4_3_1" href="#add" ></a>
+               <div  class="c3_4_3_2"></div>
+               <div class="clear"></div>
+            </div>
+            <div  class="c3_4_4"></div>
+         </div>
+         <div class="clear"></div>
+      </div>
+      
+      <div class="c3_5"></div>
+ </div> 
+{% endblock %}
+
+{% block javascript %}
+
+  <script src="{{ this.module.assetsUrl }}/static/js/hashmap/qrcode.min.js"></script> 
+	<script>
+         var url='{{ this.module.assetsUrl }}';
+         seajs.config({
+            alias: {"cc": url+"/static/js/hashmap/hm.checkin.canvas.js"}
+          });
+	       seajs.use('{{ this.module.assetsUrl }}/static/js/hashmap/activity.qd.js',function (qd) {
+            qd.init('{{ aid }}'); 
+        });
+	</script>
+{% endblock %}

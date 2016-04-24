@@ -1,0 +1,80 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}申请提现{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/base.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/payment/financial_information.css"/>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+    <div class="section-bd">
+        <div class="search-w">
+            <div class="balance-w">
+            	<span>余额：<strong>￥4879.00</strong></span>
+            </div>
+        </div>
+
+        <div class="w800">
+			<div class="ui-tab2">
+			    <ul class="ui-tab2-items">
+			        <li class="ui-tab2-item ui-tab2-item-current">
+			            <a href="/org_v2/default/transfer"><!--<i class="icon iconfont"></i>-->申请体现</a>
+			        </li>
+			        <li class="ui-tab2-item">
+			            <a href="/org_v2/default/transfer_list"><!--<i class="icon iconfont"></i>-->提现列表</a>
+			        </li>	        
+			    </ul>
+			</div>	
+
+			<div class="info-w">
+		        <form>
+		        	<div class="info-item info-item-1">
+		        		<label>提现金额：</label>
+		        		<input type="text" class="form-control"/>元
+		        	</div>
+		        	<div class="info-item info-item-2">
+		        		<label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+		        		<input type="text" class="form-control"/>
+		        	</div>
+		        	<div class="info-item info-item-3">
+		        		<label>支付宝账号：</label>
+		        		<input type="text" class="form-control"/>
+		        		<span><i>*</i>申请提现后，将在3个工作日内处理您的申请</span>
+		        	</div>
+
+		   			<input type="submit" class="ui-form-submit" value="申请提现" />
+		        </form>
+	        </div>
+		</div>
+
+
+
+
+
+
+        
+		<!--<div class="pagation section-pagation">
+			<a href="javascript:void(0)" class="page"><i class="icon iconfont"></i></a>
+			<a href="javascript:void(0)" class="page cur">1</a>
+			<a href="javascript:void(0)" class="page">2</a>
+			<a href="javascript:void(0)" class="page">3</a>
+			<a href="javascript:void(0)" class="page">4</a>
+			<a href="javascript:void(0)" class="page">5</a>
+			<a href="javascript:void(0)" class="page">...</a>
+			<a href="javascript:void(0)" class="page"><i class="icon iconfont"></i></a>
+			<span class="text marginbar">共12页</span>
+			<span class="text">向</span>
+			<input type="text"  class="" />
+			<span class="text">页跳转</span>
+			<a class="sure-btn" href="javascript:void(0)">确定</a>
+		</div>-->
+    </div>
+{% endblock %}
+{#主工作区 结束#}
+
+
+
+
+{% block script %}
+
+{% endblock %}

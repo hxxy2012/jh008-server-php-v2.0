@@ -1,0 +1,73 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
+}
+body {
+	background-color: #eee;
+	font-size: 14px;
+}
+
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.mt8 {margin-top: 8px;}
+.mt10 {margin-top: 10px;}
+.mt12 {margin-top: 12px;}
+.mt15 {margin-top: 15px;}
+.clearfix:after{content:'.';display:block;height:0;clear:both;visibility:hidden}
+.clearfix{zoom:1; for IE6 IE7}
+
+.res-img {
+	max-width: 100%;
+	width: 100%;
+}
+
+.item-wrap {
+	background-color: #fff;
+	padding: 16px 18px;
+	margin-bottom: 18px;
+}
+.tag, .price{
+	font-size: 16px;
+	color: #ff9933;
+	display: inline-block;
+	font-weight: bold;
+}
+.tag {
+	float: left;
+}
+.price {
+	float: right;
+}
+.addr-address {
+	color: #999;
+	font-size: 14px;
+}
+.item-title {
+	font-size: 16px;
+	font-weight: bold;
+	position: relative;
+}
+.item-title-icon {
+	width: 4px;
+	height: 12px;
+	background: #ff9933;
+	margin-left: -10px;
+	display: inline-block;
+	margin-right: 7px;
+}
+.img-wrap {
+	position: relative;
+}
+.img-wrap .title {
+	position: absolute;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	bottom: 15px;
+	left: 18px;
+}

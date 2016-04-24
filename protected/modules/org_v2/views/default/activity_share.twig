@@ -1,0 +1,116 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}活动分享{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/activity_share.css"/>
+{% endblock %}
+{#主工作区#}
+{% block body %}
+     <div class="h_1" >
+        <div class="h_2"></div>
+        <div class="h_3">齐丽萍决定是否合适的客户发送的空间发挥</div>
+        <div class="clear" ></div>
+     </div>
+     <div class="m_1">
+        <div class="dh">
+           <a href="/org_v2/default/activity_share" class="dh1"><span>&nbsp;&nbsp;&nbsp;&nbsp;分享</span></a>
+           <a href="/org_v2/default/activity_sign" class="dh2 qd"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置签到点</span></a>
+           <a href="/org_v2/default/activity_check" class="dh2 sh"><span>&nbsp;&nbsp;&nbsp;&nbsp;报名审核</span></a>
+           <a href="/org_v2/default/activity_group" class="dh2 fz"><span>&nbsp;&nbsp;&nbsp;&nbsp;分组</span></a>
+           <a href="/org_v2/default/activity_inform" class="dh2 tz"><span>&nbsp;&nbsp;&nbsp;&nbsp;活动通知</span></a>
+           <a href="/org_v2/default/activity_photo" class="dh2 xc"><span>&nbsp;&nbsp;&nbsp;&nbsp;相册</span></a>
+           <div class="dh3"></div><div class="clear" ></div>
+        </div>
+        <div class="lr">
+           <div class="lr1">
+              <div class="lr2"></div>
+              <div class="lr3">分享本活动至：</div>
+              <div class="clear" ></div>
+           </div>
+        
+            <div class="lr_fx">
+               <div class="lr_fx1"> 
+                 <!--
+                 <div class="gg"  >
+                    <div class="lr_fx_xl"></div>
+                    <div class="fx_name">新浪</div>
+                 </div>
+                 
+                 <div class="gg1" >
+                    <div class="lr_fx_wx"></div>
+                    <div class="fx_name">微信</div>
+                 </div>
+                 
+                 <div class="gg1" >
+                    <div class="lr_fx_kj"></div>
+                    <div class="fx_name">QQ空间</div>
+                 </div>
+                 
+                 <div class="gg1" >
+                    <div class="lr_fx_rr"></div>
+                    <div class="fx_name">人人网</div>
+                 </div>
+                 
+                 <div class="gg1" >
+                    <div class="lr_fx_qq"></div>
+                    <div class="fx_name">QQ</div>
+                 </div>
+                                
+                  <div class="clear" ></div>
+               </div>
+               -->
+               <div class="bdsharebuttonbox">
+               <a href="#" class="bds_tsina lr_fx_xl" data-cmd="tsina" title="分享到新浪微博"></a>
+               <a href="#" class="bds_weixin lr_fx_wx" data-cmd="weixin" title="分享到微信"></a>
+               <a href="#" class="bds_qzone lr_fx_kj" data-cmd="qzone" title="分享到QQ空间"></a>
+               <a href="#" class="bds_renren lr_fx_rr" data-cmd="renren" title="分享到人人网"></a>
+               <a href="#" class="bds_sqq lr_fx_qq" data-cmd="sqq" title="分享到QQ好友"></a>
+               </div>
+               <!-- http://share.baidu.com/code/advance
+               bdText : '自定义分享内容',	
+			   bdDesc : '自定义分享摘要',	
+			   bdUrl : '自定义分享url地址', 	
+			   bdPic : '自定义分享图片'
+                -->
+               <script>
+               window._bd_share_config={
+                "common":{
+                    "bdSnsKey":{},
+                    "bdText":"asdfasdfasdf",
+                    "bdMini":"2",
+                    "bdMiniList":false,
+                    "bdPic":"",
+                    "bdStyle":"0",
+                    "bdSize":"32"
+                    },
+                    "share":{},
+                    "image":{
+                        "viewList":["tsina","weixin","qzone","renren","sqq"],
+                        "viewText":"分享到：","viewSize":"16"
+                    },
+                    "selectShare":{
+                        "bdContainerClass":null,
+                        "bdSelectMiniList":["tsina","weixin","qzone","renren","sqq"]
+                    }};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                </script>
+            </div>
+           
+            <div class="fh">
+             <a class="fh1" href="/org_v2/default/activity_list"> 返 回 </a>
+            </div>
+            
+            
+      </div>
+      
+     </div>
+
+ 
+ 
+ 
+ 
+ 
+ 
+{% endblock %}
+{#主工作区 结束#}
+{% block script %}
+     <script src="{{ this.module.assetsUrl }}/static/js/hm.activity_share.js"></script>
+{% endblock %}

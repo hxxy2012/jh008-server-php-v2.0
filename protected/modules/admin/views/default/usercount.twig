@@ -1,0 +1,75 @@
+{% extends '/modules/admin/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+    <link media="all" href="{{ this.module.assetsUrl }}/sea-modules/arale/calendar/1.0.0/calendar.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">基础数据统计</h3>
+    </div>
+    <div class="ui-box-container">
+        <div class="ui-tab">
+            <ul class="ui-tab-items">
+                <li class="ui-tab-item ui-tab-item-current" role="tab1">
+                    <a href="javascript:;">基础统计</a>
+                </li>
+                <li class="ui-tab-item" role="tab2" id="registCount">
+                    <a href="javascript:;">注册用户数统计</a>
+                </li>
+            </ul>
+            <div class="ui-switchable-content mt10">
+                <div id="tab1">
+                    <div id="countWrap"></div>
+                </div>
+                <div id="tab2" class="none">
+                    <div>
+                        <span>开始时间</span>
+                        <input class="ui-input" type="text" id="startDate" placeholder="开始时间">
+                        <span class="ml30">结束时间</span>
+                        <input class="ui-input" type="text" id="endDate" placeholder="结束时间">
+                        <a href="javascript:;" id="dateSearch" class="ml30 ui-button ui-button-ldarkblue">搜索</a>
+                        <div id="registWrap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    	
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+<script type="text/template" id="count_template">
+<div class="ui-table-container">
+    <table class="ui-table">
+        <thead>
+            <tr>
+                <th>总的注册数</th>
+                <th>今日注册数</th>
+                <th>昨日注册数</th>
+                <th>最近七天注册数</th>
+            </tr>
+        </thead><!-- 表头可选 -->
+        <tbody>
+            <tr>
+                <td><%= all_num %></td>
+                <td><%= today_num %></td>
+                <td><%= yesterday_num %></td>
+                <td><%= sevenday_num %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</script>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{{ this.module.assetsUrl }}/static/highcharts/js/highcharts.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/highcharts/js/exporting.js"></script>
+<script>
+	seajs.use('{{ this.module.assetsUrl }}/static/js/page/usercount.js');
+</script>
+{% endblock %}

@@ -1,0 +1,219 @@
+{% extends '/modules/admin/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">管理员列表</h3>
+    </div>
+    <div class="ui-box-container mh380">
+		<div class="ui-tab">
+		    <ul class="ui-tab-items">
+		        <li class="ui-tab-item ui-tab-item-current">
+		            <a href="javascript:;" id="adminList">管理员列表</a>
+		        </li>
+		        <li class="ui-tab-item">
+		            <a href="javascript:;" id="rabishList">回收站列表</a>
+		        </li>
+		    </ul>
+		    <div class="ui-switchable-content mt10">
+	            <div id="adminListCon">
+	            	<div id="operateAdmin" style="display:none">
+	            		<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+	            		<div id="operateWrap"></div>
+	            	</div>
+	            	<div id="adminListWrap">
+	            		<a href="javascript:;" id="createAdmin" class="mb10 ui-button ui-button-mdarkred">创建新管理员</a>
+	            		<div id="adminListPanel"></div>
+	            	</div>
+	            </div>
+	            <div id="rabishListCon">
+	            </div>
+		    </div>
+		</div>
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+<script type = "text/template" id="add_admin_template">
+	<div id="addAdminContainer">
+		<div class="lc-ui-form" name="" method="post" action="#">
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            用户名:
+		        </label>
+		        <div class="lc-ui-rs">
+					<input id="uName" class="lc-ui-input w280" type="text" placeholder="">
+		        </div>
+		    </div>
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            密码:
+		        </label>
+		        <div class="lc-ui-rs">
+					<input id="uPass" class="lc-ui-input w280" type="password" placeholder="">
+		        </div>
+		    </div>  
+		 	<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            昵称:
+		        </label>
+		        <div class="lc-ui-rs">
+					<input id="nickName" class="lc-ui-input w280" type="text" placeholder="">
+		        </div>
+		    </div>   
+		    <div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            头像图片:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<div id="headImgWrap"  class="head-img-wrap-hide">   
+		        		<img id="logo" src="" alt="" />
+		        	</div>
+		        	<a href="javascript:;" id="changeLogo" class="change-logo ui-button ui-button-sdarkred">上传logo</a>
+		        </div>
+		    </div>
+		    <div class="fn-clear">
+		    	<a href="javascript:;" id="addAdminBtn" class="changeinfo-btn ui-button ui-button-sdarkred">创建</a>
+		    </div>	
+		</div>
+	</div>
+</script>
+<script type="text/template" id="adminShowTemplate">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            用户名:
+	        </label>
+	        <span class="lc-ui-form-span"><%= u_name %></span>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            昵称:
+	        </label>
+	        <span class="lc-ui-form-span"><%= nick_name %></span>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            头像:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<div id="headImgWrap" class="head-img-wrap-hide">
+	        		<img src="<%= head_img_url %>" alt="" />
+	        	</div>
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            状态:
+	        </label>
+	        <span class="lc-ui-form-span">
+	        	<% if(status==-1){ %>已删除<% } else if(status==0){ %>正常<% } %>
+	        </span>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            创建时间:
+	        </label>
+	        <div class="lc-ui-rs">
+	       		<span class="lc-ui-form-span"><%= create_time %></span>
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            最后登录时间:
+	        </label>
+	        <span class="lc-ui-form-span"><%= last_login_time %></span>
+	    </div>
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="editAdminBtn" class="changeinfo-btn ui-button ui-button-sdarkred">修改个人信息</a>
+	    </div>					    
+	</div>
+</script>
+<script type="text/template" id="adminEditTemplate">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            用户名:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= u_name %></span>
+	        </div>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            昵称:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="nickName" value="<%= nick_name %>" class="lc-ui-input w280" type="text" placeholder="">
+	        </div>
+	    </div>	    
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            头像:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（推荐使用120*120图片）</span>
+	        	<div id="headImgWrap"  class="head-img-wrap-hide">   
+	        		<img id="logo" src="<%= logo_img_url %>" alt="" />
+	        	</div>
+	        	<a href="javascript:;" id="changeLogo" class="change-logo ui-button ui-button-sdarkred">更换logo</a>
+	        	<span id="logoSpan"></span>
+	        </div>
+	    </div>	
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="saveAdminBtn" class="changeinfo-btn ui-button ui-button-sdarkred">确认修改</a>
+	    </div>					    
+	</div>
+	<div class="change-area">
+		<div class="lc-ui-form" name="" method="post" action="#" id="">
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            旧密码:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<input id="oldPwd" class="lc-ui-input w280" type="text" placeholder="">
+		        </div>
+		    </div>
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            新密码:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<input id="Pwd" class="lc-ui-input w280" type="password" placeholder="">
+		        </div>
+		    </div>
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            确认密码:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<input id="surePwd" class="lc-ui-input w280" type="password" placeholder="">
+		        </div>
+		    </div>
+		    <div class="lc-ui-form-item fn-clear">
+	    		<a href="javascript:;" id="saveAdminPwdrBtn" class="changeinfo-btn ui-button ui-button-sdarkred">确认修改</a>
+		    </div>		    		    
+		</div>   
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script>
+	seajs.use('{{ this.module.assetsUrl }}/static/js/page/admins.js');
+</script>
+{% endblock %}

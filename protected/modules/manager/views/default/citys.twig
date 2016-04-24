@@ -1,0 +1,40 @@
+{% extends '/modules/manager/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">城市管理</h3>
+    </div>
+    <div class="ui-box-container mh380">
+		<div id="mainPanel">
+	    	<div class="search-wrap">
+				<a href="javascript:;" id="create" class="ui-button ui-button-ldarkred">添加城市</a>		
+	    	</div>
+			<div class="ui-tab">
+			    <ul class="ui-tab-items">
+			        <li class="ui-tab-item ui-tab-item-current">
+			            <a href="javascript:;" id="adminList">城市列表</a>
+			        </li>
+			    </ul>
+			    <div class="ui-switchable-content mt10">
+		            <div id="cityCon"></div>
+			    </div>
+			</div>
+		</div>
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+{% endblock %}
+
+{% block javascript %}
+	<script>
+		seajs.use('{{ this.module.assetsUrl }}/static/js/page/citys.js');
+	</script>
+</script>
+{% endblock %}

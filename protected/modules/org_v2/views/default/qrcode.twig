@@ -1,0 +1,62 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}社团二维码{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/assn.css"/>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+<div class="qrcode-con">
+    <div class="p15">
+        <h3 class="qc-title">二维码</h3>
+        <div class="qc-box">
+        </div>
+        <h3 class="qc-title">下载不同尺寸二维码</h3>
+        <div class="qc-table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>二维码边长（cm）</th>
+                        <th>建议扫描距离（m）</th>                        
+                        <th>下载链接</th>            
+                    </tr>   
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td>8cm</td>
+                        <td>0.5m</td>
+                        <td><i class="icon iconfont"></i></td>
+                    </tr>
+                    <tr class="even">
+                        <td>12cm</td>
+                        <td>0.8m</td>
+                        <td><i class="icon iconfont"></i></td>
+                    </tr>
+                    <tr class="odd">
+                        <td>15cm</td>
+                        <td>1m</td>
+                        <td><i class="icon iconfont"></i></td>
+                    </tr>
+                    <tr class="even">
+                        <td>30cm</td>
+                        <td>1.5m</td>
+                        <td><i class="icon iconfont"></i></td>
+                    </tr>
+                    <tr class="odd">
+                        <td>50cm</td>
+                        <td>2.5m</td>
+                        <td><i class="icon iconfont"></i></td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{#主工作区 结束#}
+
+
+{% block script %}
+    <script src="{{ this.module.assetsUrl }}/static/js/profile.js"></script>
+{% endblock %}

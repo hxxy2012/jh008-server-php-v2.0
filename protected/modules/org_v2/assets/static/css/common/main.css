@@ -1,0 +1,107 @@
+
+
+.main-warp{
+    width: 1200px;
+    overflow: hidden;
+    height: auto;
+    margin: 0 auto;
+}
+.menu-warp{
+    float: left;
+    width: 200px;
+    overflow: hidden;
+    height: auto;
+    background: #F6F6F6;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+}
+.menu-warp ul,.menu-warp ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+menu{
+
+}
+.menu-head{
+    height: 47px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 47px;
+    padding-left: 45px;
+    border-bottom: 1px dashed #EEE;
+    margin-bottom: 5px;
+    background: url("") no-repeat  14px center ;
+}
+.menu .club-info{
+    background-image: url("../images/icon-club-info.png");
+}
+.menu .operating-activity{
+    background-image: url("../images/icon-operating-activity.png");
+}
+.menu .wallet{
+    background-image: url("../images/icon-wallet.png");
+}
+.menu>ul{
+    width: 100%;
+}
+.menu>ul>li{
+    width: 155px;
+    padding-left: 45px;
+    height: 45px;
+    line-height: 45px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+.menu>ul>li>a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666;
+}
+
+.menu>ul>li.active,.menu>ul>li:hover{
+    background: #fff;
+    padding-left: 41px;
+    border-left: 4px solid #FF9934;
+}
+
+.browser{
+    float: right;
+    width: 1000px;
+    overflow: hidden;
+    height: auto;
+    background: #fff;
+}
+
+.foot-warp{
+    height: 78px;
+    background: #FFF;
+    width: 100%;
+    border-top: 1px solid #E8E8E8;
+}
+.foot-body{
+    margin: 0 auto;
+    padding: 19px;
+    text-align: center;
+    line-height: 21px;
+
+}
+.foot-body a{
+    color: #666;
+}
+.foot-split{
+    display: inline-block;
+    height: 15px;
+    margin: 0 30px;
+    border-left: 1px solid #CCC;
+}
+.copyright,.copyright a{
+    font-size: 12px;
+    color: #A7A7A7;
+}

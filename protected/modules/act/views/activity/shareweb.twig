@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<title>集合啦！分享</title>
+
+
+</head>
+<body >
+<div class="winxin-for-open-browser" id="wfob-mask">
+	<img src="{{ this.module.assetsUrl }}/images/1.png" />
+</div>
+
+   <div class="fx_1">
+       <div class="fx_2">
+             <div class="fx_3">
+                <img src="{{ this.module.assetsUrl }}/images/sj_fx2.png" width="100%" />
+             </div>
+             <div class="fx_4" id="open_app">
+                <input type="image"   src="{{ this.module.assetsUrl }}/images/sj_fx1.png" style="width:100%" />
+             </div>
+             <div class="clear"></div>
+       </div>
+       <div class="title">{{act.title}}</div>
+       
+       <div class="title_img">
+          <img src="{{act.h_img_url}}" width="100%" />
+       </div>
+       
+       <div class="shuju">
+          <div class="shuju1">以有<span style="color: #FF9835;">{{act.enroll_num}}</span>人报名</div>
+          <div class="shuju2">{{act.cost==0?'<span style="color: #21AE00;">免费</span>':'<span style="color:red;">收费</span>'}}</div>
+          <div class="clear"></div>
+       </div>
+       
+       
+       <div class="a_time">
+          <div class="a_time1">报名截止</div>
+          <div class="a_time2">
+             <div class="daojis">
+                 <div class="daojis1">倒计时  </div>
+                 <div class="daojis2" id="h1">0</div>
+                 <div class="daojis3" id="h2">0</div>
+                 <div class="daojis3" id="h3">0</div>
+                 <div class="daojis4">:</div>
+                 <div class="daojis5" id="m1">0</div>
+                 <div class="daojis6" id="m2">0</div>
+                 <div class="daojis7">:</div>
+                 <div class="daojis8" id="s1">0</div>
+                 <div class="daojis9" id="s2">0</div>
+                 <div class="clear"></div>
+             </div>
+          </div>
+          <div class="clear"></div>
+       </div>
+       <div class="time_start">
+          <div class="time_start1">活动时间</div>
+          <div class="time_start2">{{act.b_time}}</div>
+          <div class="clear"></div>
+       </div>
+       
+       <div class="didian">
+           <div class="didian1">
+               <div class="didian2">{{act.addr_name}}</div>
+               <div class="didian3">{{act.addr_city}}{{act.addr_area}}{{act.addr_road}}{{act.addr_num}}</div>
+           </div>
+           <div class="didian4" id="open_app1"> 
+              <input type="image"   src="{{ this.module.assetsUrl }}/images/sj_fx3.png" style="width:100%" />
+           </div>
+           <div class="clear"></div>
+       </div>
+       
+       <div class="xiangqin">
+          <div class="xiangqin_titi">活动详情</div>
+          <div class="xiangqin_text">
+             <pre style="word-wrap: break-word;">{{act.detail}}</pre> 
+          </div>
+       </div>
+       
+       <div class="pinglun">
+          <div class="pinglun_titi">评论  <span>({{act.comment_num}})</span></div>
+          <!--循环--->
+           {% for user in act.comments %}  
+                
+                  
+                
+              <div class="pinglun_text">
+                  <div class="pinglun_img">
+                     <img src="{{ user.user.head_img_url}} " width="100%"  style="-moz-border-radius:80px;-webkit-border-radius:80px;border-radius:80px;" />
+                  </div>
+                  <div class="pinglun_count">
+                       <span style="color: #343434;">{{ user.user.nick_name}}</span> {{ user.user.hobby}} 
+                  </div>
+                  <div class="clear"></div>
+              </div>
+              
+          {% endfor %} 
+          <!--循环end--->
+          <div class="dakai" id="open_app2">打开APP查看完整评论</div>
+          <div class="clear"></div>
+       </div> 
+      
+       <div class="opn_app" id="open_app4">
+           <input type="image"   src="{{ this.module.assetsUrl }}/images/sj_fx8.png" style="width:45%;margin-top: 30px;" />
+       </div>
+       
+       <div class="wei">
+             <div class="wei_left">
+                   <img src="{{ this.module.assetsUrl }}/images/sj_fx10.png" width="100%"  />
+             </div>
+             <div class="wei_right">
+                   <input type="image"  id="open_app3"  src="{{ this.module.assetsUrl }}/images/sj_fx9.png" style="width:100%;margin-top:20px;" />
+             </div>
+             <div class="clear"></div>
+       </div>
+   </div>
+</body>
+</html>
+    <link href="{{ this.module.assetsUrl }}/static/css/shareweb1.css" type="text/css" rel="stylesheet"/>
+    <script src="{{ this.module.assetsUrl }}/static/js/jquery-1.8.2.js"></script> 
+    <script>
+    //计算时间差
+            var diff_time = {{act.enroll_rest_sec}};
+    </script>
+    <script src="{{ this.module.assetsUrl }}/static/js/shareweb.js"></script> 

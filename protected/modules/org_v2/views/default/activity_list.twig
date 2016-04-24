@@ -1,0 +1,46 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}活动列表{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/activity_list.css"/>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+
+    <div class="rq">
+         <div style="float: left; width:36px; height:36px;line-height: 36px;text-align: center; background-color: #FF9A32 ;">
+           <i class="icon iconfont" style="font-size: 20px;color:white;text-align: center;vertical-align: middle;"></i>
+         </div>
+         <div style="float: left;width: auto;">
+            <input type="text" class="input-medium laydate-icon" id='data' onclick="laydate()"  />
+         </div>
+     </div>
+  
+ 	<div  style="margin-left:30px;width: 970px;min-height:450px;">
+         <div class="k-table-container" id="tableCon">
+              <table class="table">
+                <thead>
+                   <tr>
+				    <th>活动名称</th>
+				    <th>活动开始时间</th>
+				    <th>报名截止日期</th>
+				    <th>已报名/总人数</th>
+				    <th>编辑/管理</th>
+				    <th>人员调整</th>
+				    <th>操作</th>
+                   </tr>
+                </thead>
+                <tbody style="">
+                </tbody>
+              </table>
+           </div>
+	</div>
+{% endblock %}
+{#主工作区 结束#}
+
+
+
+{% block script %}
+     <script src="{{ this.module.assetsUrl }}/static/plugins/laydate/laydate.js"></script> 
+     <script src="{{ this.module.assetsUrl }}/static/js/activity/activity_list.js"></script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/payment/money_add.css" />
+{% endblock %}
+{% block content %}
+<!--内容-->
+<div class="c_1">
+    <div  class="c_2">
+       <div class="c_3">
+         <a class="c_4" href="/org/default/index"></a>
+         <a class="c_5" href="/org/default/zl">设置</a>
+         <a class="c_6" href="/org/default/costdetail">款项</a>
+         <a class="c_7" href="/org/default/index">活动</a>
+         <div class="clear"></div>
+       </div>
+    </div>
+</div>
+
+ <div class="c1_1">
+      <div class="c1_2">
+          <!--a class="c1_3" href="/org/default/add">充值</a-->
+          <a class="c1_4" href="/org/default/costdetail">明细</a>
+          <a class="c1_5" href="/org/default/draw">申请提现</a>
+      <div class="clear"></div>
+ </div>
+
+
+<div class="c2_1" >
+    <div  class="c2_2">
+        <div class="c2_2_1"></div>
+        <div class="c2_2_2">
+            <div class="c2_2_2_1">
+               <div class="zfb">
+                   <input type="radio" checked="true"  name="zf" class="zf" value="alipay"/>
+               </div>
+               <div class="wx">
+                  <input type="radio" name="zf" class="zf" value="wxpay"/>
+               </div>
+               <div class="clear"></div>
+            </div>
+        </div>
+        <div class="c2_2_3"></div>
+        <div class="c2_2_2">
+            <div class="c2_2_2_1">
+               <div class="wz">充值金额:</div>
+               <div class="je">
+                    <input type="text"  maxlength="10" class="jetesxt"  placeholder="金额"/>
+               </div>
+            </div>
+        </div>
+        <div class="c2_2_4"></div>
+        <div class="c2_2_5">
+            <div class="c2_2_5_1"  id="tj_post"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+	<script>
+         var url='{{ this.module.assetsUrl }}';
+	    	seajs.use('{{ this.module.assetsUrl }}/static/js/page/add.js');
+	</script>
+{% endblock %}

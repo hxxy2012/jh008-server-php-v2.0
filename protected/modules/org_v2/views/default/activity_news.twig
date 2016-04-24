@@ -1,0 +1,30 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}活动发布新闻{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/activity_news.css"/>
+{% endblock %}
+{#主工作区#}
+{% block body %}
+<div class="m_1">
+        <div class="dh">
+           <a href="/org_v2/default/activity_reports" class="dh2 fx"><span>报道列表</span></a>
+           <a href="/org_v2/default/activity_news" class="dh1 qd"><span>新闻发布</span></a>
+           <div class="dh3"></div><div class="clear" ></div>
+        </div>
+        <div class="lr"> 
+
+
+        </div>
+</div>
+
+ 
+ 
+ 
+ 
+ 
+ 
+{% endblock %}
+{#主工作区 结束#}
+{% block script %}
+     <script src="{{ this.module.assetsUrl }}/static/plugins/laypage/laypage.js"></script>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/set/set_admin.css"/>
+{% endblock %}
+
+ {% block content %}
+    <!--内容-->
+    <div class="c_1">
+        <div class="c_2">
+            <div class="c_3">
+                <a class="c_4" href="/org/default/index"></a>
+                <a class="c_5" href="/org/default/zl">设置</a>
+                <a class="c_6" href="/org/default/costdetail">款项</a>
+                <a class="c_7" href="/org/default/index">活动</a>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+<div class="c1_1">
+    <div class="c1_2">
+        <a class="c1_3" href="/org/default/zl">资料</a>
+        <a class="c1_4" href="/org/default/pwd">密码修改</a>
+        <a class="c1_5" href="/org/default/admin">管理设置</a>
+        <div class="clear"></div>
+    </div>
+
+    <div class="c2_1">
+        <div class="c2_2">
+            <div class="c2_3">
+                <div class="c2_3_1"></div>
+                <div class="c2_3_2">
+                    <div class="c2_3_3">
+                        <div class="c2_3_3_1">创建人(无法修改):&nbsp;&nbsp;&nbsp;</div>
+                        <div class="c2_3_3_2">
+                            <div class="c2_3_3_2_1">
+                              <img  style="width: 100%;height: 100%;-moz-border-radius: 40px;-webkit-border-radius: 40px;" src="{{ App.user.getLogoImgUrl }}"/>
+                            </div>
+                            <div class="c2_3_3_2_2">{{ App.user.getOrgName }}</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="c2_4"></div>
+
+                <div class="c2_3_2">
+                    <div class="c2_3_3 set_box">
+                        <div class="c2_3_3_1">管理员(<span class="manager_num">0</span>/3):&nbsp;&nbsp;&nbsp;</div>
+
+                    </div>
+                </div>
+                <div class="c2_5"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="c3_1">
+        <div class="c3_2">
+            <div class="c3_3">
+                <div class="c3_3_1"></div>
+                <div class="c3_3_2">
+                    <div class="c3_3_2_1">关注者:&nbsp;&nbsp;&nbsp;</div>
+                    <div class="c3_3_2_2">
+                        <input type="text" class="c3_3_2_2_1" maxlength="12" placeholder="姓名/手机"/>
+                    </div>
+                    <div class="c3_3_2_3"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="c3_3_3"></div>
+                <div class="c3_3_4">
+                    <div class="c3_3_4_1">
+
+                    </div>
+                </div>
+                <div class="c3_3_5"></div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block javascript %}
+
+    <script type="text/javascript" src="{{ this.module.assetsUrl }}/sea-modules/seajs/seajs/2.2.1/sea.js"></script>
+    <script type="text/javascript" src="{{ this.module.assetsUrl }}/static/js/third/artTemplate.js"></script>
+    <script type="text/javascript" src="{{ this.module.assetsUrl }}/static/js/main/config.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LLNo76ryWwY3Rm6gKyKebu7o"></script>
+    <script>
+        seajs.use('{{ this.module.assetsUrl }}/static/js/hashmap/set.admin.js');
+    </script>
+{% endblock %}

@@ -1,0 +1,166 @@
+/**  pangation  */
+@charset "utf-8";
+
+.page-ctrl {
+    display: inline-block;
+    float: right;
+}
+.page-ctrl, .page-ctrl input {
+    color:#808080;
+    margin: 0;
+    padding: 0;
+    zoom: 1;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.page-ctrl:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.page-ctrl a,
+.page-ctrl span.page-trigger-prev,
+.page-ctrl span.page-trigger-next {
+    text-decoration:none;
+    color:#808080;
+    margin:0 3px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+    height:22px;
+    line-height:22px;
+    cursor: pointer;
+}
+
+.page-trigger-prev,
+.page-trigger-next,
+.ui-paging-goto {
+    background-color: #F9F9F9;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FEFEFE), to(#F4F4F4));
+    background: -moz-linear-gradient(top, #FEFEFE, #F4F4F4);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEFEFE', endColorstr='#F4F4F4');
+    background:-o-linear-gradient(top, #FEFEFE, #F4F4F4);
+    background: linear-gradient(top, #FEFEFE, #F4F4F4); 
+    padding:0 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px #fff inset;
+}
+
+.page-trigger-prev:hover,
+.page-trigger-next:hover,
+.ui-paging-goto:hover {
+    border-color: #999;
+    color: #666;
+}
+
+.page-trigger-prev:hover .iconfont,
+.page-trigger-next:hover .iconfont {
+    color: #666;
+}
+
+.page-ctrl .page-trigger-prev {
+    margin: 0 3px 0 0;
+}
+
+.page-ctrl .iconfont {
+    font-size: 10px;
+    color: #787878;
+}
+
+.page-ctrl a.page-item-ui {
+    background-color:#f3f3f3;
+    font-weight:bold;
+    padding:0 8px;
+    border:none;
+    cursor: pointer;
+}
+
+.page-ctrl a.page-active, .page-ctrl a.page:hover {
+    color:#fff;
+    background:#ff9c00;
+}
+
+a.page-trigger-prev:hover,
+a.page-trigger-next:hover {    
+    text-decoration:none;
+    color:#666;
+}
+
+.ui-paging-info {
+    line-height:24px;
+    margin-right:5px;
+    height:24px;
+}
+
+.page-breaker {
+    margin:0 5px;
+    line-height: 16px;
+    font-weight:bold;
+}
+
+.page-ctrl .text {
+    height: 20px;
+    line-height: 20px;
+    padding: 0 6px;
+    width:22px;
+    border:1px solid;
+    border-color:#aaa #d1d1d1 #d1d1d1 #aaa;  
+}
+.page-ctrl .text:hover {
+    border-color:#999;
+    color:#666;
+}
+
+.ui-paging-bold {
+    font-weight:bold;
+    padding:0 8px;
+}
+
+.ui-paging span.page-trigger-prev,
+.ui-paging span.page-trigger-next,
+.ui-paging span.page-trigger-prev .iconfont,
+.ui-paging span.page-trigger-next .iconfont {    
+    color:#fff;
+    box-shadow:none;
+    background: #d4d4d4;
+    border-color: #d4d4d4;
+    filter: none;
+}
+
+
+/* table */
+.triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #999;
+    position: relative;
+    top: 14px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+
+/** dialogUi */
+.text-wrap {
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+}
+.load-wrap {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;;
+    width: 32px;
+    height: 32px;
+    background: url('../images/load.gif');
+    margin: 9px 0 0 9px;
+}

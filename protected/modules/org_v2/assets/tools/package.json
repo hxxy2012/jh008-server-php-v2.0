@@ -1,0 +1,20 @@
+{
+  "name": "lc",
+  "version": "1.0.0",
+  "description": "零创前端资源文件管理",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pheart",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-uglifycss": "^1.0.4"
+  },
+  "devDependencies": {
+    "gulp-uglify": "^1.2.0",
+    "gulp-uglifycss": "^1.0.4"
+  }
+}

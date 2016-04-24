@@ -1,0 +1,51 @@
+{% extends '/modules/manager/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">个人设置-修改密码</h3>
+    </div>
+    <div class="ui-box-container mh380">
+		<div id="mainPanel">
+			<div class="lc-ui-form" name="" method="post" action="#">
+				<div class="lc-ui-form-item">
+			        <label for="" class="lc-ui-label">
+			            密码:
+			        </label>
+			        <div class="lc-ui-rs">
+						<input id="uPass" class="lc-ui-input w280" type="password" placeholder="">
+			        </div>
+			    </div>
+				<div class="lc-ui-form-item">
+			        <label for="" class="lc-ui-label">
+			            新密码:
+			        </label>
+			        <div class="lc-ui-rs">
+						<input id="surePass" class="lc-ui-input w280" type="password" placeholder="">
+			        </div>
+			    </div>
+				<div class="lc-ui-form-item">
+			        <label for="" class="lc-ui-label">&nbsp;</label>
+			        <div class="lc-ui-rs">
+					    <div class="fn-clear">
+					    	<a href="javascript:;" id="update" class="ui-button ui-button-sdarkred">确认修改</a>
+					    </div>	
+			        </div>
+			    </div>
+			</div>
+		</div>
+    </div>
+</div>
+{%  endblock %}
+
+
+{% block javascript %}
+	<script>
+		seajs.use('{{ this.module.assetsUrl }}/static/js/page/personalUpdatePass.js');
+	</script>
+</script>
+{% endblock %}

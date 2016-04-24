@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title> 集合啦 全心全意为社团服务！</title>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/jquery.fullPage.css" />
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/login.css" />
+ 
+    <style type="text/css">
+        .loading-mask{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 100000000;
+          background: #FFF url("{{ this.module.assetsUrl }}/static/images/load.gif") no-repeat center 30% ;
+        }
+    </style>
+</head>
+<body>
+<div class="loading-mask"></div>
+
+
+<div class="header-warp">
+  <div class="header">
+    
+    <a href="javascript:void(0);" class="anchor-login">登录</a>
+    <a href="javascript:void(0);" class="qr-code">二维码</a>
+    <ul id="menu">
+      <li data-menuanchor="page1" ><a href="#page1">首页</a></li>
+      <li data-menuanchor="page2" ><a href="#page2">下载</a></li>
+    </ul> 
+    <a href="/org/default/index"  class="logo">零创科技后台管理系统</a>
+  </div>
+</div>
+
+
+<div id="hm_fullpage">
+  <div class="section section1">
+    <div class="section-box">
+      <a href="javascript:void(0)" class="anchor-login">登录</a>
+      <a href="javascript:void(0)" class="anchor-reg">注册</a>
+    </div>
+  </div>
+  <div class="section section2">
+    <div class="section-warp">
+      <div class="section-box">
+        <div class="section-text"></div>
+        <a href="javascript:void(0)" class="anchor-login">登录</a>
+        <a href="javascript:void(0)" class="anchor-reg">注册</a>
+      </div>
+      <div class="section-box ">
+        <div class="section-phone"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="container">
+    <div class="login">
+      <span class="closer">×</span>
+      <h1 class="fn-clear">
+        <span class="tip-name">登录集合啦</span>
+      </h1>
+      <span id="error-tip"></span>
+      <form method="post" action="index.html">
+        <p class="user-wrap">
+          <label class="left-text">用户名</label> <input type="text" id="username" name="login" placeholder="帐号"   /><!---13678095937--->
+        </p>
+        <p>
+          <label class="left-text">密码</label> <input type="password" id="password" name="password" placeholder="密码"  />
+        </p>
+        <p class="sign-tip"><a href="">忘记密码</a></p>
+        <p class="submit">
+          <a href="javascript:;" id="login" class="login-btn">登录</a>
+        </p>
+        <p class="sign-tip"><a class="reg-tip" href="">注册账号</a></p>
+      </form>
+    </div>
+  </div>
+  
+  
+
+  <div class="qr-warp">
+    <div class="qr-box">
+    <div id="qr_code"></div>
+    </div>
+  </div>
+
+
+<script> 
+    var basePath = "{{ this.module.assetsUrl }}";
+</script>
+<script src="{{ this.module.assetsUrl }}/sea-modules/seajs/seajs/2.2.1/sea.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/main/config.js"></script> 
+<script src="{{ this.module.assetsUrl }}/static/js/hashmap/qrcode.min.js"></script> 
+<script type="text/javascript">
+  seajs.config({
+    alias:  
+    { 
+      "fullpage": basePath + '/static/js/hashmap/hm.fullpage.js'
+    }
+  });
+  seajs.use('{{ this.module.assetsUrl }}/static/js/page/login.js',function (login) {
+    
+    var qrcode = new QRCode(document.getElementById("qr_code"), {
+                  width : 280,
+                  height : 280
+                });
+    function makeCode () {    
+      qrcode.makeCode("http://www.baidu.com");
+    }
+    makeCode();
+                        
+
+
+  }); 
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,520 @@
+{% extends '/modules/manager/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">热门活动列表</h3>
+    </div>
+    <div class="ui-box-container mh380">
+		<div id="mainPanel">
+	    	<div class="search-wrap">
+	    		<span>关键字</span>
+	    		<input class="ui-input" type="text" id="keyword" placeholder="请输入关键字">
+	    		<span class="ml30">活动状态</span>
+	    		<div class="ui-select-container va-10">
+	    			<div class="ui-select-wrap">
+			    		<div class="ui-select" id="activeSelect" style="width: 120px">
+							<a href="#" class="ui-select-trigger">
+								<span id="spanText" value="all">所有</span>
+								<i class="iconfont" title="下三角形">&#xF03C;</i>
+							</a>
+							<ul class="ui-select-content">
+								<li class="ui-select-item"><a href="#" data-val="all">所有</a></li>
+								<li class="ui-select-item"><a href="#" data-val="1">即将开始</a></li>
+								<li class="ui-select-item"><a href="#" data-val="2">正在进行</a></li>
+								<li class="ui-select-item"><a href="#" data-val="3">正在筹备</a></li>
+								<li class="ui-select-item"><a href="#" data-val="4">已结束</a></li>
+							</ul>
+						</div>			    				
+	    			</div>
+	    		</div>
+
+	    		<span class="ml30">标签</span>
+	    		<div class="ui-select-container va-10">
+	    			<div class="ui-select-wrap">
+			    		<div class="ui-select" id="statusSelect" style="width: 120px">
+							<a href="#" class="ui-select-trigger">
+								<span id="spanText"  value="all">所有</span>
+								<i class="iconfont" title="下三角形">&#xF03C;</i>
+							</a>
+							<ul class="ui-select-content">
+								<li class="ui-select-item"><a href="#" data-val="all">所有</a></li>
+								<li class="ui-select-item"><a href="#" data-val="1">运动</a></li>
+								<li class="ui-select-item"><a href="#" data-val="2">旅行</a></li>
+								<li class="ui-select-item"><a href="#" data-val="3">户外</a></li>
+								<li class="ui-select-item"><a href="#" data-val="4">亲子</a></li>
+								<li class="ui-select-item"><a href="#" data-val="5">其他</a></li>
+							</ul>
+						</div>			    				
+	    			</div>
+	    		</div>
+
+				<a href="javascript:;" id="searchBtn" class="ui-button ui-button-ldarkblue">搜索</a>
+				{% if type == 1 or type == 102 %}
+				<a href="javascript:;" id="addHot" class="ui-button ui-button-ldarkblue">添加热门活动</a>
+				{% endif %}	
+	    	</div>
+			<div class="ui-tab">
+			    <ul class="ui-tab-items">
+			        <li class="ui-tab-item ui-tab-item-current">
+			            <a href="javascript:;" id="adminList">活动列表</a>
+			        </li>
+			        <li class="ui-tab-item">
+			            <a href="javascript:;" id="adminList">活动回收站列表</a>
+			        </li>
+			    </ul>
+			    <div class="ui-switchable-content mt10">
+		            <div id="adminListCon"></div>
+		            <div id="rabishListCon"></div>
+		            <a href="javascript:;" id="sureHot" class="ui-button ui-button-ldarkred mt30 none">提交热门活动列表</a>
+			    </div>
+			</div>
+		</div>
+		<div id="secondPanel">
+    		<div class="return-wrap"> 
+    			<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+    		</div>
+    		<div id="operateWrap"></div>
+    		<div id="actWrap"></div>
+		</div>
+		</div>
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+<script type="text/template" id="activeCreateTemplate">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">活动修改</p>
+		</div>
+		<div class="lc-ui-form-item" id="businessWrap">
+		</div>
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	封面图片:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（封面图：640*300）</span>
+		        <div class="lc-ui-wrap">
+		        	<div id="headImgWrap">
+		        		<div id="headImgUrl" class="head-img-wrap-hide"></div>
+		        		<a class="ui-button ui-button-ldarkblue mt20 mb20" id="hImgReset">重置首图</a>
+		        	</div>
+			        <div class="sel-logo-wrap" id="headImgUpload">
+			            <a class="ui-spe" id="uploaderActiveImg">选择图片</a>
+			        </div>
+		        </div>
+		    </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	活动图片:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（活动图片：推荐使用长款比例为9:6的图片尺寸）</span>
+		        <div id="imgListContainer" class="img-list-container">
+		        </div>
+		        <div class="sel-logo-wrap">
+		            <a id="activeImgUpload" class="ui-spe">选择图片</a>
+		        </div>
+		    </div>
+	    </div>
+
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">标题:</label>
+			<div class="lc-ui-rs">
+				<input id="title" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(必填)</span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">内部标题:</label>
+			<div class="lc-ui-rs">
+				<input id="intro" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(必填)</span>
+			</div>
+		</div>
+	    <div class="lc-ui-form-item">
+	    	<label for="" class="lc-ui-label">&nbsp;</label>
+	    	<div class="lc-ui-rs">
+		    	<input value="0" checked="true"  type="radio" id="free" name="isFree" class=""><label class="radio-label"  for="">免费</label>
+				<input value="1"type="radio" id="unfree" name="isFree" class=""><label class="radio-label" for="">收费</label>
+				<input type="text" id="cost" class="none" placeholder="金额">
+			</div>
+	    </div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">地址（城市）:</label>
+			<div class="lc-ui-rs">
+				<input id="city" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(必填)</span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">地址（区）:</label>
+			<div class="lc-ui-rs">
+				<input id="area" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(选填)</span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">地址（路）:</label>
+			<div class="lc-ui-rs">
+				<input id="road" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(选填)</span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">地址（号）:</label>
+			<div class="lc-ui-rs">
+				<input id="number" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(必填)</span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">地址名称:</label>
+			<div class="lc-ui-rs">
+				<input id="addrName" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(必填)</span>
+			</div>
+		</div>
+		<div>
+			<label for="" class="lc-ui-label">&nbsp;</label>
+			<div class="lc-ui-rs">
+				<p>(由于需要使用经纬度，建议先点击地图，然后在地址栏中做修改)</p>
+				<div>
+					输入地点：<input class="ui-input" type="text" id="searchMapInput">
+					<a href="javascript:;" id="searchMapBtn" class="ui-button ui-button-sdarkblue">搜索</a>
+					<select class="ml30 citySel" id="citySel">
+						<option value="init">选择城市</option>
+						<option value="成都">成都</option>
+						<option value="北京">北京</option>
+						<option value="上海">上海</option>
+						<option value="广州">广州</option>
+						<option value="深圳">深圳</option>
+					</select>
+				</div>
+				<div id="mapCreate" class="mt10 mb10"></div>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">活动详情:</label>
+			<div class="lc-ui-rs">
+				<textarea name="" id="detail" class="detail-text"></textarea>
+				<span class="lc-ui-tip">(选填)</span>
+			</div>
+		</div>	
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">交通信息:</label>
+			<div class="lc-ui-rs">
+				<input id="route" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(乘坐22，K2A，301到XXX站下车 选填)</span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">报名电话:</label>
+			<div class="lc-ui-rs">
+				<input id="contactWay" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(选填)</span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">是否支持报名:</label>
+			<div class="lc-ui-rs">
+				<input type="radio" checked="true" name="isenroll" value="0"><label class="radio-label" for="">否</label>
+				<input type="radio" name="isenroll" value="1"><label class="radio-label"  for="">是</label>
+				<span class="lc-ui-tip" id="isenrollTip"></span>
+			</div>
+		</div>	
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            活动标签:
+	        </label>
+	        <div class="lc-ui-rs">
+		        <div id="tagsCon">
+		        </div>
+		        <div class="ui-industry-con">
+		    		<p class="ind-text">最多只能创建一个标签</p>
+		        </div>
+		    </div>
+	    </div>												
+		<div class="lc-ui-form-item">	
+			<label for="" class="lc-ui-label">开始时间:</label>
+			<div class="lc-ui-rs">
+				<p class="time-wrap">
+					<input id="bTime" class="lc-ui-input time-input w280" type="text" placeholder="">
+					<span>(年-月-日)</span>
+				</p>
+				<p class="time-wrap">
+					<input id="bhourTime" class="lc-ui-input time-input w280" type="text" placeholder="">
+					<span>(时:分:秒)</span>
+				</p>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">	
+			<label for="" class="lc-ui-label">结束时间:</label>
+			<div class="lc-ui-rs">
+				<p class="time-wrap">
+					<input id="eTime" class="lc-ui-input time-input w280" type="text" placeholder="">
+					<span>(年-月-日)</span>
+				</p>
+				<p class="time-wrap">
+					<input id="ehourTime" class="lc-ui-input time-input w280" type="text" placeholder="">
+					<span>(时:分:秒)</span>
+				</p>
+	        </div>
+	    </div>
+	    <div class="lc-ui-form-item">
+	    	<label for="" class="lc-ui-label">&nbsp;</label>
+	    	<div class="lc-ui-rs">
+		    	<input value="1" type="radio" id="startLoop" name="isLoop" class="loopgroup"><label class="radio-label"  for="">开启循坏</label>
+				<input value="0" checked="true" type="radio" id="closeLoop" name="isLoop" class="loopgroup"><label class="radio-label" for="">关闭循坏</label>
+				<div id="weekWrap" class="mt10">
+					<input type="checkbox" value="1" id="weekgroup" class="firstwg weekgroup" name="weekgroup">星期一
+					<input type="checkbox" value="2" id="weekgroup" class="weekgroup" name="weekgroup">星期二
+					<input type="checkbox" value="3" id="weekgroup" class="weekgroup" name="weekgroup">星期三
+					<input type="checkbox" value="4" id="weekgroup" class="weekgroup" name="weekgroup">星期四
+					<input type="checkbox" value="5" id="weekgroup" class="weekgroup" name="weekgroup">星期五
+					<input type="checkbox" value="6" id="weekgroup" class="weekgroup" name="weekgroup">星期六
+					<input type="checkbox" value="0" id="weekgroup" class="weekgroup" name="weekgroup">星期日
+				</div>
+			</div>
+	    </div>
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            &nbsp;
+	        </label>
+	        <div class="lc-ui-rs">
+		    	<a href="javascript:;" id="save" class="ui-button ui-button-ldarkblue fn-left">保存</a>
+		    	<a href="javascript:;" id="reset" class="ui-button ui-button-ldarkred fn-right">重置</a>
+	    	</div>
+	    </div>
+	</div>
+</script>
+<script type="text/template" id="active_add_Template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">活动详情</p>
+		</div>
+		<div class="lc-ui-form-item" id="businessWrap">
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">标题:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= title %></span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">简述:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= intro %></span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">详情:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= detail %></span>
+			</div>
+		</div>													
+		<div class="lc-ui-form-item">	
+			<label for="" class="lc-ui-label">开始时间:</label>
+			<div class="lc-ui-rs">
+				<p class="time-wrap">
+					<span><%= b_time %></span>
+				</p>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">	
+			<label for="" class="lc-ui-label">结束时间:</label>
+			<div class="lc-ui-rs">
+				<p class="time-wrap">
+					<span><%= e_time %></span>
+				</p>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">时间状态规则:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><% if(t_status_rule==0){ %>关闭循环<% }else if(t_status_rule==1){ %>开启循环<% } %></span>
+			</div>
+		</div>
+		<% if(t_status_rule == 1 && week_rules && week_rules.length ){ %>
+			<div class="lc-ui-form-item">
+				<label for="" class="lc-ui-label">&nbsp;</label>
+				<div class="lc-ui-rs">
+					<% for(var i=0,l=week_rules.length;i<l;i++){ %>
+						<span class="lc-ui-form-span mr10"><%= ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][week_rules[i]] %></span>
+					<% } %>
+				</div>
+			</div>
+		<% } %>   
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">联系方式:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= contact_way %></span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">是否可以报名:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><% if(can_enroll==0){ %>否<% }else if(can_enroll==1){ %>是<% } %></span>
+			</div>
+		</div>			
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">地址（城市）:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= addr_city %></span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">地址（区）:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= addr_area %></span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">地址（路）:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= addr_road %></span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">地址（号）:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= addr_num %></span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">交通信息:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= addr_route %></span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">感兴趣基数:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= lov_base_num %></span>
+			</div>
+		</div>		
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">分享数基数:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= share_base_num %></span>
+			</div>
+		</div>	
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            活动标签:
+	        </label>
+	        <div class="lc-ui-rs">
+		        <div class="ui-industry-con">
+		        	<% if (act_tags && act_tags.length) { %>
+			        	<% for(var i=0,l=act_tags.length; i<l;i++){ %>
+			    			<span class="tag"><%= act_tags[i].name %></span>
+			    		<% } %>
+			    	<% } %>
+		        </div>
+		    </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	封面图片:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（封面图：640*300）</span>
+		        <div class="lc-ui-wrap">
+		        	<div id="headImgWrap">
+		        		<div id="headImgUrl" class="head-img-wrap-hide">
+		        			<img src="<%= head_img_url %>" alt="">
+		        		</div>
+		        	</div>
+		        </div>
+		    </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	活动图片:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（活动图片：推荐使用长款比例为9:6的图片尺寸）</span>
+		        <div id="imgListContainer" class="img-list-container">
+		        <% if(act_imgs && act_imgs.length){ %>
+		        	<% for(var i=0,l= act_imgs.length;i<l;i++){ %>
+		        		<div class="img-item">
+		        			<img class="active-img" src="<%= act_imgs[i].img_url %>" alt="">
+		        		</div>
+		        	<% } %>
+		        <% } %>
+		        </div>
+		    </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            图文详情:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<div type="text/plain" id="myEditor" style="width:100%;">
+				    
+				</div>
+	        </div>
+	    </div>
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            &nbsp;
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<% if(status == 0 || status == 3 || status == 4 || status ==6){ %>
+		    		<a href="javascript:;" id="edit" class="ui-button ui-button-ldarkblue fn-left">编辑</a>
+		    	<% } %>
+	    	</div>
+	    </div>
+	</div>
+</script>
+<script type="text/template" id="relation_Template">
+	<div>
+		<div class="ui-ralation-box mt20">
+		    <div class="ui-ralation-box-head">
+		        <h3 class="ui-ralation-box-head-title">攻略关联</h3>
+		        <span class="ui-ralation-box-head-text">最多添加一个攻略</span>
+		        <a href="javascript:;" id="strategyAdd" class="ui-ralation-box-head-more ui-button ui-button-sblue">添加</a>
+		    </div>
+		    <div class="ui-ralation-box-container" id="strategyRalation">	        
+		    </div>
+		</div>
+		<div class="ui-ralation-box mt20">
+		    <div class="ui-ralation-box-head">
+		        <h3 class="ui-ralation-box-head-title">活动回顾</h3>
+		        <span class="ui-ralation-box-head-text">最多添加一个回顾</span>
+		        <a href="javascript:;" id="memoryAdd" class="ui-ralation-box-head-more ui-button ui-button-sblue">添加</a>
+		    </div>
+		    <div class="ui-ralation-box-container" id="memoryRalation">	        
+		    </div>
+		</div>
+		<div class="ui-ralation-box mt20">
+		    <div class="ui-ralation-box-head">
+		        <h3 class="ui-ralation-box-head-title">达人推荐</h3>
+		        <span class="ui-ralation-box-head-text">最多添加四个达人</span>
+		        <a href="javascript:;" id="vipsAdd" class="ui-ralation-box-head-more ui-button ui-button-sblue">添加</a>
+		    </div>
+		    <div class="ui-ralation-box-container" id="vipsRalation">	        
+		    </div>
+		</div>
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LLNo76ryWwY3Rm6gKyKebu7o"></script>
+	<script>
+		seajs.use('{{ this.module.assetsUrl }}/static/js/page/actHot.js');
+	</script>
+</script>
+{% endblock %}

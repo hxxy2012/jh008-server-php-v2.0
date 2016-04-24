@@ -1,0 +1,100 @@
+{% extends '/modules/admin/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+    <link media="all" href="{{ this.module.assetsUrl }}/sea-modules/arale/calendar/1.0.0/calendar.css" rel="stylesheet">
+    <link href="{{ this.module.assetsUrl }}/static/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="ui-box mt20">
+	    <div class="ui-box-head blue">
+	        <h3 class="ui-box-head-title">消息类型管理</h3>
+	    </div>
+	    <div class="ui-box-container">
+	    	<div id="mainPage" style="">
+		    	<div class="search-wrap">
+		    		<span>关键字</span>
+		    		<input class="ui-input" type="text" id="keyword" placeholder="请输入关键字">
+					<a href="javascript:;" id="searchBtn" class="ui-button ui-button-ldarkblue">查询</a>
+					<a href="javascript:;" id="addBtn" class="ui-button ui-button-ldarkblue">创建消息类型</a>
+					
+		    	</div>
+		    	<div class="ui-tab mt10 mb10">
+				    <ul class="ui-tab-items">
+				        <li class="ui-tab-item ui-tab-item-current">
+				            <a href="javascript:;" id="normalList">消息类型列表</a>
+				        </li>
+				        <li class="ui-tab-item">
+				            <a href="javascript:;" id="rabishList">消息类型回收站</a>
+				        </li>
+				    </ul>
+				</div>
+				<div id="tableContainer" class="ui-table-container mt20">
+
+				</div>		    		
+	    	</div>
+	    	<div id="addPage">
+	    		<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+				<div id="otherWrap" class="pt10"></div>
+	    	</div>
+	    </div>
+	</div>	
+{% endblock %}
+
+{% block  template %}
+<script type="text/template" id="msg_detail_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            名称:
+	        </label>
+	        <span class="lc-ui-form-span"><%= name %></span>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            状态:
+	        </label>
+	        <span class="lc-ui-form-span"><% if(status == -1){ %>已删除<%  }else if(status == 0){ %>正常<% } %></span>
+	    </div>
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="editBtn" class="ui-button ui-button-sdarkred">修改</a>
+	    </div>					    
+	</div>
+</script>
+<script type="text/template" id="msg_edit_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            名称:
+	        </label>
+	        <input id="name" class="lc-ui-input w280" type="text"  value="<%= name %>">
+	    </div>
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="saveBtn" class="ui-button ui-button-sdarkred">确认修改</a>
+	    </div>					    
+	</div>
+</script>
+<script type="text/template" id="msg_create_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            名称:
+	        </label>
+	        <input id="name" class="lc-ui-input w280" type="text" placeholder="">
+	    </div>
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="addBtn" class="ui-button ui-button-sdarkred">确认</a>
+	    </div>					    
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        seajs.use('{{ this.module.assetsUrl }}/static/js/page/msgTypes.js');
+    </script>
+{% endblock %}

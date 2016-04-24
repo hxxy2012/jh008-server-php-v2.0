@@ -1,0 +1,109 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/bm.css" />
+{% endblock %}
+
+
+
+ {% block content %}
+<!--内容-->
+<div class="c_1">
+    <div  class="c_2">
+       <div class="c_3">
+                <a class="c_4" href="/org/default/index"></a>
+                <a class="c_5" href="/org/default/zl">设置</a>
+                <a class="c_6" href="/org/default/costdetail">款项</a>
+                <a class="c_7" href="/org/default/index">活动</a>
+         <div class="clear"></div>
+       </div>
+    </div>
+</div>
+
+ <div class="c1_1">
+      <div class="c1_2">
+          <a class="c1_3" href="/org/default/index">首页</a>
+          <a class="c1_4" href="/org/default/activity">活动发布</a>
+          <a class="c1_5" href="/org/default/data">活动数据</a>
+      <div class="clear"></div>
+ </div>
+
+<div class="c2_1"></div>
+
+
+ <div class="c3_1">
+      <div class="c3_2">
+          <!--左-->
+         <div class="c3_3">
+             <a href="/org/default/bm?id={{aid}}" class="bm"></a>
+             <a href="/org/default/fz?id={{aid}}" class="fz"></a>
+             <a href="/org/default/qd?id={{aid}}" class="qd"></a>
+             <a href="/org/default/mag?id={{aid}}" class="mag"></a>
+             <a href="/org/default/Photo?id={{aid}}" class="xp"></a>
+             <div class="clear"></div>
+         </div>
+         <!--右-->
+         <div class="c3_4">
+                <div class="c3_4_1">
+                     <div class="c3_4_1_1" id="bm_ok">已审核(<span id="ybm">0</span>)</div>
+                     <div class="c3_4_1_2" id="bm_sh">待审核(<span id="wsh">0</span>)</div>
+                     <div class="c3_4_1_3">
+                        <div class="c3_4_1_3_1">离报名结束还有:</div>
+                        <div class="c3_4_1_3_1"  >
+                             <div class="time1" id="h1">0</div>
+                             <div class="time2" id="h2">0</div>
+                             <div class="time3" id="h3">0</div>
+                             <div class="time4">:</div>
+                             <div class="time5" id="m1">0</div>
+                             <div class="time6" id="m2">0</div>
+                             <div class="time7">:</div>
+                             <div class="time8" id="s1">0</div>
+                             <div class="time9" id="s2">0</div>
+                             <div class="clear"></div>
+                        </div>
+                     </div>
+                     <div class="clear"></div>
+                </div>
+                <!--列表--->
+                <div class="c3_4_2"  >
+                     <div id="bm" style="width: 100%;">
+                        <table id="bm1" style="margin: 0;padding: 0;border-spacing: 0;width:100%;color: #A9A9A9;">
+                           <!--js生成报名用户-->
+                        </table> 
+                    </div>
+                   
+                </div>
+                
+                
+                
+               <div class="c3_4_2"   >
+                    <div id="sh" style="width: 100%;display: none;">
+                        <table id="sh1" style="margin: 0;padding: 0;border-spacing: 0;width:100%;color: #A9A9A9;">
+                           <!--js生成报名用户-->
+                        </table>
+                    </div>  
+                    
+                </div>
+                
+                
+           
+                <div class="c3_4_2_4">
+                      <div class="c3_4_2_4_1"></div>
+                </div>
+                <div class="c3_4_2_5" ></div>
+         </div>
+         <div class="clear"></div>
+      </div>
+      
+      <div class="c3_5"></div>
+ </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+	<script>
+         var url='{{ this.module.assetsUrl }}';
+         var aid= '{{aid}}';
+	 	seajs.use('{{ this.module.assetsUrl }}/static/js/page/bm.js');
+	</script>
+{% endblock %}

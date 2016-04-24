@@ -1,0 +1,944 @@
+{% extends '/modules/org/views/layouts/main.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/activity/activity.post.css"/>
+{% endblock %}
+{% block bodyAttr %}
+    {#onbeforeunload="return '退出后填写的数据将被初始化!';"#}
+{% endblock %}
+{% block content %}
+    <!--内容-->
+    <div class="c_1">
+        <div class="c_2">
+            <div class="c_3">
+                <a class="c_4" href="/org/default/index"></a>
+                <a class="c_5" href="/org/default/zl">设置</a>
+                <a class="c_6" href="/org/default/costdetail">款项</a>
+                <a class="c_7" href="/org/default/index">活动</a>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+<div class="c1_1">
+<div class="c1_2">
+          <a class="c1_3" href="/org/default/index">首页</a>
+          <a class="c1_4" href="/org/default/activity">活动发布</a>
+          <a class="c1_5" href="/org/default/data">活动数据</a>
+    <div class="clear"></div>
+</div>
+
+
+<!--变换-->
+<div >
+
+
+
+
+
+<div class="c3_1">
+<a name="step"></a>
+<div class="c2_1" id="step_img">
+    <div class="c2_2">
+        <div class="c2_3">
+            <a href="#step" class="step_to step_to_1" data-to="0">1</a>
+            <a href="#step" class="step_to step_to_2" data-to="1">2</a>
+            <a href="#step" class="step_to step_to_3" data-to="2">3</a>
+        </div>
+    </div>
+</div>
+
+
+<div id="step_box">
+<div id="step_slider_box">
+{#第一步 开始#}
+<div class="c3_2">
+    <div class="c3_3">
+        <div class="c3_4"></div>
+        <div class="c3_5">
+            <div class="c3_5_1">名　　称:&nbsp;</div>
+            <div class="c3_5_2">
+                <input class="c3_5_3" type="text" maxlength="22"  id="title"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="c3_6"></div>
+        <div class="c3_7">
+            <div class="c3_5_1">活动开始:&nbsp;</div>
+            <div class="c3_7_4"  >
+                <select class="c3_7_1" id="bTime_l">
+                    <option value="0">年</option>
+                    <option value="2015">2015年</option>
+                    <option value="2016">2016年</option>
+                    <option value="2017">2017年</option>
+                    <option value="2018">2018年</option>
+                    <option value="2019">2019年</option>
+                    <option value="2020">2020年</option>
+                    <option value="2021">2021年</option>
+                    <option value="2022">2022年</option>
+                    <option value="2023">2023年</option>
+                    <option value="2024">2024年</option>
+                    <option value="2025">2025年</option>
+                </select>
+                <select class="c3_7_2" id="bTime_y">
+                    <option value="0">月</option>
+                    <option value="01">01月</option>
+                    <option value="02">02月</option>
+                    <option value="03">03月</option>
+                    <option value="04">04月</option>
+                    <option value="05">05月</option>
+                    <option value="06">06月</option>
+                    <option value="07">07月</option>
+                    <option value="08">08月</option>
+                    <option value="09">09月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
+                </select>
+                <select class="c3_7_3" id="bTime_r">
+                    <option value="0">日</option>
+                    <option value="01">01日</option>
+                    <option value="02">02日</option>
+                    <option value="03">03日</option>
+                    <option value="04">04日</option>
+                    <option value="05">05日</option>
+                    <option value="06">06日</option>
+                    <option value="07">07日</option>
+                    <option value="08">08日</option>
+                    <option value="09">09日</option>
+                    <option value="10">10日</option>
+                    <option value="11">11日</option>
+                    <option value="12">12日</option>
+                    <option value="13">13日</option>
+                    <option value="14">14日</option>
+                    <option value="15">15日</option>
+                    <option value="16">16日</option>
+                    <option value="17">17日</option>
+                    <option value="18">18日</option>
+                    <option value="19">19日</option>
+                    <option value="20">20日</option>
+                    <option value="21">21日</option>
+                    <option value="22">22日</option>
+                    <option value="23">23日</option>
+                    <option value="24">24日</option>
+                    <option value="25">25日</option>
+                    <option value="26">26日</option>
+                    <option value="27">27日</option>
+                    <option value="28">28日</option>
+                    <option value="29">29日</option>
+                    <option value="30">30日</option>
+                    <option value="31">31日</option>
+                </select>
+               
+                <select class="c3_7_3" id="bTime_s">
+                    <option value="0">时</option>
+                    <option value="01">01时</option>
+                    <option value="02">02时</option>
+                    <option value="03">03时</option>
+                    <option value="04">04时</option>
+                    <option value="05">05时</option>
+                    <option value="06">06时</option>
+                    <option value="07">07时</option>
+                    <option value="08">08时</option>
+                    <option value="09">09时</option>
+                    <option value="10">10时</option>
+                    <option value="11">11时</option>
+                    <option value="12">12时</option>
+                    <option value="13">13时</option>
+                    <option value="14">14时</option>
+                    <option value="15">15时</option>
+                    <option value="16">16时</option>
+                    <option value="17">17时</option>
+                    <option value="18">18时</option>
+                    <option value="19">19时</option>
+                    <option value="20">20时</option>
+                    <option value="21">21时</option>
+                    <option value="22">22时</option>
+                    <option value="23">23时</option>
+                    <option value="24">24时</option>
+                </select>
+                
+                <select class="c3_7_3" id="bTime_f">
+                    <option value="0">分</option>
+                    <option value="01">01分</option>
+                    <option value="02">02分</option>
+                    <option value="03">03分</option>
+                    <option value="04">04分</option>
+                    <option value="05">05分</option>
+                    <option value="06">06分</option>
+                    <option value="07">07分</option>
+                    <option value="08">08分</option>
+                    <option value="09">09分</option>
+                    <option value="10">10分</option>
+                    <option value="11">11分</option>
+                    <option value="12">12分</option>
+                    <option value="13">13分</option>
+                    <option value="14">14分</option>
+                    <option value="15">15分</option>
+                    <option value="16">16分</option>
+                    <option value="17">17分</option>
+                    <option value="18">18分</option>
+                    <option value="19">19分</option>
+                    <option value="20">20分</option>
+                    <option value="21">21分</option>
+                    <option value="22">22分</option>
+                    <option value="23">23分</option>
+                    <option value="24">24分</option>
+                    <option value="25">25分</option>
+                    <option value="26">26分</option>
+                    <option value="27">27分</option>
+                    <option value="28">28分</option>
+                    <option value="29">29分</option>
+                    <option value="30">30分</option>
+                    <option value="31">31分</option>
+                    <option value="32">32分</option>
+                    <option value="33">33分</option>
+                    <option value="34">34分</option>
+                    <option value="35">35分</option>
+                    <option value="36">36分</option>
+                    <option value="37">37分</option>
+                    <option value="38">38分</option>
+                    <option value="39">39分</option>
+                    <option value="40">40分</option>
+                    <option value="41">41分</option>
+                    <option value="42">42分</option>
+                    <option value="43">43分</option>
+                    <option value="44">44分</option>
+                    <option value="45">45分</option>
+                    <option value="46">46分</option>
+                    <option value="47">47分</option>
+                    <option value="48">48分</option>
+                    <option value="49">49分</option>
+                    <option value="50">50分</option>
+                    <option value="51">51分</option>
+                    <option value="52">52分</option>
+                    <option value="53">53分</option>
+                    <option value="54">54分</option>
+                    <option value="55">55分</option>
+                    <option value="56">56分</option>
+                    <option value="57">57分</option>
+                    <option value="58">58分</option>
+                    <option value="59">59分</option>
+                     
+                </select>
+            </div>
+        </div>
+        
+        
+        <div class="c3_6"></div>
+        <div class="c3_7">
+            <div class="c3_5_1">活动结束:&nbsp;</div>
+            <div class="c3_7_4" >
+                <select class="c3_7_1"  id="eTime_l">
+                    <option value="0">年</option>
+                    <option value="2015">2015年</option>
+                    <option value="2016">2016年</option>
+                    <option value="2017">2017年</option>
+                    <option value="2018">2018年</option>
+                    <option value="2019">2019年</option>
+                    <option value="2020">2020年</option>
+                    <option value="2021">2021年</option>
+                    <option value="2022">2022年</option>
+                    <option value="2023">2023年</option>
+                    <option value="2024">2024年</option>
+                    <option value="2025">2025年</option>
+                </select>
+                <select class="c3_7_2" id="eTime_y">
+                    <option value="0">月</option>
+                    <option value="01">01月</option>
+                    <option value="02">02月</option>
+                    <option value="03">03月</option>
+                    <option value="04">04月</option>
+                    <option value="05">05月</option>
+                    <option value="06">06月</option>
+                    <option value="07">07月</option>
+                    <option value="08">08月</option>
+                    <option value="09">09月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
+                </select>
+                <select class="c3_7_3" id="eTime_r">
+                    <option value="0">日</option>
+                    <option value="01">01日</option>
+                    <option value="02">02日</option>
+                    <option value="03">03日</option>
+                    <option value="04">04日</option>
+                    <option value="05">05日</option>
+                    <option value="06">06日</option>
+                    <option value="07">07日</option>
+                    <option value="08">08日</option>
+                    <option value="09">09日</option>
+                    <option value="10">10日</option>
+                    <option value="11">11日</option>
+                    <option value="12">12日</option>
+                    <option value="13">13日</option>
+                    <option value="14">14日</option>
+                    <option value="15">15日</option>
+                    <option value="16">16日</option>
+                    <option value="17">17日</option>
+                    <option value="18">18日</option>
+                    <option value="19">19日</option>
+                    <option value="20">20日</option>
+                    <option value="21">21日</option>
+                    <option value="22">22日</option>
+                    <option value="23">23日</option>
+                    <option value="24">24日</option>
+                    <option value="25">25日</option>
+                    <option value="26">26日</option>
+                    <option value="27">27日</option>
+                    <option value="28">28日</option>
+                    <option value="29">29日</option>
+                    <option value="30">30日</option>
+                    <option value="31">31日</option>
+                </select>
+                <select class="c3_7_3" id="eTime_s">
+                    <option value="0">时</option>
+                    <option value="01">01时</option>
+                    <option value="02">02时</option>
+                    <option value="03">03时</option>
+                    <option value="04">04时</option>
+                    <option value="05">05时</option>
+                    <option value="06">06时</option>
+                    <option value="07">07时</option>
+                    <option value="08">08时</option>
+                    <option value="09">09时</option>
+                    <option value="10">10时</option>
+                    <option value="11">11时</option>
+                    <option value="12">12时</option>
+                    <option value="13">13时</option>
+                    <option value="14">14时</option>
+                    <option value="15">15时</option>
+                    <option value="16">16时</option>
+                    <option value="17">17时</option>
+                    <option value="18">18时</option>
+                    <option value="19">19时</option>
+                    <option value="20">20时</option>
+                    <option value="21">21时</option>
+                    <option value="22">22时</option>
+                    <option value="23">23时</option>
+                    <option value="24">24时</option>
+                </select>
+                
+                <select class="c3_7_3" id="eTime_f">
+                    <option value="0">分</option>
+                    <option value="01">01分</option>
+                    <option value="02">02分</option>
+                    <option value="03">03分</option>
+                    <option value="04">04分</option>
+                    <option value="05">05分</option>
+                    <option value="06">06分</option>
+                    <option value="07">07分</option>
+                    <option value="08">08分</option>
+                    <option value="09">09分</option>
+                    <option value="10">10分</option>
+                    <option value="11">11分</option>
+                    <option value="12">12分</option>
+                    <option value="13">13分</option>
+                    <option value="14">14分</option>
+                    <option value="15">15分</option>
+                    <option value="16">16分</option>
+                    <option value="17">17分</option>
+                    <option value="18">18分</option>
+                    <option value="19">19分</option>
+                    <option value="20">20分</option>
+                    <option value="21">21分</option>
+                    <option value="22">22分</option>
+                    <option value="23">23分</option>
+                    <option value="24">24分</option>
+                    <option value="25">25分</option>
+                    <option value="26">26分</option>
+                    <option value="27">27分</option>
+                    <option value="28">28分</option>
+                    <option value="29">29分</option>
+                    <option value="30">30分</option>
+                    <option value="31">31分</option>
+                    <option value="32">32分</option>
+                    <option value="33">33分</option>
+                    <option value="34">34分</option>
+                    <option value="35">35分</option>
+                    <option value="36">36分</option>
+                    <option value="37">37分</option>
+                    <option value="38">38分</option>
+                    <option value="39">39分</option>
+                    <option value="40">40分</option>
+                    <option value="41">41分</option>
+                    <option value="42">42分</option>
+                    <option value="43">43分</option>
+                    <option value="44">44分</option>
+                    <option value="45">45分</option>
+                    <option value="46">46分</option>
+                    <option value="47">47分</option>
+                    <option value="48">48分</option>
+                    <option value="49">49分</option>
+                    <option value="50">50分</option>
+                    <option value="51">51分</option>
+                    <option value="52">52分</option>
+                    <option value="53">53分</option>
+                    <option value="54">54分</option>
+                    <option value="55">55分</option>
+                    <option value="56">56分</option>
+                    <option value="57">57分</option>
+                    <option value="58">58分</option>
+                    <option value="59">59分</option>
+                     
+                </select>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="c3_8"></div>
+        <div class="c3_9">
+            <div class="c3_5_1">地　　点:&nbsp;</div>
+            <div class="c3_5_2">
+                <input class="c3_9_1" type="text" maxlength="20"  />
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="c3_10"></div>
+        <div class="c3_11">
+            <div id="step1_map"></div>
+            <div id="step1_ret"></div>
+        </div>
+
+        <input type="hidden" name="lon" id="lon" value="0"/>
+        <input type="hidden" name="lat" id="lat" value="0"/>
+        <input type="hidden" name="addr_city" id="addr_city" value="0"/>
+        <input type="hidden" name="addr_area" id="addr_area" value="0"/>
+        <input type="hidden" name="addr_road" id="addr_road" value="0"/>
+        <input type="hidden" name="addr_num" id="addr_num" value="0"/>
+        <input type="hidden" name="addr_name" id="addr_name" value="0"/>
+
+
+        <div class="c3_12">
+            <a href="#step" class="c3_12_1"></a>
+        </div>
+        <div class="c3_13">
+        </div>
+    </div>
+</div>
+{#第一步 结束#}
+
+
+
+
+{#第二部 开始#}
+<div class="twoc3_2">
+
+    <div class="cont-warp">
+        <div class="cont-title">图片展示(<span id="img_num">0</span>/4)</div>
+        <div class="cont-body">
+            <div class="twoc3_6">
+                <div class="twoc3_6_1"></div>
+                <div class="twoc3_6_2"></div>
+                <div class="twoc3_6_3"></div>
+                <div class="twoc3_6_4"></div>
+                <div class="clear"></div>
+            </div>
+
+        <input type="hidden"  id="thumb_hidden" name="thumb" value=""/>
+        </div>
+    </div>
+
+
+    <div class="cont-warp">
+        <div class="cont-title">活动详情</div>
+        <div class="cont-body">
+            <div class="twoc3_7" >
+             <!--div id="p_detail" style="width: 900px; height:300px; border: 1px solid #CCCCCC;resize: none;"></div-->
+               <textarea  id="p_detail" style="width: 900px; height:300px; border: 1px solid #CCCCCC;resize: none;" placeholder="  集合事宜、活动流程、温馨提示、注意事项等！"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="cont-warp">
+        <div class="cont-title">线路</div>
+        <div class="cont-body">
+            
+                <div class="twoc3_8">
+        <div class="twoc3_9"><b>小提示: </b>鼠标左键描点，右键撤销!</div>
+        <!--div class="twoc3_10">
+            <div class="twoc3_12">
+                <input type="text" maxlength="20" class="twoc3_10_1" placeholder=" 起点"/>
+                <input type="text" maxlength="20" class="twoc3_10_2" placeholder=" 終点"/>
+            </div>
+            <div class="twoc3_13"></div>
+            <div class="twoclear"></div>
+        </div>
+        <div class="twoc3_11"></div-->
+        <div class="twoc3_14" id="step2_map"></div>
+        <!--div class="twoc3_15">
+            <span>活动联系人:</span>
+            <input type="text" class="twoc3_15_1" maxlength="11" placeholder=" 手机" id="callPhone"/>
+            <input type="text" class="twoc3_15_2" maxlength="10" placeholder=" 称呼" id="callName"/>
+        </div-->
+
+        <div id="points_box"></div>
+    </div>
+        </div>
+    </div>
+
+
+<!--
+
+    <div class="twoc3_3">
+        <span>图片展示</span>
+        <span>(<span id="img_num">0</span>/4)</span>
+    </div>
+    <div class="twoc3_4"></div>
+    <div class="twoc3_5"></div>
+
+    <div class="twoc3_3">
+        <span>活动详情</span>
+    </div>
+    <div class="twoc3_4"></div>
+    <div class="twoc3_5"></div>
+   
+    <div class="twoc3_3">
+        <span>路线</span>
+    </div>
+    <div class="twoc3_4"></div>
+    <div class="twoc3_5"></div>
+-->
+    <div class="twoc3_17"></div>
+    <a href="#step" class="twoc3_16"></a>
+
+    <div class="twoc3_18"></div>
+</div>
+{#第二部 结束#}
+
+
+
+
+{#第三部 开始#}
+<div class="threec3_2">
+    <div class="threec3_3">
+        <div class="threec3_4"></div>
+        <div class="threec3_5">
+            <div class="threec3_5_1">报名开始:&nbsp;</div>
+            <div class="threec3_5_2">
+                <select class="threec3_7_1" id="p_enrollBeginTime_l">
+                    <option value="0">年</option>
+                    <option value="2015" >2015年</option>
+                    <option value="2016">2016年</option>
+                    <option value="2017">2017年</option>
+                    <option value="2018">2018年</option>
+                    <option value="2019">2019年</option>
+                    <option value="2020">2020年</option>
+                    <option value="2021">2021年</option>
+                    <option value="2022">2022年</option>
+                    <option value="2023">2023年</option>
+                    <option value="2024">2024年</option>
+                    <option value="2025">2025年</option>
+                </select>
+                <select class="threec3_7_2" id="p_enrollBeginTime_y">
+                    <option value="0">月</option>
+                    <option value="01">01月</option>
+                    <option value="02">02月</option>
+                    <option value="03">03月</option>
+                    <option value="04">04月</option>
+                    <option value="05">05月</option>
+                    <option value="06">06月</option>
+                    <option value="07">07月</option>
+                    <option value="08">08月</option>
+                    <option value="09">09月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
+                </select>
+                <select class="threec3_7_3" id="p_enrollBeginTime_r">
+                    <option value="0">日</option>
+                    <option value="01">01日</option>
+                    <option value="02">02日</option>
+                    <option value="03">03日</option>
+                    <option value="04">04日</option>
+                    <option value="05">05日</option>
+                    <option value="06">06日</option>
+                    <option value="07">07日</option>
+                    <option value="08">08日</option>
+                    <option value="09">09日</option>
+                    <option value="10">10日</option>
+                    <option value="11">11日</option>
+                    <option value="12">12日</option>
+                    <option value="13">13日</option>
+                    <option value="14">14日</option>
+                    <option value="15">15日</option>
+                    <option value="16">16日</option>
+                    <option value="17">17日</option>
+                    <option value="18">18日</option>
+                    <option value="19">19日</option>
+                    <option value="20">20日</option>
+                    <option value="21">21日</option>
+                    <option value="22">22日</option>
+                    <option value="23">23日</option>
+                    <option value="24">24日</option>
+                    <option value="25">25日</option>
+                    <option value="26">26日</option>
+                    <option value="27">27日</option>
+                    <option value="28">28日</option>
+                    <option value="29">29日</option>
+                    <option value="30">30日</option>
+                    <option value="31">31日</option>
+                </select>
+               <select class="c3_7_3" id="p_enrollBeginTime_s">
+                    <option value="0">时</option>
+                    <option value="01">01时</option>
+                    <option value="02">02时</option>
+                    <option value="03">03时</option>
+                    <option value="04">04时</option>
+                    <option value="05">05时</option>
+                    <option value="06">06时</option>
+                    <option value="07">07时</option>
+                    <option value="08">08时</option>
+                    <option value="09">09时</option>
+                    <option value="10">10时</option>
+                    <option value="11">11时</option>
+                    <option value="12">12时</option>
+                    <option value="13">13时</option>
+                    <option value="14">14时</option>
+                    <option value="15">15时</option>
+                    <option value="16">16时</option>
+                    <option value="17">17时</option>
+                    <option value="18">18时</option>
+                    <option value="19">19时</option>
+                    <option value="20">20时</option>
+                    <option value="21">21时</option>
+                    <option value="22">22时</option>
+                    <option value="23">23时</option>
+                    <option value="24">24时</option>
+                </select>
+                
+                <select class="c3_7_3" id="p_enrollBeginTime_f">
+                    <option value="0">分</option>
+                    <option value="01">01分</option>
+                    <option value="02">02分</option>
+                    <option value="03">03分</option>
+                    <option value="04">04分</option>
+                    <option value="05">05分</option>
+                    <option value="06">06分</option>
+                    <option value="07">07分</option>
+                    <option value="08">08分</option>
+                    <option value="09">09分</option>
+                    <option value="10">10分</option>
+                    <option value="11">11分</option>
+                    <option value="12">12分</option>
+                    <option value="13">13分</option>
+                    <option value="14">14分</option>
+                    <option value="15">15分</option>
+                    <option value="16">16分</option>
+                    <option value="17">17分</option>
+                    <option value="18">18分</option>
+                    <option value="19">19分</option>
+                    <option value="20">20分</option>
+                    <option value="21">21分</option>
+                    <option value="22">22分</option>
+                    <option value="23">23分</option>
+                    <option value="24">24分</option>
+                    <option value="25">25分</option>
+                    <option value="26">26分</option>
+                    <option value="27">27分</option>
+                    <option value="28">28分</option>
+                    <option value="29">29分</option>
+                    <option value="30">30分</option>
+                    <option value="31">31分</option>
+                    <option value="32">32分</option>
+                    <option value="33">33分</option>
+                    <option value="34">34分</option>
+                    <option value="35">35分</option>
+                    <option value="36">36分</option>
+                    <option value="37">37分</option>
+                    <option value="38">38分</option>
+                    <option value="39">39分</option>
+                    <option value="40">40分</option>
+                    <option value="41">41分</option>
+                    <option value="42">42分</option>
+                    <option value="43">43分</option>
+                    <option value="44">44分</option>
+                    <option value="45">45分</option>
+                    <option value="46">46分</option>
+                    <option value="47">47分</option>
+                    <option value="48">48分</option>
+                    <option value="49">49分</option>
+                    <option value="50">50分</option>
+                    <option value="51">51分</option>
+                    <option value="52">52分</option>
+                    <option value="53">53分</option>
+                    <option value="54">54分</option>
+                    <option value="55">55分</option>
+                    <option value="56">56分</option>
+                    <option value="57">57分</option>
+                    <option value="58">58分</option>
+                    <option value="59">59分</option>
+              
+                </select>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+       <div class="threec3_4"></div>
+        <div class="threec3_5">
+            <div class="threec3_5_1">报名结束:&nbsp;</div>
+            <div class="threec3_5_2">
+                <select class="threec3_7_1" id="p_enrollEndTime_l">
+                    <option value="0">年</option>
+                    <option value="2015">2015年</option>
+                    <option value="2016">2016年</option>
+                    <option value="2017">2017年</option>
+                    <option value="2018">2018年</option>
+                    <option value="2019">2019年</option>
+                    <option value="2020">2020年</option>
+                    <option value="2021">2021年</option>
+                    <option value="2022">2022年</option>
+                    <option value="2023">2023年</option>
+                    <option value="2024">2024年</option>
+                    <option value="2025">2025年</option>
+                </select>
+                <select class="threec3_7_2" id="p_enrollEndTime_y">
+                    <option value="0">月</option>
+                    <option value="01">01月</option>
+                    <option value="02">02月</option>
+                    <option value="03">03月</option>
+                    <option value="04">04月</option>
+                    <option value="05">05月</option>
+                    <option value="06">06月</option>
+                    <option value="07">07月</option>
+                    <option value="08">08月</option>
+                    <option value="09">09月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
+                </select>
+                <select class="threec3_7_3" id="p_enrollEndTime_r">
+                    <option value="0">日</option>
+                    <option value="01">01日</option>
+                    <option value="02">02日</option>
+                    <option value="03">03日</option>
+                    <option value="04">04日</option>
+                    <option value="05">05日</option>
+                    <option value="06">06日</option>
+                    <option value="07">07日</option>
+                    <option value="08">08日</option>
+                    <option value="09">09日</option>
+                    <option value="10">10日</option>
+                    <option value="11">11日</option>
+                    <option value="12">12日</option>
+                    <option value="13">13日</option>
+                    <option value="14">14日</option>
+                    <option value="15">15日</option>
+                    <option value="16">16日</option>
+                    <option value="17">17日</option>
+                    <option value="18">18日</option>
+                    <option value="19">19日</option>
+                    <option value="20">20日</option>
+                    <option value="21">21日</option>
+                    <option value="22">22日</option>
+                    <option value="23">23日</option>
+                    <option value="24">24日</option>
+                    <option value="25">25日</option>
+                    <option value="26">26日</option>
+                    <option value="27">27日</option>
+                    <option value="28">28日</option>
+                    <option value="29">29日</option>
+                    <option value="30">30日</option>
+                    <option value="31">31日</option>
+                </select>
+                <select class="c3_7_3" id="p_enrollEndTime_s">
+                    <option value="0">时</option>
+                    <option value="01">01时</option>
+                    <option value="02">02时</option>
+                    <option value="03">03时</option>
+                    <option value="04">04时</option>
+                    <option value="05">05时</option>
+                    <option value="06">06时</option>
+                    <option value="07">07时</option>
+                    <option value="08">08时</option>
+                    <option value="09">09时</option>
+                    <option value="10">10时</option>
+                    <option value="11">11时</option>
+                    <option value="12">12时</option>
+                    <option value="13">13时</option>
+                    <option value="14">14时</option>
+                    <option value="15">15时</option>
+                    <option value="16">16时</option>
+                    <option value="17">17时</option>
+                    <option value="18">18时</option>
+                    <option value="19">19时</option>
+                    <option value="20">20时</option>
+                    <option value="21">21时</option>
+                    <option value="22">22时</option>
+                    <option value="23">23时</option>
+                    <option value="24">24时</option>
+                </select>
+                
+                <select class="c3_7_3" id="p_enrollEndTime_f">
+                    <option value="0">分</option>
+                    <option value="01">01分</option>
+                    <option value="02">02分</option>
+                    <option value="03">03分</option>
+                    <option value="04">04分</option>
+                    <option value="05">05分</option>
+                    <option value="06">06分</option>
+                    <option value="07">07分</option>
+                    <option value="08">08分</option>
+                    <option value="09">09分</option>
+                    <option value="10">10分</option>
+                    <option value="11">11分</option>
+                    <option value="12">12分</option>
+                    <option value="13">13分</option>
+                    <option value="14">14分</option>
+                    <option value="15">15分</option>
+                    <option value="16">16分</option>
+                    <option value="17">17分</option>
+                    <option value="18">18分</option>
+                    <option value="19">19分</option>
+                    <option value="20">20分</option>
+                    <option value="21">21分</option>
+                    <option value="22">22分</option>
+                    <option value="23">23分</option>
+                    <option value="24">24分</option>
+                    <option value="25">25分</option>
+                    <option value="26">26分</option>
+                    <option value="27">27分</option>
+                    <option value="28">28分</option>
+                    <option value="29">29分</option>
+                    <option value="30">30分</option>
+                    <option value="31">31分</option>
+                    <option value="32">32分</option>
+                    <option value="33">33分</option>
+                    <option value="34">34分</option>
+                    <option value="35">35分</option>
+                    <option value="36">36分</option>
+                    <option value="37">37分</option>
+                    <option value="38">38分</option>
+                    <option value="39">39分</option>
+                    <option value="40">40分</option>
+                    <option value="41">41分</option>
+                    <option value="42">42分</option>
+                    <option value="43">43分</option>
+                    <option value="44">44分</option>
+                    <option value="45">45分</option>
+                    <option value="46">46分</option>
+                    <option value="47">47分</option>
+                    <option value="48">48分</option>
+                    <option value="49">49分</option>
+                    <option value="50">50分</option>
+                    <option value="51">51分</option>
+                    <option value="52">52分</option>
+                    <option value="53">53分</option>
+                    <option value="54">54分</option>
+                    <option value="55">55分</option>
+                    <option value="56">56分</option>
+                    <option value="57">57分</option>
+                    <option value="58">58分</option>
+                    <option value="59">59分</option>
+ 
+                </select>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+
+        <div class="threec3_6"></div>
+        <div class="threec3_7">
+            <div class="threec3_5_1">人数限制:&nbsp;</div>
+            <div class="threec3_7_4">
+                <input class="threec3_5_3" id="p_enrollLimitNum" type="text" maxlength="5" disabled="true" />
+                <input class="threec3_5_4 p_enrollLimit"  type="checkbox" checked="checked"/> 不限
+            </div>
+        </div>
+
+        <div class="threec3_6"></div>
+        <div class="threec3_7">
+            <div class="threec3_5_1">活动费用:&nbsp;</div>
+            <div class="threec3_7_4">
+                <input class="threec3_7_5 p_showPay" value="0" type="radio" name="je" checked="true"  id="showPay"/> 完全免费
+            </div>
+        </div>
+        <div class="threec3_7">
+            <div class="threec3_5_1"> &nbsp;</div>
+            <div class="threec3_7_4">
+                <input class="threec3_7_5 p_showPay" value="1" type="radio" name="je" id="showPay1"/>
+                <input class="threec3_5_3" type="text" maxlength="22" placeholder="金额" id="p_totalFee" disabled="true"/>
+                 
+            </div>
+        </div>
+
+        <div class="threec3_6"></div>
+        <div class="threec3_7">
+            <div class="threec3_5_1">报名审核:&nbsp;</div>
+            <div class="threec3_7_4">
+                <input class="threec3_7_5 p_showVerify" type="radio" name="sh" checked="true" value="0" id="showVerify"/> <span>任何人报名立即成功</span>
+            </div>
+        </div>
+        <div class="threec3_7">
+            <div class="threec3_5_1"> &nbsp;</div>
+            <div class="threec3_7_4">
+                <input class="threec3_7_5 p_showVerify" type="radio" name="sh" value="1" id="showVerify1"/> <span>需要管理员审核</span>
+            </div>
+        </div>
+
+        <div class="threec3_6"></div>
+        <div style="width: 100%;height:  auto;">
+            <div class="threec3_5_1">报名需要提供资料:&nbsp;</div>
+            <div id="ziliao_selected" class="threec3_7_4">
+                <div class="ziliao_item">姓名<input  type="hidden" value="姓名" name="ziliao[]" /></div> 
+                <div class="ziliao_item">性别<input  type="hidden" value="性别" name="ziliao[]" /></div> 
+                <div class="ziliao_item">手机<input  type="hidden" value="手机" name="ziliao[]" /></div> 
+                <div class="ziliao_item">年龄<input  type="hidden" value="年龄" name="ziliao[]" /></div> 
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="threec3_8"></div>
+        <div class="threec3_9">
+            <div id="ziliao_selecter" class="threec3_9_1"> 
+                <div class="ziliao_item">身高</div>
+                <div class="ziliao_item">鞋码</div>
+                <div class="ziliao_item">体重</div>
+                <div class="ziliao_cust">自定义</div>
+            </div>
+        </div>
+        <div class="threec3_10"></div>
+        <div class="threec3_11"  id="fabu"></div>
+        <div class="threec3_12"></div>
+    </div>
+</div>
+{#第三部 结束#}
+
+
+</div>
+</div>
+
+
+</div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+<script src="http://api.map.baidu.com/api?v=2.0&ak=G5kLrWYl38RoR2iPgy2kyLRI"></script>
+<script src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/hashmap/ajaxupload.js"></script>
+
+<script>
+    var iconsPath='{{ this.module.assetsUrl }}/static/nicEditor/nicEditorIcons.gif';
+</script>
+<!-- <script type="text/javascript" src="{{ this.module.assetsUrl }}/static/nicEditor/nicConfig.js"></script>
+<script type="text/javascript" src="{{ this.module.assetsUrl }}/static/nicEditor/bkLib.js"></script>
+<script type="text/javascript" src="{{ this.module.assetsUrl }}/static/nicEditor/nicEdit.js"></script> -->
+<script>
+    var uploader_url = "/user/userInfo/imgUp";
+    var aid='{{aid}}';
+</script>
+<script>
+    seajs.use('{{ this.module.assetsUrl }}/static/js/hashmap/activity.post');
+    
+</script>
+
+{% endblock %}

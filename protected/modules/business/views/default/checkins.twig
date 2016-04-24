@@ -1,0 +1,198 @@
+{% extends '/modules/business/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+    <link media="all" href="{{ this.module.assetsUrl }}/sea-modules/arale/calendar/1.0.0/calendar.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="ui-box mt20">
+	    <div class="ui-box-head blue">
+	        <h3 class="ui-box-head-title">签到模块</h3>
+	    </div>
+	    <div class="ui-box-container">
+			<div class="pl30 mh380" id="sellerContainer">
+		    	<div class="homePage">
+			    	<div class="search-wrap">
+			    		<span>关键字</span>
+			    		<input id="keyWord" class="ui-input" type="text" placeholder="请输入关键字">
+						<a href="javascript:;" id="search" class="ui-button ui-button-ldarkblue">搜索</a>	
+			    	</div>
+					<div class="ui-table-container mt20" id="tableContainer">
+					</div>				    		
+		    	</div>
+		    	<div class="detailPage" style="display:none">
+    				<p class="return-wrap">
+    					<a href="javascript:;" id="return" class="return-button ui-button ui-button-ldarkred fn-right">返回</a>
+    				</p>
+    				<div class="fn-clear mt10">
+			    		<div class="lside">
+			    			<div class="lside-wrap">
+			    				<p>
+			    					<input type="text" id="keyInput" class="ti12 ui-input" placeholder="输入用户名" />
+			    					<a id="cancelSearch">取消</a>
+			    				</p>
+			    				<div class="user-list-wrap" id="userList">
+			    					
+			    				</div>			    				
+			    			</div>
+			    		</div>
+						<div class="rside" id="rsideContainer">
+						</div>		    					
+    				</div>
+
+		    	</div>
+			</div>
+	    </div>
+	</div>	
+{% endblock %}
+
+{% block  template %}
+<script type="text/template" id="sign_user_infor_template">
+	<div class="rside-container">
+		<div class="rside-wrap">
+			<div class="uinfor">
+				<div class="ui-box">
+				    <div class="ui-box-head">
+				        <h3 class="ui-box-head-title">备注说明</h3>
+				    </div>
+				    <div class="ui-box-container">
+				        <div class="ui-box-content">
+							<div class="lc-ui-form" name="" method="post" action="#" id="">
+								<div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            昵称:
+							        </label>
+							        <div class="lc-ui-rs">
+										<span class="lc-ui-form-span"><%= user.nick_name %></span>
+							        </div>
+							    </div>
+
+								<div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            头像:
+							        </label>
+							        <div class="lc-ui-rs">
+							        	<div class="head-img-wrap">
+											<img src="<%= user.head_img_url %>" alt="" />
+							        	</div>
+							        </div>
+							    </div>	
+
+							    <div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            性别:
+							        </label>
+							        <div class="lc-ui-rs">
+							        <span class="lc-ui-form-span"><% if( user.sex == 1){ %> 男 <% }else { %> 女 <%}%></span>
+							        </div>
+							    </div>
+
+							    <div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            生日:
+							        </label>
+							        <div class="lc-ui-rs">
+							        <span class="lc-ui-form-span"><%= user.birth %></span>
+							        </div>
+							    </div>
+
+							    <div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            姓名:
+							        </label>
+							        <div class="lc-ui-rs">
+							        <span class="lc-ui-form-span"><%= user.real_name %></span>
+							        </div>
+							    </div>
+
+							    <div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            QQ:
+							        </label>
+							        <div class="lc-ui-rs">
+							        <span class="lc-ui-form-span"><%= user.contact_qq %></span>
+							        </div>
+							    </div>		
+
+							    <div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            联系电话:
+							        </label>
+							        <div class="lc-ui-rs">
+							        <span class="lc-ui-form-span"><%= user.contact_phone %></span>
+							        </div>
+							    </div>	
+
+							    <div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            通讯地址:
+							        </label>
+							        <div class="lc-ui-rs">
+							        <span class="lc-ui-form-span"><%= user.address %></span>
+							        </div>
+							    </div>	
+
+							    <div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            签到GPS信息:
+							        </label>
+							        <div class="lc-ui-rs">
+							        <span class="lc-ui-form-span">erererere</span>
+							        </div>
+							    </div>	
+
+							    <div class="lc-ui-form-item">
+							        <label for="" class="lc-ui-label">
+							            账户情况:
+							        </label>
+							        <div class="lc-ui-rs">
+							        <span class="lc-ui-form-span"><% if(user.status == 0){ %>正常<% }else if(user.status==-1){ %>禁言<% } %></span>
+							        </div>
+							    </div>	
+							</div>
+				        </div>
+				    </div>
+				</div>
+			</div>
+			<div class="uremark mt20">
+				<div class="ui-box">
+				    <div class="ui-box-head">
+				        <h3 class="ui-box-head-title">备注说明</h3>
+				    </div>
+				    <div class="ui-box-container">
+				        <div class="ui-box-content tc">
+				        	<textarea id="descriText" class="remark-ta"><%= descri %></textarea>
+				        	<a href="javascript:;" id="updateDescri" class="remark-sure ui-button ui-button-ldarkblue">确认修改</a>
+				        </div>
+				    </div>
+				</div>
+			</div>
+			<div class="uoperate mt20">
+				<div class="ui-box">
+				    <div class="ui-box-head">
+				        <h3 class="ui-box-head-title">其他操作</h3>
+				    </div>
+				    <div class="ui-box-container">
+				        <div class="ui-box-content sign-op-wrap">
+				        	<a href="javascript:;" id="printer" class="ui-button ui-button-ldarkred">打印</a>
+				        	<% if(status == 0){ %>
+				        	<a href="javascript:;" id="mark" class="ui-button ui-button-ldarkred">标注</a>
+				        	<% }else if(status == 1){ %>
+				        	<a href="javascript:;" id="unmark" class="ui-button ui-button-ldarkred">取消标注</a>
+				        	<% } %>
+				        </div>
+				    </div>
+				</div>
+			</div>
+		</div>	
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+
+	<script src="{{ this.module.assetsUrl }}/static/js/third/jquery-ui.min.js"></script>
+    <script>
+        seajs.use('{{ this.module.assetsUrl }}/static/js/page/sellerSign.js');
+    </script>
+{% endblock %}

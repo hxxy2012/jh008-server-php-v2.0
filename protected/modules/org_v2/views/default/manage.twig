@@ -1,0 +1,61 @@
+{% extends '/modules/org_v2/views/layouts/inner.twig' %}
+{% block title %}社团二维码{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/assn/assn.css"/>
+{% endblock %}
+
+{#主工作区#}
+{% block body %}
+<div class="manage-con">
+    <div class="p15">
+        <ul class="filter-menu clearfix">
+            <li class="filter-menu-item"><a class="filter-item-link" href="javascript:;">全部</a></li>
+            <li class="filter-menu-item">
+                <a class="filter-item-link" href="javascript:;">加入时间<i class="icon iconfont"></i></a>
+                <ul class="subfilter-menu">
+                    <li class="sf-menu-item"><a href="javascript:;" class="sf-item-link">正序</a></li>
+                    <li class="sf-menu-item"><a href="javascript:;" class="sf-item-link">倒序</a></li>
+                </ul>
+            </li>
+            <li class="filter-menu-item">
+                <a class="filter-item-link" href="javascript:;">分组<i class="icon iconfont"></i></a>
+                <ul class="subfilter-menu">
+                    <li class="sf-menu-item"><a href="javascript:;" class="sf-item-link">A组</a></li>
+                    <li class="sf-menu-item"><a href="javascript:;" class="sf-item-link">B组</a></li>
+                </ul>
+            </li>
+            <li class="filter-menu-item"><a class="filter-item-link" href="javascript:;">社团备注<i class="icon iconfont"></i></a></li>
+        </ul>
+        <div id="memberList">
+            <div id="tableCon">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>选择</th>
+                            <th>加入时间</th>
+                            <th>帐号<div class="order-c"><i class="order-as" title="升序"></i><i class="order-des" title="降序"></i></div></th>
+                            <th>姓名</th>
+                            <th>所在组</th>
+                            <th>自定义信息</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="ope-bar">
+            <a href="javascript:;" class="button" id="pitchAdjust">批量调整分组</a>
+            <a href="javascript:;" class="button ml10" id="pitchDelete">批量删除分组</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{#主工作区 结束#}
+
+
+{% block script %}
+    <script src="{{ this.module.assetsUrl }}/static/js/assn/manage.js"></script>
+{% endblock %}

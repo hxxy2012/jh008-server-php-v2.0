@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}{% endblock %} - 集合啦 全心全意为社团服务！</title>
+    <script>
+        //继承了的页面只支持内部框架打开
+        if (window == window.parent) {
+            window.parent.location.href = '/org_v2/default/main.html#'+decodeURIComponent(window.parent.location.pathname);
+        }
+
+    </script>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/lc_ui.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/iconfont/iconfont.css"/>
+    <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/common/common.css"/>
+    
+
+     
+    {% block style %}{% endblock %}
+</head>
+<body bgcolor="transparent" style="background: #F6F6F6;">
+{% block body %}{% endblock %}
+</body>
+
+<script src="{{ this.module.assetsUrl }}/static/plugins/jquery-1.7.1.min.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/plugins/layer/layer.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/common/base.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/common/lc.js"></script>
+{% block script %}{% endblock %}
+</html>

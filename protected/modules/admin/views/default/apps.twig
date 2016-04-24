@@ -1,0 +1,156 @@
+{% extends '/modules/admin/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">版本</h3>
+    </div>
+    <div class="ui-box-container">
+    	<div id="mainPage">
+	    	<div class="search-wrap">
+	    		<span>关键字</span>
+	    		<input id="keyWord" class="ui-input" type="text" placeholder="请输入关键字">
+	    		<a href="javascript:;" id="searchBtn" class="ui-button ui-button-ldarkblue">查询</a>
+	    		<a href="javascript:;" id="createBtn" class="ui-button ui-button-ldarkblue">提交新版本</a>
+	    	</div>
+	    	<div class="ui-tab mt10 mb10">
+			    <ul class="ui-tab-items">
+			        <li class="ui-tab-item ui-tab-item-current">
+			            <a href="javascript:;" id="normalList">版本列表</a>
+			        </li>
+			        <li class="ui-tab-item">
+			            <a href="javascript:;" id="rabishList">版本回收站</a>
+			        </li>
+			    </ul>
+			</div>
+			<div class="ui-table-container mt20" id="tableContainer">
+			</div>				    		
+    	</div>
+    	<div id="addPage">
+    		<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+			<div id="otherWrap" class="pt10"></div>
+    	</div>
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+<script type="text/template" id="apps_add_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            apk上传:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<div id="apkWrap"  class="head-img-wrap-hide">   
+	        		
+	        	</div>
+	        	<a href="javascript:;" id="addApk" class="change-logo ui-button ui-button-sdarkred">上传APK</a>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            版本类型:
+	        </label>
+	        <div class="lc-ui-wrap" id="typeWrap">
+	       		<label for="">安卓</label> <input type="radio" name="type" value="1" class="lc-ui-radio">
+	       	</div>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            版本号:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<input class="lc-ui-input w280" type="text" id="code" />
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            版本名称:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<input class="lc-ui-input w280" type="text" id="name" />
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            版本描述:
+	        </label>
+	        <div class="lc-ui-rs">
+	       		<textarea name="" id="descri" class="detail-text"></textarea>
+	        </div>
+	    </div>
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="saveBtn" class="changeinfo-btn ui-button ui-button-sdarkred">提交</a>
+	    </div>					    
+	</div>
+</script>
+<script type="text/template" id="apps_update_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            apk上传:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<div id="apkWrap"  class="head-img-wrap-hide">   
+	        		<% if(app_url){ %> 已上传 <% } %>
+	        	</div>
+	        	<a href="javascript:;" id="updateApk" class="change-logo ui-button ui-button-sdarkred">上传APK</a>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            版本类型:
+	        </label>
+	        <div class="lc-ui-wrap" id="typeWrap">
+	       		<label for="">安卓</label> <input type="radio" name="type" value="1" <% if(type==1){ %> checked="true" <% } %>class="lc-ui-radio">
+	       	</div>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            版本号:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<input class="lc-ui-input w280" type="text" id="code" value="<%= code %>" />
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            版本名称:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<input class="lc-ui-input w280" type="text" id="name" value="<%= name %>" />
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            版本描述:
+	        </label>
+	        <div class="lc-ui-rs">
+	       		<textarea name="" id="descri" class="detail-text"><%= descri %></textarea>
+	        </div>
+	    </div>
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="updateBtn" class="changeinfo-btn ui-button ui-button-sdarkred">修改</a>
+	    </div>					    
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script>
+	seajs.use('{{ this.module.assetsUrl }}/static/js/page/apps.js');
+</script>
+{% endblock %}

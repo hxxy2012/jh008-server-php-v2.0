@@ -1,0 +1,207 @@
+{% extends '/modules/admin/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+    <link media="all" href="{{ this.module.assetsUrl }}/sea-modules/arale/calendar/1.0.0/calendar.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">消息管理</h3>
+    </div>
+    <div class="ui-box-container">
+    	<div id="mainPage" style="">
+	    	<div class="search-wrap">
+				<a href="javascript:;" id="addBtn" class="ui-button ui-button-ldarkblue ml0">创建新消息</a>
+	    	</div>
+	    	<div class="ui-tab mt10 mb10">
+			    <ul class="ui-tab-items">
+			        <li class="ui-tab-item ui-tab-item-current">
+			            <a href="javascript:;" id="normalList">消息列表</a>
+			        </li>
+			        <li class="ui-tab-item">
+			            <a href="javascript:;" id="rabishList">消息回收站</a>
+			        </li>
+			    </ul>
+			</div>
+			<div id="tableContainer" class="ui-table-container mt20">
+
+			</div>		    		
+    	</div>
+    	<div id="addPage">
+    		<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+			<div id="otherWrap" class="pt10"></div>
+    	</div>
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+<script type="text/template" id="msg_create_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            消息类型:
+	        </label>
+	        <div class="lc-ui-rs" id="msgTypeSel">
+	        	
+	        </div>
+	    </div>	
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            标题:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="title" class="lc-ui-input w280" type="text" placeholder="">
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            消息内容:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="content" class="lc-ui-input w280" type="text" placeholder="">
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            消息跳转:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="filter" class="lc-ui-input w280" type="text" placeholder="">
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            是否立即发布:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<label for="">是</label> <input type="radio" name="sendsure" value="1" class="lc-ui-radio">
+	        	<label for="">否</label> <input type="radio" checked="true" name="sendsure" value="0" class="lc-ui-radio">
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            发布时间:
+	        </label>
+	        <div class="lc-ui-rs">
+				<p class="time-wrap">
+					<input id="bTime" class="lc-ui-input time-input w280" type="text" placeholder="">
+					<span>(年-月-日)</span>
+				</p>
+				<p class="time-wrap">
+					<input id="bhourTime" class="lc-ui-input time-input w280" type="text" placeholder="">
+					<span>(时:分:秒)</span>
+				</p>
+	        </div>
+	    </div>
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="addBtn" class="ui-button ui-button-sdarkred">确认</a>
+	    </div>					    
+	</div>
+</script>
+<script type="text/template" id="msg_edit_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            标题:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="title" value="<%= title %>" class="lc-ui-input w280" type="text" placeholder="">
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            消息内容:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<textarea name="" id="content" class="detail-text"><%= content %></textarea>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            消息跳转:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="filter" value="<%= filter %>" class="lc-ui-input w280" type="text" placeholder="">
+	        </div>
+	    </div>
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="saveBtn" class="ui-button ui-button-sdarkred">确认</a>
+	    </div>					    
+	</div>
+</script>
+<script type="text/template" id="msg_detail_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            消息类型:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= type.name %></span>
+	        </div>
+	    </div>	
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            标题:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= title %></span>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            消息内容:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= content %></span>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            消息跳转:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= filter %></span>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            消息状态:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><% if(status == 1){ %> 已读 <% }else if(status == 0){ %>未读<% } %></span>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            创建时间:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= create_time %></span>
+	        </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            发布时间:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= publish_time %></span>
+	        </div>
+	    </div>
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="editBtn" class="ui-button ui-button-sdarkred">修改</a>
+	    </div>					    
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ this.module.assetsUrl }}/static/js/third/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="{{ this.module.assetsUrl }}/static/js/third/timepicker.js"></script>
+<script>
+	seajs.use('{{ this.module.assetsUrl }}/static/js/page/msgs.js');
+</script>
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>零创科技商家后台系统-注册</title>
+  <link rel="stylesheet" href="{{ this.module.assetsUrl }}/sea-modules/arale/dialog/1.3.1/dialog.css" />
+  <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/compontent.css" />
+  <link rel="stylesheet" href="{{ this.module.assetsUrl }}/static/css/login.css" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="login">
+      <h1 class="fn-clear">
+        <span class="tip-name">零创后台管理系统-商家用户</span>
+        <a class="tip-btn" href="login">去登录</a>
+      </h1>
+      <form method="post" action="index.html">
+        <p class="user-wrap">
+          <label class="left-text">用户名</label> <input type="text" id="username" name="login" value="" >
+        </p>
+        <p>
+          <label class="left-text">密码</label> <input type="password" id="password" name="password" value="">
+        </p>
+        <p>
+          <label class="left-text">重复密码</label> <input type="password" id="repassword" name="password" value="">
+        </p>       
+        <p class="submit">
+          <a href="javascript:;" id="regist" class="login-btn">注册</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+<script>
+    var basePath = "{{ this.module.assetsUrl }}";
+</script>
+<script src="{{ this.module.assetsUrl }}/sea-modules/seajs/seajs/2.2.1/sea.js"></script>
+<script src="{{ this.module.assetsUrl }}/static/js/main/config.js"></script>
+<script>
+  seajs.use('{{ this.module.assetsUrl }}/static/js/page/regist.js');
+</script>
+</body>
+</html>

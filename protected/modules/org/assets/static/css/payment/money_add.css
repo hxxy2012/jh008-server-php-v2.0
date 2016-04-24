@@ -1,0 +1,31 @@
+
+/*ÄÚÈÝ*/
+.c_1{width: 100%;height:auto;}
+.c_2{margin: auto; width: 1200px;height: auto;}
+.c_3{width: 100%;height: 80px;}
+.c_4{float: left; width:168px;height:80px;background: url("../../images/index/c_1.png") no-repeat center;}
+.c_5{display: block;float: right; width:102px;height:80px;line-height: 80px;text-align: center;cursor: pointer;font-weight: bold;font-size:20px;color: #676767;}
+.c_6{display: block;float: right; width:102px;height:80px;line-height: 80px;text-align: center;cursor: pointer;color:white;font-weight: bold;font-size:20px;background: url("../../images/index/c_2.png") no-repeat center;}
+.c_7{float: right; width:102px;height:80px;line-height: 80px;text-align: center;font-weight: bold;font-size:20px;color: #676767;}
+/*2*/
+.c1_1{width: 100%;height:35px;background-color: #F9F9F9;}
+.c1_2{margin: auto; width: 1200px;height:35px;}
+.c1_3{float: left; width: auto;height:35px;line-height: 35px;font-size: 16px;color: #FF6500;font-weight: bold;}
+.c1_4{display: block; margin-left:25px; float: left; width: auto;height:35px;line-height: 35px;font-size: 16px;color: #656565;font-weight: bold; }
+.c1_5{margin-left:25px;float: left; width: auto;height:35px;line-height: 35px;font-size: 16px;color: #656565;font-weight: bold; }
+/*3*/
+.c2_1{width: 100%;height:auto; }
+.c2_2{margin: auto; width: 1200px;height:670px;}
+.c2_2_1{width: 100%;height:80px;}
+.c2_2_2{width: 100%;height:52px; }
+.c2_2_2_1{margin:0 auto; width:560px;height:52px;line-height:52px;}
+.zfb{float: left;width: 222px;height: 52px;line-height:52px;vertical-align:middle;background: url("../../images/payment/zfb.png") no-repeat center;}
+.wx{float: left;margin-left: 50px;line-height:52px;vertical-align:middle; width: 263px;height: 52px;background: url("../../images/payment/wx.png") no-repeat center;}
+.zf{width:25px;height:25px;vertical-align:middle;}
+.c2_2_3{width: 100%;height:60px;}
+.wz{float: left; color: #757F80;width: 105px;height: 52px;line-height: 52px;font-size:20px;}
+.je{float: left;}
+.jetesxt{width: 300px;height:47px; border: 2px solid #E3E4E8;font-size:20px;padding-left: 15px;}
+.c2_2_4{width:100%;height:120px; }
+.c2_2_5{width: 100%;height:52px;background: url("../../images/payment/post.png") no-repeat center;}
+.c2_2_5_1{margin: 0 auto; width:202px;height:52px;background: url("../../images/payment/post.png") no-repeat center;cursor: pointer;}

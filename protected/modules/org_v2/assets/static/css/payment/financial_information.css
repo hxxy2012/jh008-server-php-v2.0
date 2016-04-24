@@ -1,0 +1,159 @@
+@charset "uf-8";
+.w230 {width: 230px;}
+.w260 {width: 260px;}
+/*缴费详情单元格宽度*/
+.w57 {width: 57px;}
+.w152 {width: 152px;}
+.w180 {width: 180px;}
+.w100 {width: 100px;}
+.w111 {width: 111px;}
+.w154 {width: 154px;}
+.w113 {width: 113px;}
+
+/*社团流水单元格宽度重设*/
+.w112 {width: 112px;}
+.w245 {width: 245px;}
+.w230 {width: 230px;}
+
+/*申请提现单元格宽高*/
+.w75 {width: 75px;}
+.w110 {width: 110px;}
+.w162 {width: 162px;}
+
+.k-table-container table tr td {
+	padding-left:0;
+}
+.k-table-container table tr th{
+	padding-left:0;
+}
+
+.lc-table-c tr th {background: #f5f5f5;}
+.section-bd {
+	margin: 30px 0 0 30px;
+}
+.table-w {
+	margin: 20px 0 10px 0;
+	width: 970px;
+	min-height: 750px;
+}
+.section-pagation {
+	display: block;
+	width: 460px;
+	margin: 0 auto 70px;
+}
+.lc-table-c tr td:first-child,.lc-table-c tr th:first-child {padding-left: 28px;}
+.lc-table-c tr td,.lc-table-c tr th {padding-left: 0;}
+/* 缴费详情 */
+.search-w {
+	position: relative;
+	height: 35px;
+}
+.search-input-w {display: inline-block;vertical-align: middle;}
+.payment-table .lc-table-c th i {font-style: normal;font-size: 12px;color: #aeaeae;}
+.payment-table .lc-table-c th:first-child {width: 57px;}
+.payment-table .lc-table-c th:first-child + th {width: 152px;}
+.payment-table .lc-table-c th:first-child + th + th {width: 180px;}
+.payment-table .lc-table-c th:first-child + th + th + th {width: 100px;}
+.payment-table .lc-table-c th:first-child + th + th + th + th {width: 111px;}
+.payment-table .lc-table-c th:first-child + th + th + th + th + th {width: 154px;}
+.payment-table .lc-table-c th:first-child + th + th + th + th + th + th {width: 113px;}
+
+/* 社团流水 */
+.lc-table-c tr td .positive {
+	color: #009A32;
+}
+.lc-table-c tr td .negative {
+	color: #CB3330;
+}
+
+.btn-search {
+	margin-left: 8px;
+}
+.date-w , .balance-w {
+	display: inline-block;
+	vertical-align: middle;
+}
+.date-w span {
+	padding: 0 5px;
+}
+
+.balance-w {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.balance-w span {}
+.balance-w span strong,
+.total-w span strong {
+	color: #FF9A33;
+  	font-weight: 600;
+  	font-size: 16px;
+}
+.inventory-table .lc-table-c th:first-child{
+	width: 112px;
+}
+.inventory-table .lc-table-c th:first-child + th{
+	width: 245px;
+}
+.inventory-table .lc-table th:first-child + th + th{
+	width: 230px;
+}
+
+/*申请提现*/
+.total-w {
+	float: right;
+	margin-bottom: 17px;
+}
+.transfer-table {
+	padding-top: 15px;
+}
+a.btn-view {
+	padding: 5px 16px;
+	color: #999;
+}
+.info-w {overflow: hidden;padding: 15px 0 0 22px;}
+
+.info-item {
+	margin-bottom: 10px;
+}
+.info-item-1 {}
+.info-item-2 {
+	float: left;
+	margin-right: 45px;
+}
+.info-item-2 label {
+	display: inline-block;
+	width: 70px;
+	letter-spacing: 1px;
+	overflow: hidden;
+}
+
+.info-item-3 {
+	height: 60px;
+	padding-left: 224px;
+}
+.info-item-3 span {
+	display: block;
+	padding: 5px 0 0 80px; 
+	font-size: 13px;
+	color: #999;
+}
+.info-item-3 span i{
+	font-style: normal;
+	padding: 5px;
+	vertical-align: middle;
+	color: #FD9A34;
+}
+.info-item input { 
+	width: 74px; 
+	margin-right: 5px;
+}
+.info-item-3 input { 
+	width: 234px; 
+}
+
+.info-w input[type="submit"] {
+	margin: 30px 0 0 200px;
+}
+
+.hide {display: none;}

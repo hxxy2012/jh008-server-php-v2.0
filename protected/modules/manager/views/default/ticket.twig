@@ -1,0 +1,215 @@
+{% extends '/modules/manager/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+<link href="{{ this.module.assetsUrl }}/static/ueditor1_4_3-utf8-php/themes/default/css/ueditor.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">票务列表</h3>
+    </div>
+    <div class="ui-box-container mh380">
+		<div id="mainPanel">
+	    	<div class="search-wrap">
+	    		<span>关键字</span>
+	    		<input class="ui-input" type="text" id="keyword" placeholder="请输入关键字">
+	    		<span class="ml30">标签</span>
+	    		<div class="ui-select-container va-10">
+	    			<div class="ui-select-wrap">
+			    		<div class="ui-select" id="tagSelect" style="width: 120px">
+							<a href="#" class="ui-select-trigger">
+								<span id="spanText"  value="all">所有</span>
+								<i class="iconfont" title="下三角形">&#xF03C;</i>
+							</a>
+							<ul class="ui-select-content" id="actTagsCon">
+								<li class="ui-select-item"><a href="#" data-val="all">所有</a></li>
+							</ul>
+						</div>			    				
+	    			</div>
+	    		</div>
+
+				<a href="javascript:;" id="searchBtn" class="ui-button ui-button-ldarkblue">搜索</a>
+				{% if type == 1 or type == 102 %}
+				<a href="javascript:;" id="create" class="ui-button ui-button-ldarkblue">添加</a>
+				{% endif %}		
+	    	</div>
+			<div class="ui-tab">
+			    <ul class="ui-tab-items">
+			        <li class="ui-tab-item ui-tab-item-current">
+			            <a href="javascript:;" id="adminList">票务列表</a>
+			        </li>
+			        <li class="ui-tab-item">
+			            <a href="javascript:;" id="adminList">票务回收站列表</a>
+			        </li>
+			    </ul>
+			    <div class="ui-switchable-content mt10">
+		            <div id="listCon"></div>
+		            <div id="rabishListCon"></div>
+			    </div>
+			</div>
+		</div>
+		<div id="secondPanel">
+    		<div class="return-wrap"> 
+    			<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+    		</div>
+    		<div id="createWrap"></div>
+    		<div id="operateWrap"></div>
+		</div>
+		</div>
+    </div>
+</div>
+{%  endblock %}
+
+{% block template %}
+<script type="text/template" id="ticketCreateTemplate">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">票务上传</p>
+		</div>
+		<div class="lc-ui-form-item" id="businessWrap">
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">标题:</label>
+			<div class="lc-ui-rs">
+				<input id="title" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(必填)</span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">简述:</label>
+			<div class="lc-ui-rs">
+				<input id="intro" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(选填)</span>
+			</div>
+		</div>
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	封面图片:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（封面图：640*300）</span>
+		        <div class="lc-ui-wrap">
+		        	<div id="headImgWrap">
+		        		<div id="headImgUrl" class="head-img-wrap-hide"></div>
+		        		<a class="ui-button ui-button-ldarkblue mt20 mb20" id="hImgReset">重置首图</a>
+		        	</div>
+			        <div class="sel-logo-wrap" id="headImgUpload">
+			            <a class="ui-spe" id="uploaderActiveImg">选择图片</a>
+			        </div>
+		        </div>
+		    </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            活动标签:
+	        </label>
+	        <div class="lc-ui-rs">
+		        <div id="tagsCon">
+		        </div>
+		        <div class="ui-industry-con">
+		    		<p class="ind-text">最多只能创建一个标签</p>
+		        </div>
+		    </div>
+	    </div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">价格:</label>
+			<div class="lc-ui-rs">
+				<input id="price" class="lc-ui-input w280" type="text" placeholder="">
+				<span class="lc-ui-tip">(选填)</span>
+			</div>
+		</div>
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            编辑内容:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<div type="text/plain" id="myEditor" style="width:100%; height:240px;">
+				</div>
+	        </div>
+	    </div>
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            &nbsp;
+	        </label>
+	        <div class="lc-ui-rs">
+		    	<a href="javascript:;" id="save" class="ui-button ui-button-ldarkblue fn-left">保存</a>
+		    	<a href="javascript:;" id="reset" class="ui-button ui-button-ldarkred fn-right">重置</a>
+	    	</div>
+	    </div>
+	</div>
+</script>
+
+<script type="text/template" id="ticket_show_Template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">票务展示</p>
+		</div>
+		<div class="lc-ui-form-item" id="businessWrap">
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">标题:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= title %></span>
+			</div>
+		</div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">简述:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= intro %></span>
+			</div>
+		</div>
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	        	封面图片:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（封面图：640*300）</span>
+		        <div class="lc-ui-wrap">
+		        	<div id="headImgWrap">
+		        		<div id="headImgUrl" class="head-img-wrap-hide">
+		        			<img src="<%= h_img_id %>" alt="">
+		        		</div>
+		        	</div>
+		        </div>
+		    </div>
+	    </div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            活动标签:
+	        </label>
+	        <div class="lc-ui-rs">
+		        <div id="tagsCon">
+		        	<span class="tag"><%= tag_name %></span>
+		        </div>
+		    </div>
+	    </div>
+		<div class="lc-ui-form-item">
+			<label for="" class="lc-ui-label">价格:</label>
+			<div class="lc-ui-rs">
+				<span class="lc-ui-form-span"><%= price %></span>
+			</div>
+		</div>
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            编辑内容:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<div type="text/plain" id="myEditor" style="width:100%;">
+				</div>
+	        </div>
+	    </div>
+	</div>
+</script>
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript"  src="{{ this.module.assetsUrl }}/static/js/third/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="{{ this.module.assetsUrl }}/static/ueditor1_4_3-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" src="{{ this.module.assetsUrl }}/static/ueditor1_4_3-utf8-php/ueditor.all.js"></script>
+    <script type="text/javascript" src="{{ this.module.assetsUrl }}/static/ueditor1_4_3-utf8-php/lang/zh-cn/zh-cn.js"></script>
+	<script>
+		seajs.use('{{ this.module.assetsUrl }}/static/js/page/ticket.js');
+	</script>
+{% endblock %}

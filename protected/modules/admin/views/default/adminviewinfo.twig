@@ -1,0 +1,156 @@
+{% extends '/modules/admin/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+<div class="ui-box mt20">
+    <div class="ui-box-head blue">
+        <h3 class="ui-box-head-title">个人资料</h3>
+    </div>
+    <div class="ui-box-container">
+		<div class="pl30 sellerContainer" id="adminContainer">
+		</div>
+    </div>
+</div>
+{%  endblock %}
+
+
+{% block  template %}
+<script type="text/template" id="sellerShowTemplate">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            用户名:
+	        </label>
+	        <span class="lc-ui-form-span"><%= u_name %></span>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            昵称:
+	        </label>
+	        <span class="lc-ui-form-span"><%= nick_name %></span>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            头像:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<div id="headImgWrap" class="head-img-wrap-hide">
+	        		<img src="<%= head_img_url %>" alt="" />
+	        	</div>
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            状态:
+	        </label>
+	        <span class="lc-ui-form-span">
+	        	<% if(status==-1){ %>已删除<% } else if(status==0){ %>正常<% } %>
+	        </span>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            创建时间:
+	        </label>
+	        <div class="lc-ui-rs">
+	       		<span class="lc-ui-form-span"><%= create_time %></span>
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            最后登录时间:
+	        </label>
+	        <span class="lc-ui-form-span"><%= last_login_time %></span>
+	    </div>
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="editSellerBtn" class="changeinfo-btn ui-button ui-button-sdarkred">修改个人信息</a>
+	    </div>					    
+	</div>
+</script>
+<script type="text/template" id="sellerEditTemplate">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<a href="javascript:;" id="return" class="return-button ui-button ui-button-ldarkred fn-right">返回</a>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            用户名:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= u_name %></span>
+	        </div>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            昵称:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="nickName" value="<%= nick_name %>" class="lc-ui-input w280" type="text" placeholder="">
+	        </div>
+	    </div>	    
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            头像:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（推荐使用120*120图片）</span>
+	        	<div id="headImgWrap"  class="head-img-wrap-hide">   
+	        		<img id="logo" src="<%= logo_img_url %>" alt="" />
+	        	</div>
+	        	<a href="javascript:;" id="changeLogo" class="change-logo ui-button ui-button-sdarkred">更换logo</a>
+	        	<span id="logoSpan"></span>
+	        </div>
+	    </div>	
+
+	    <div class="c-btn-wrap">
+	    	<a href="javascript:;" id="saveSellerBtn" class="changeinfo-btn ui-button ui-button-sdarkred">确认修改</a>
+	    </div>					    
+	</div>
+	<div class="change-area">
+		<div class="lc-ui-form" name="" method="post" action="#" id="">
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            旧密码:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<input id="oldPwd" class="lc-ui-input w280" type="text" placeholder="">
+		        </div>
+		    </div>
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            新密码:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<input id="Pwd" class="lc-ui-input w280" type="password" placeholder="">
+		        </div>
+		    </div>
+			<div class="lc-ui-form-item">
+		        <label for="" class="lc-ui-label">
+		            确认密码:
+		        </label>
+		        <div class="lc-ui-rs">
+		        	<input id="surePwd" class="lc-ui-input w280" type="password" placeholder="">
+		        </div>
+		    </div>
+		    <div class="lc-ui-form-item fn-clear">
+	    		<a href="javascript:;" id="savePwdrBtn" class="changeinfo-btn ui-button ui-button-sdarkred">确认修改</a>
+		    </div>		    		    
+		</div>   
+	</div>
+</script>
+{% endblock %}
+
+
+{% block javascript %}
+    <script>
+        seajs.use('{{ this.module.assetsUrl }}/static/js/page/adminviewinfo.js');
+    </script>
+{% endblock %}

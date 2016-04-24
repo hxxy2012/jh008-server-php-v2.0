@@ -1,0 +1,236 @@
+{% extends '/modules/admin/views/layouts/main.twig' %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block content %}
+	<div class="ui-box mt20">
+	    <div class="ui-box-head blue">
+	        <h3 class="ui-box-head-title">用户列表</h3>
+	    </div>
+	    <div class="ui-box-container">
+	    	<div id="mainPage" style="">
+		    	<div class="search-wrap">
+		    		<span>关键字</span>
+		    		<input class="ui-input" type="text" id="keyword" placeholder="请输入关键字">
+
+		    		<!--<span class="ml30">性别</span>
+		    		<div class="ui-select-container va-10">
+		    			<div class="ui-select-wrap">
+				    		<div class="ui-select" id="activeSelect" style="width: 120px">
+								<a href="#" class="ui-select-trigger">
+									<span value="1">所有</span>
+									<i class="iconfont" title="下三角形">&#xF03C;</i>
+								</a>
+								<ul class="ui-select-content">
+									<li class="ui-select-item"><a href="#" data-val="1">男</a></li>
+									<li class="ui-select-item"><a href="#" data-val="2">女</a></li>
+								</ul>
+							</div>			    				
+		    			</div>
+		    		</div>
+
+		    		<span class="ml30">状态</span>
+		    		<div class="ui-select-container va-10">
+		    			<div class="ui-select-wrap">
+				    		<div class="ui-select" id="activeSelect" style="width: 120px">
+								<a href="#" class="ui-select-trigger">
+									<span value="1">所有</span>
+									<i class="iconfont" title="下三角形">&#xF03C;</i>
+								</a>
+								<ul class="ui-select-content">
+									<li class="ui-select-item"><a href="#" data-val="1">所有</a></li>
+									<li class="ui-select-item"><a href="#" data-val="2">正常</a></li>
+									<li class="ui-select-item"><a href="#" data-val="3">禁言</a></li>
+									<li class="ui-select-item"><a href="#" data-val="4">封号</a></li>
+								</ul>
+							</div>			    				
+		    			</div>
+		    		</div>-->
+
+					<a href="javascript:;" id="searchBtn" class="ui-button ui-button-ldarkblue">搜索</a>	
+		    	</div>
+
+			    <div class="ui-tab mt10 mb10">
+				    <ul class="ui-tab-items">
+				        <li class="ui-tab-item ui-tab-item-current">
+				            <a href="javascript:;" id="normalList">用户列表</a>
+				        </li>
+				        <li class="ui-tab-item">
+				            <a href="javascript:;" id="rabishList">用户回收站</a>
+				        </li>
+				    </ul>
+				</div>
+
+				<div id="tableContainer" class="ui-table-container mt20">
+
+				</div>		    		
+	    	</div>
+	    	<div id="addPage">
+	    		<a href="javascript:;" id="return" class="return-button ui-button ui-button-sdarkred fn-right">返回</a>
+				<div id="otherWrap" class="pt10"></div>
+	    	</div>
+	    </div>
+	</div>	
+{%  endblock %}
+
+{% block template %}
+<script type="text/template" id="user_detail_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+			<p class="lc-ui-tab">用户详情</p>
+		</div>
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            昵称:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= nick_name %></span>
+	        </div>
+	    </div>	  
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            真实姓名:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-form-span"><%= real_name || '' %></span>
+	        </div>
+	    </div>     
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            头像:
+	        </label>
+	        <div class="lc-ui-wrap">
+	        	<div id="headImgWrap" class="head-img-wrap-hide">
+	        		<img src="<%= head_img_url %>" alt="" />
+	        	</div>
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            账号状态:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><% if(status==-1){ %>删除<% }else if(status == 0){ %>正常<% } %></span></div>
+	    </div>
+
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            性别:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><% if(sex == 1){ %>男<% }else{ %>女<% } %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            生日:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= birth %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            QQ:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= contact_qq %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            联系电话:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= contact_phone %></span></div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            地址:
+	        </label>
+	        <div class="lc-ui-rs">
+	        <span class="lc-ui-form-span"><%= address %></span></div>
+	    </div>	    
+	    <div class="fn-clear">
+	    	<!--<a href="javascript:;" id="editBtn" class="changeinfo-btn ui-button ui-button-ldarkred">修改用户信息</a>-->
+	    </div>			    
+	</div>
+</script>
+
+<script type="text/template" id="user_edit_template">
+	<div class="lc-ui-form" name="" method="post" action="#" id="">
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            用户名:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="realName" value="<%= real_name %>" class="lc-ui-input w280" type="text" placeholder="">
+	        </div>
+	    </div>
+
+		<div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            头像:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<span class="lc-ui-tip2">（推荐使用120*120图片）</span>
+	        	<div id="headImgWrap"  class="head-img-wrap-hide">   
+	        		<img id="logo" src="<%= logo_img_url %>" alt="" />
+	        	</div>
+	        	<a href="javascript:;" id="changeLogo" class="change-logo ui-button ui-button-sdarkred">更换logo</a>
+	        </div>
+	    </div>	
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            性别:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="sex" class="lc-ui-input w280" value="<%= sex %>"  type="text" placeholder="">
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            QQ:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="contactPhone" class="lc-ui-input w280" value="<%= contact_qq %>"  type="text" placeholder="">
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            联系电话:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="contactEmail" class="lc-ui-input w280" value="<%= contact_phone %>"  type="text" placeholder="">
+	        </div>
+	    </div>
+
+	    <div class="lc-ui-form-item">
+	        <label for="" class="lc-ui-label">
+	            通讯录:
+	        </label>
+	        <div class="lc-ui-rs">
+	        	<input id="contactDescri" class="lc-ui-input w280" value="<%= address %>"  type="text" placeholder="">
+	        </div>
+	    </div>
+	    <div class="fn-clear">
+	    	<a href="javascript:;" id="saveBtn" class="changeinfo-btn ui-button ui-button-ldarkred">确认修改</a>
+	    </div>					    
+	</div>
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script>
+	seajs.use('{{ this.module.assetsUrl }}/static/js/page/users.js');
+</script>
+{% endblock %}
